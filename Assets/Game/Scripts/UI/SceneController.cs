@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -66,8 +67,10 @@ public class SceneController : MonoBehaviour
         SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
         SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
 
-        _chizik.sprite = chizik.icon;
-        _background.sprite = background.icon;
+        if (chizik != null)
+            _chizik.sprite = chizik.icon;
+        if (background != null)
+            _background.sprite = background.icon;
     }
 
     private void OnDestroy()

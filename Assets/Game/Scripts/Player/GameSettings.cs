@@ -30,13 +30,10 @@ public class GameSettings : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        _currentChizikSkin = _chizikBasicSkin;
-        _currentBackgroundSkin = _backgroundBasicSkin;
-        _currentPipeSkin = _pipeBasicSkin;
-    }
+        _currentChizikSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Chizik);
+        _currentBackgroundSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Background);
+        _currentPipeSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Pipe);
 
-    void Start()
-    { 
         SkinManager.Instance.SelectionSkin += ChangeCurrentSkin;
     }
 

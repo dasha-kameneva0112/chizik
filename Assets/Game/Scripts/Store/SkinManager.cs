@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class SkinManager : MonoBehaviour
@@ -14,6 +16,8 @@ public class SkinManager : MonoBehaviour
     private static SkinManager _instance; 
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
 
+    [SerializeField] private SkinData[] allSkins;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -24,6 +28,11 @@ public class SkinManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        RegisterSkins(allSkins);
     }
 
     public void RegisterSkins(SkinData[] data)
@@ -38,7 +47,7 @@ public class SkinManager : MonoBehaviour
                 if (skin.displayName == "Basic")
                 {
                     _skins.Add(id, Status.Selected);
-                    SelectionSkin?.Invoke(skin);
+                    //SelectionSkin?.Invoke(skin);
                 }
                 else
                 {
@@ -46,6 +55,7 @@ public class SkinManager : MonoBehaviour
                 }
             }
         }
+        LoadSkinsFromPrefs();
     }
 
     public bool TryBuySkin(SkinData skin)
@@ -63,7 +73,7 @@ public class SkinManager : MonoBehaviour
                 _skins[id] = Status.Selected;
                 SelectionSkin?.Invoke(skin);
             }
-
+            SaveSkinsToPrefs();
             return true;
         }
 
@@ -78,6 +88,7 @@ public class SkinManager : MonoBehaviour
         {
             _skins[id] = Status.Selected;
             SelectionSkin?.Invoke(skin);
+            SaveSkinsToPrefs();
         }
     }
 
@@ -118,6 +129,107 @@ public class SkinManager : MonoBehaviour
 
         return Status.NotBought;
     }
+
+    public SkinData GetSelectedSkin(SkinType type)
+    {
+        foreach (var kvp in _skins)
+        {
+            if (kvp.Value == Status.Selected)
+            {
+                SkinData s = FindSkinById(kvp.Key);
+                if (s != null && s.type == type)
+                {
+                    return s;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void SaveSkinsToPrefs()
+    {
+        foreach (var skin in _skins)
+        {
+            PlayerPrefs.SetString("Skin_" + skin.Key, skin.Value.ToString());
+        }
+
+        PlayerPrefs.Save();
+    }
+
+    public void LoadSkinsFromPrefs()
+    {
+        foreach (var key in _skins.Keys.ToList())
+        {
+            _skins[key] = Status.NotBought;
+        }
+
+        var keys = new List<string>(_skins.Keys);
+
+        foreach (string id in keys)
+        {
+            string key = "Skin_" + id;
+
+            if (PlayerPrefs.HasKey(key))
+            {
+                string saved = PlayerPrefs.GetString(key);
+                if (Enum.TryParse(saved, out Status s))
+                {
+                    _skins[id] = s;
+                }
+            }
+        }
+
+        foreach (var kvp in _skins)
+        {
+            if (kvp.Value == Status.Selected)
+            {
+                SkinData s = FindSkinById(kvp.Key);
+                if (s != null)
+                {
+                    SelectionSkin?.Invoke(s);
+                }    
+            }
+        }
+    }
+
+    public void DeleteAllSkinsFromPrefs()
+    {
+        foreach (var id in _skins.Keys.ToList())
+        {
+            PlayerPrefs.DeleteKey("Skin_" + id);
+        }
+        PlayerPrefs.Save();
+
+        foreach (var id in _skins.Keys.ToList())
+        {
+            SkinData skin = FindSkinById(id);
+
+            if (skin != null && skin.displayName == "Basic")
+                _skins[id] = Status.Selected;
+            else
+                _skins[id] = Status.NotBought;
+        }
+
+        foreach (var kvp in _skins)
+        {
+            if (kvp.Value == Status.Selected)
+            {
+                SkinData skin = FindSkinById(kvp.Key);
+                if (skin != null)
+                    SelectionSkin?.Invoke(skin);
+            }
+        }
+    }
+
+#if UNITY_EDITOR
+    [MenuItem("Tools/Skins/Reset All Skins")]
+    public static void EditorResetAllSkins()
+    {
+        SkinManager manager = FindAnyObjectByType<SkinManager>();
+        manager.DeleteAllSkinsFromPrefs();
+    }
+#endif
+
 }
 
 public enum Status
