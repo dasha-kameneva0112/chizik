@@ -18,24 +18,12 @@ public class PopUpCard : MonoBehaviour
 
     private void Start()
     {
-        //_firstCard.onClick.AddListener(() => OnCardClick(_firstCard, 1));
-        //_secondCard.onClick.AddListener(() => OnCardClick(_secondCard, 2));
-        //_thirdCard.onClick.AddListener(() => OnCardClick(_thirdCard, 3));
-
         _firstCard.onClick.AddListener(() => CardSelected?.Invoke(1));
         _secondCard.onClick.AddListener(() => CardSelected?.Invoke(2));
         _thirdCard.onClick.AddListener(() => CardSelected?.Invoke(3));
         _button.gameObject.SetActive(false);
         _button.onClick.AddListener(ButtonClicked);
     }
-
-    //public void OnCardClick(Button card, int numberOfCard)
-    //{
-    //    ChangeSizeCards(numberOfCard);
-    //    // замнить картинку
-    //    _button.gameObject.SetActive(true);
-    //    //CardSelected?.Invoke();
-    //}
 
     public void ReplaceCard(int number, PrizeData prize)
     {
@@ -56,9 +44,15 @@ public class PopUpCard : MonoBehaviour
 
         var card = Instantiate(_selectedCardPrefab, currentButton.transform);
         card.GetComponent<PrizeItem>().Initialize(prize);
+        card.transform.position = currentButton.transform.position;
         currentButton.interactable = false;
-        currentButton.GetComponent<Image>().sprite = null;
-        currentButton.GetComponent <Image>().color = new Color(0,0,0);
+        //currentButton.GetComponent<Image>().sprite = null;
+        //currentButton.GetComponent<Image>().color = new Color(0, 0, 0);
+
+        var img = currentButton.GetComponent<Image>();
+        img.enabled = false;
+        currentButton.interactable = false;
+
         _button.gameObject.SetActive(true);
     }
 
