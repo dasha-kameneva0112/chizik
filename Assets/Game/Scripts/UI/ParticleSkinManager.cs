@@ -5,7 +5,7 @@ public class ParticleSkinManager : MonoBehaviour
     [SerializeField] private ParticleSystem _snowParticles;
     private ISkinManager _skinManager;
 
-     void Start()
+    void Start()
     {
         _skinManager = SkinManager.Instance;
         UpdateParticles(_skinManager.GetSelectedSkin(SkinType.Background));
@@ -24,8 +24,7 @@ public class ParticleSkinManager : MonoBehaviour
 
     private void UpdateParticles(SkinData skin)
     {
-        Debug.Log(skin.id);
-        if (skin.id  == "bg_winter")
+        if (skin.id == "bg_winter")
         {
             if (!_snowParticles.isPlaying) _snowParticles.Play();
         }

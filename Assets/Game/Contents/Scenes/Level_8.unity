@@ -643,6 +643,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2063237705040631634, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
   m_PrefabInstance: {fileID: 145985972}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &145985974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
+  m_PrefabInstance: {fileID: 145985972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &160049024
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +760,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -757,6 +767,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!81 &160049027
 AudioListener:
   m_ObjectHideFlags: 0
@@ -841,6 +852,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -862,6 +875,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1637,6 +1651,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2063237705040631634, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
   m_PrefabInstance: {fileID: 459288291}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &459288293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
+  m_PrefabInstance: {fileID: 459288291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &465031639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2283,10 @@ PrefabInstance:
     - target: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: m_Name
       value: FinishPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: pipeType
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: _pipeType
@@ -4250,6 +4279,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6174363064084570695, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
   m_PrefabInstance: {fileID: 1139539890}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1139539892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  m_PrefabInstance: {fileID: 1139539890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1146321272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4728,10 +4768,13 @@ MonoBehaviour:
   TriangularPipe: {fileID: 866152078}
   CruciformPipe: {fileID: 26312151}
   _startPipesOnFiels:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 145985974}
+  - {fileID: 1139539892}
   - {fileID: 1060268110}
   - {fileID: 624909953}
+  - {fileID: 1744293441}
+  - {fileID: 1666355157}
+  - {fileID: 459288293}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!114 &1374490853
@@ -5014,7 +5057,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -5022,6 +5064,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!20 &1484917550
 Camera:
   m_ObjectHideFlags: 0
@@ -5680,6 +5723,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2063237705040631634, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
   m_PrefabInstance: {fileID: 1666355155}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1666355157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
+  m_PrefabInstance: {fileID: 1666355155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1680073398
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,6 +5974,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 734463226421090740, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
   m_PrefabInstance: {fileID: 1744293439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1744293441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2240974326565292453, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
+  m_PrefabInstance: {fileID: 1744293439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1760637858
 GameObject:
   m_ObjectHideFlags: 0
@@ -6741,6 +6806,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6762,6 +6829,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
