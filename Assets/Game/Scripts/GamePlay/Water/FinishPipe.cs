@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FinishPipe : MonoBehaviour
 {
+    public event Action<int,int> DropArrived;
     public event Action OnLevelFailed;
     public event Action OnLevelCompleted;
 
@@ -36,7 +37,8 @@ public class FinishPipe : MonoBehaviour
         WaterDrop d = collision.GetComponent<WaterDrop>();
         if (d)
         {
-            arrived++;  
+            arrived++;
+            DropArrived?.Invoke(arrived, totalDrops);
 
             Destroy(d.gameObject);
 
