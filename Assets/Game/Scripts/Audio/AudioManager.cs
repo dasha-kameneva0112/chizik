@@ -6,11 +6,17 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance => _instance;
 
+    [Header("Sources")]
     [SerializeField] private AudioSource _sfxSource;
+    [SerializeField] private AudioSource _musicSource;
+
+    [Header("Sound clips")]
     [SerializeField] private AudioClip _sfxVictory;
     [SerializeField] private AudioClip _sfxLoose;
     [SerializeField] private AudioClip _sfxSponge;
     [SerializeField] private AudioClip _sfxHammer;
+
+    [SerializeField] private AudioClip _menuMusic;
 
     private static AudioManager _instance;
     private bool _isSfxOn = true;
@@ -18,11 +24,15 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance == null)
+        if (_instance != null && _instance != this)
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return;
         }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+        PlayMusic(_menuMusic);
     }
 
     public bool GetButtonOn(AudioChannel audioChannel)
@@ -62,6 +72,10 @@ public class AudioManager : MonoBehaviour
     public void ClickOnMusic()
     {
         _isMusicOn = !_isMusicOn;
+        if (_isMusicOn)
+            PlayMusic(_menuMusic);
+        else
+            StopMusic();
     }
 
     public void TurnOnSfxWin()
@@ -82,5 +96,24 @@ public class AudioManager : MonoBehaviour
     public void TurnOnSfxHammer()
     {
         PlaySfx(_sfxHammer);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        if (clip == null)
+            return;
+
+        if (_musicSource.clip == clip && _musicSource.isPlaying)
+            return;
+
+        _musicSource.clip = clip;
+
+        if (_isMusicOn)
+            _musicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        _musicSource.Stop();
     }
 }
