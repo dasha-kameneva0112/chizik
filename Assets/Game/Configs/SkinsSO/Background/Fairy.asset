@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
+  m_Name: Fairy
+  m_EditorClassIdentifier: Scripts::SkinData
+  id: bg_fairy
+  displayName: Fairy
+  icon: {fileID: 7483704298992061638, guid: 65594245e0d0e1f40bc3100c8c36f936, type: 3}
+  price: 60
+  type: 1
+  levelSprite: {fileID: 3653299125258810773, guid: b2b3b36d2bc159e41afbbb23d550c811, type: 3}
+  winBackground: {fileID: -8861473730198669592, guid: 67f2b8c5a8202ec458a3abccfdb17bfa, type: 3}
+  cornerPipe: {fileID: 0}
+  triangularPipe: {fileID: 0}
+  cruciformPipe: {fileID: 0}

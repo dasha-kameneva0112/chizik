@@ -23,12 +23,14 @@ public class SkinManager : MonoBehaviour, ISkinManager
     //private List<SkinData> _dataBaseOfSkins = new List<SkinData>();
     private static SkinManager _instance;
     private IBank _bank;
+    private IGameSettings _gameSettings;
     private SkinData[] _allSkins;
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
 
-    public SkinManager(IBank bank, SkinData[] allSkins)
+    public SkinManager(IBank bank, IGameSettings gameSettings, SkinData[] allSkins)
     {
         _bank = bank;
+        _gameSettings = gameSettings;
         _allSkins = allSkins;
         RegisterSkins(_allSkins);
 
@@ -100,6 +102,7 @@ public class SkinManager : MonoBehaviour, ISkinManager
         if (_skins.ContainsKey(id) && _skins[id] != Status.NotBought)
         {
             _skins[id] = Status.Selected;
+            _gameSettings.ChangeCurrentSkin(skin);
             SelectionSkin?.Invoke(skin);
             SaveSkinsToPrefs();
         }

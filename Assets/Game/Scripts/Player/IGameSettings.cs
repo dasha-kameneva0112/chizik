@@ -10,6 +10,7 @@ public interface IGameSettings
 
     event Action SkinChanged;
 
+    void ChangeCurrentSkin(SkinData skin);
     void UpdateCountOfSponge(int count);
     void UpdateCountOfHammer(int count);
 }

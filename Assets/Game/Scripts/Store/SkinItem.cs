@@ -40,6 +40,8 @@ public class SkinItem : MonoBehaviour
     {
         _usedData = skin;
         _icon.sprite = skin.icon;
+        _icon.sprite = skin.icon;
+
         _name.text = skin.displayName;
         _price.text = skin.price + " $";
         _type = skin.type;

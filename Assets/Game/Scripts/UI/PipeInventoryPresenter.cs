@@ -26,7 +26,7 @@ public class PipeInventoryPresenter
         _pipeInventoryView.OnTriangularPipeClicked += OnTriangularPipeClick;
         _pipeInventoryView.OnCruciformPipeClicked += OnCruciformPipeClick;
         
-        _gameSettings.SkinChanged += (() => _pipeInventoryView.ChangeSkin(_gameSettings.CurrentPipeSkin));
+        //_gameSettings.SkinChanged += (() => _pipeInventoryView.ChangeSkin(_gameSettings.CurrentPipeSkin));
         _inventory.PipeCountChanged += (type, count) =>
         {
             _pipeInventoryView.UpdateCount(type, count);

@@ -50,7 +50,7 @@ public class GameSettings : MonoBehaviour, IGameSettings
         SkinChanged?.Invoke();
     }
 
-    private void ChangeCurrentSkin(SkinData skin)
+    public void ChangeCurrentSkin(SkinData skin)
     {
         if (skin.type == SkinType.Chizik)
         {

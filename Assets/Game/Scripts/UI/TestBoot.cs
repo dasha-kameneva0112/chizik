@@ -25,7 +25,7 @@ public class TestBoot : MonoBehaviour
         var bankModel = new BankModel(_startMoney);
         _bank = new BankPresenter(bankModel, _bankView);
 
-        _skinManager = new SkinManager(_bank, _allSkins);
+        _skinManager = new SkinManager(_bank, _gameSettings, _allSkins);
         new PanelManager(_panelManagerView, _skinManager, _bank);
 
         new ScenePresenter(_gameSettings, _levelProgress, _sceneView);
