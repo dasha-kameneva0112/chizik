@@ -1,20 +1,76 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class AudioManager
+public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance => _instance;
 
-    private static AudioManager _instance;
+    [SerializeField] private AudioSource _sfxSource;
+    [SerializeField] private Button _sfxButton;
+    [SerializeField] private Button _musicButton;
 
-    public AudioManager()
+    private static AudioManager _instance;
+    private AudioButton _audioButtonSfx;
+    private AudioButton _audioButtonMusic;
+    private bool _isSfxOn;
+    private bool _isMusicOn;
+
+    private void Awake()
     {
-        _instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+
+            _isSfxOn = true;
+            _isMusicOn = true;
+        }
     }
 
-    public void PlaySfx(AudioSource audio)
+    private void Start()
     {
-        if (audio != null)
-            audio.Play();
+        _sfxButton.onClick.AddListener(ClickOnSfx);
+        _musicButton.onClick.AddListener(ClickOnMusic);
+        _audioButtonSfx = _sfxButton.GetComponent<AudioButton>();
+        _audioButtonMusic = _musicButton.GetComponent<AudioButton>();
+
+        ChangeImageOnButtons();
+    }
+
+    public void ChangeImageOnButtons()
+    {
+        _audioButtonSfx.ChangeImage(_isSfxOn);
+        _audioButtonMusic.ChangeImage(_isMusicOn);
+    }
+
+    public bool GetButtonOn(AudioChannel audioChannel)
+    {
+        if (audioChannel == AudioChannel.Sfx)
+            return _isSfxOn;
+        if(audioChannel == AudioChannel.Music)
+            return _isMusicOn;
+        return false;
+    }
+
+    public void PlaySfx(AudioClip audio)
+    {
+        if (audio != null && _isSfxOn)
+        {
+            //audio.Play();
+            _sfxSource.PlayOneShot(audio, 1);
+        }
+    }
+
+    public void ClickOnSfx()
+    {
+        _isSfxOn = !_isSfxOn;
+        _audioButtonSfx.ChangeImage(_isSfxOn);
+    }
+
+    public void ClickOnMusic()
+    {
+        _isMusicOn = !_isMusicOn;
+        _audioButtonMusic.ChangeImage(_isMusicOn);
     }
 }

@@ -3,12 +3,15 @@ using UnityEngine.UI;
 
 public class ButtonSound : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _soundClip;
+    //private AudioSource _audioSource;
     private Button _button;
+    private AudioManager _audioManager;
 
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        //_audioSource = GetComponent<AudioSource>();
+        _audioManager = AudioManager.Instance;
 
         _button = GetComponent<Button>();
         _button.onClick.AddListener(PlayClickSound);
@@ -16,6 +19,6 @@ public class ButtonSound : MonoBehaviour
 
     private void PlayClickSound()
     {
-        AudioManager.Instance.PlaySfx(_audioSource);
+        _audioManager.PlaySfx(_soundClip);
     }
 }
