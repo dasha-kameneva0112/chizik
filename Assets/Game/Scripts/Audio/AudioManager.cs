@@ -59,11 +59,22 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySfx(AudioClip audio)
     {
+        PlaySfx(audio, 1);
+    }
+
+    public void PlaySfx(AudioClip audio, float volume)
+    {
         if (audio != null && _isSfxOn)
         {
             //audio.Play();
-            _sfxSource.PlayOneShot(audio, 1);
+            _sfxSource.PlayOneShot(audio, volume);
         }
+    }
+
+    public void StopClickSound()
+    {
+        if (_sfxSource != null)
+            _sfxSource.Stop();
     }
 
     public void ClickOnSfx()

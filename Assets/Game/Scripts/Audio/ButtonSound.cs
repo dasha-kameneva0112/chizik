@@ -19,6 +19,7 @@ public class ButtonSound : MonoBehaviour
 
     private void PlayClickSound()
     {
+        _audioManager.StopClickSound();
         _audioManager.PlaySfx(_soundClip);
     }
 }

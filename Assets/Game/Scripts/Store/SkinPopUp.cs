@@ -17,12 +17,14 @@ public class SkinPopUp : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _button;
     [SerializeField] private Button _closeButton;
-
+    [SerializeField] private AudioClip _sfxBuyButton;
+    [SerializeField] private AudioClip _sfxSelectButton;
     [SerializeField] private float _enableTabPositionForY;
 
     private SkinData _skinData;
     private ISkinManager _skinManager;
     private IBank _bank;
+    private AudioManager _audioManager;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class SkinPopUp : MonoBehaviour
 
         _skinManager = SkinManager.Instance;
         _bank = BankPresenter.Instance;
+        _audioManager = AudioManager.Instance;
     }
 
     public void Initialize(SkinData skin, ISkinManager skinManager, IBank bank)
@@ -97,12 +100,14 @@ public class SkinPopUp : MonoBehaviour
         {
             if (_skinManager.TryBuySkin(_skinData))
             {
+                _audioManager.PlaySfx(_sfxBuyButton);
                 BuyButtonClick?.Invoke();
                 OnUpdateNeeded?.Invoke();
             }
         }
         if(tmp.text == "SELECT")
         {
+            _audioManager.PlaySfx(_sfxSelectButton);
             _skinManager.SelectSkin(_skinData);
             SelectButtonClick?.Invoke();
         }

@@ -9,13 +9,12 @@ public class FinishPipe : MonoBehaviour
 
     public static FinishPipe Instance;
 
-    private int arrived = 0;
     public HashSet<Pipe> leakedPipes = new HashSet<Pipe>();
-
+    private int arrived = 0;
     private int totalDrops = 0;
     private int failedDrops = 0;
-
     private bool resultat_shown = false;
+    private AudioManager _audioManager;
 
     private void Awake()
     {
@@ -24,6 +23,7 @@ public class FinishPipe : MonoBehaviour
 
     private void Start()
     {
+        _audioManager = AudioManager.Instance;
         WaterSpawner spawner = FindObjectOfType<WaterSpawner>();
         if (spawner)
         {
@@ -59,11 +59,13 @@ public class FinishPipe : MonoBehaviour
             resultat_shown = true;
             if (result >= 91f)
             {
+                _audioManager.StopClickSound();
                 OnLevelCompleted?.Invoke();
                 return;
             }
             else
             {
+                _audioManager.StopClickSound();
                 OnLevelFailed?.Invoke();
                 return;
             }

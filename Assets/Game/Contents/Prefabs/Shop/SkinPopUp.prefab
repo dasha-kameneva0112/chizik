@@ -230,6 +230,8 @@ MonoBehaviour:
   _price: {fileID: 8025176110500517704}
   _button: {fileID: 1758053465958003308}
   _closeButton: {fileID: 262729092838598306}
+  _sfxBuyButton: {fileID: 8300000, guid: 273bc7736f32f65428c6784f42c4eab6, type: 3}
+  _sfxSelectButton: {fileID: 8300000, guid: e25866daa3002ee49ab43da0af5ddb96, type: 3}
   _enableTabPositionForY: -60
 --- !u!1 &1247496673713321088
 GameObject:
@@ -412,6 +414,7 @@ GameObject:
   - component: {fileID: 6418936391018150531}
   - component: {fileID: 4111950787383977045}
   - component: {fileID: 262729092838598306}
+  - component: {fileID: 3908316913873158747}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -520,6 +523,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3908316913873158747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983877302885912706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 390df303d571394498fe2cbe7b4b4b68, type: 3}
 --- !u!1 &4347788576561987005
 GameObject:
   m_ObjectHideFlags: 0

@@ -1250,6 +1250,7 @@ GameObject:
   - component: {fileID: 285899919}
   - component: {fileID: 285899918}
   - component: {fileID: 285899917}
+  - component: {fileID: 285899920}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1358,6 +1359,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285899915}
   m_CullTransparentMesh: 1
+--- !u!114 &285899920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285899915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 89cdb0fb5bfc43f4592375321715dfd1, type: 3}
 --- !u!1 &300433055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
@@ -5529,6 +5543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockInventory: {fileID: 188074086}
   _lockBonus: {fileID: 581911443}
+  _audioClip: {fileID: 8300000, guid: ce163a18cd773354681a67b163ec35a8, type: 3}
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 0
 --- !u!1 &1809041343
