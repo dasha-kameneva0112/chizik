@@ -1386,7 +1386,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.79, y: 0.79}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6430,8 +6430,8 @@ RectTransform:
   - {fileID: 1788220768}
   - {fileID: 424838395}
   - {fileID: 689023518}
-  - {fileID: 1475309508}
   - {fileID: 1337744276}
+  - {fileID: 1475309508}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

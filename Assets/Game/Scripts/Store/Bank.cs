@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class Bank : MonoBehaviour
@@ -24,20 +25,24 @@ public class Bank : MonoBehaviour
         _money = _startMoney;
     }
 
-    public void AddMoney(int money)
+    public void DepositingMoney(int money)
     {
         _money += money;
         CoinsChanged?.Invoke(_money);
     }
 
-    public bool SpendMoney(int money)
+    public bool IsEnoughMoney(int money)
     {
         if (_money >= money)
         {
-            _money -= money;
-            CoinsChanged?.Invoke(_money);
             return true;
         }
         return false;
+    }
+
+    public void DebitingMoney(int money)
+    {
+        _money -= money;
+        CoinsChanged?.Invoke(_money);
     }
 }

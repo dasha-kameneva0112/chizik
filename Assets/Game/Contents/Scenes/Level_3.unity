@@ -891,7 +891,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.79, y: 0.79}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4985,6 +4985,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 0
+--- !u!1 &1400692848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400692850}
+  - component: {fileID: 1400692849}
+  m_Layer: 0
+  m_Name: PopUpLossController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400692849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400692848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd7a4edfe239044fb1938d1086f39d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpLossController
+  _popUpLossPrefab: {fileID: 7187870280027729688, guid: a1935d91782fb174085d030381f5fdf9, type: 3}
+  _parentForPopUp: {fileID: 1468578455}
+  _blackout: {fileID: 502669332}
+--- !u!4 &1400692850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400692848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17057, y: 2.35079, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415044712
 GameObject:
   m_ObjectHideFlags: 0
@@ -5107,8 +5154,8 @@ RectTransform:
   - {fileID: 1314608208}
   - {fileID: 613771820}
   - {fileID: 502669333}
-  - {fileID: 1337936186}
   - {fileID: 1892105405}
+  - {fileID: 1337936186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5558,6 +5605,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623678255}
   m_CullTransparentMesh: 1
+--- !u!1 &1640521430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1640521432}
+  - component: {fileID: 1640521431}
+  m_Layer: 0
+  m_Name: PopUpWinController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1640521431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640521430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6232c4625dc16849a9f736e372d85e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpWinController
+  _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
+  _parentForPopUp: {fileID: 1468578455}
+  _blackout: {fileID: 502669332}
+  _reward: {fileID: 487536139}
+  _countOfReward: 30
+--- !u!4 &1640521432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640521430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17057, y: 2.35079, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1725907865
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,3 +6782,5 @@ SceneRoots:
   - {fileID: 1364373788}
   - {fileID: 824193782}
   - {fileID: 581722499}
+  - {fileID: 1640521432}
+  - {fileID: 1400692850}
