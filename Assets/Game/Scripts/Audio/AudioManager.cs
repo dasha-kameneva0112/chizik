@@ -10,6 +10,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Button _sfxButton;
     [SerializeField] private Button _musicButton;
 
+    [SerializeField] private AudioClip _sfxVictory;
+    [SerializeField] private AudioClip _sfxLoose;
+
     private static AudioManager _instance;
     private AudioButton _audioButtonSfx;
     private AudioButton _audioButtonMusic;
@@ -72,5 +75,15 @@ public class AudioManager : MonoBehaviour
     {
         _isMusicOn = !_isMusicOn;
         _audioButtonMusic.ChangeImage(_isMusicOn);
+    }
+
+    public void TurnOnSfxWin()
+    {
+        PlaySfx(_sfxVictory);
+    }
+
+    public void TurnOnSfxLoose()
+    {
+        PlaySfx(_sfxLoose);
     }
 }

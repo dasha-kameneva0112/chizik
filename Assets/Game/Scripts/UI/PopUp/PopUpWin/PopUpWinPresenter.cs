@@ -6,13 +6,15 @@ public class PopUpWinPresenter
     private readonly PopUpWinView _popUpWinView;
     private readonly FinishPipe _finishPipe;
     private readonly IGameSettings _gameSettings;
+    private readonly AudioManager _audioManager;
 
-    public PopUpWinPresenter(PopUpWinModel popUpWinModel, PopUpWinView popUpWinView, FinishPipe finishPipe, IGameSettings gameSettings)
+    public PopUpWinPresenter(PopUpWinModel popUpWinModel, PopUpWinView popUpWinView, FinishPipe finishPipe, IGameSettings gameSettings, AudioManager audioManager)
     {
         _popUpWinModel = popUpWinModel;
         _popUpWinView = popUpWinView;
         _finishPipe = finishPipe;
         _gameSettings = gameSettings;
+        _audioManager = audioManager;
 
         _finishPipe.OnLevelCompleted += OnWin;
         _popUpWinView.RewardClicked += OnRewardClicked;
@@ -25,6 +27,7 @@ public class PopUpWinPresenter
         _popUpWinView.HideAllPipes();
         _popUpWinView.SetWinBackground(_gameSettings.CurrentBackgroundSkin.winBackground);
         _popUpWinModel.CompleteLevel();
+        _audioManager.TurnOnSfxWin();
         _popUpWinView.ShowReward(_popUpWinModel.CountOfReward);
     }
 

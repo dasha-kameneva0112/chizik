@@ -3,12 +3,14 @@ using UnityEngine.SceneManagement;
 public class PopUpLossPresenter
 {
     private readonly PopUpLossView _popUpLossView;
+    private readonly AudioManager _audioManager;
     private readonly FinishPipe _finishPipe;
 
-    public PopUpLossPresenter(PopUpLossView popUpWinView, FinishPipe finishPipe)
+    public PopUpLossPresenter(PopUpLossView popUpWinView, FinishPipe finishPipe, AudioManager audioManager)
     {
         _popUpLossView = popUpWinView;
         _finishPipe = finishPipe;
+        _audioManager = audioManager;
 
         _finishPipe.OnLevelFailed += CreatePopUpLoss;
         
@@ -19,6 +21,7 @@ public class PopUpLossPresenter
     private void CreatePopUpLoss()
     {
         _popUpLossView.HideAllPipes();
+        _audioManager.TurnOnSfxLoose();
         _popUpLossView.CreatePopUpLoss();
     }
 

@@ -6,6 +6,7 @@ public class TestBootLevels : MonoBehaviour
     private IGameSettings _gameSettings;
     private ILevelProgress _levelProgress;
     private IBank _bank;
+    private AudioManager _audioManager;
 
     [SerializeField] private GameField _gameField;
     [SerializeField] private PopUpWinView _popUpWinView;
@@ -25,17 +26,16 @@ public class TestBootLevels : MonoBehaviour
         _gameSettings = GameSettings.Instance;
         _levelProgress = LevelProgress.Instance;
         _bank = BankPresenter.Instance;
-
-        new AudioManager();
+        _audioManager = AudioManager.Instance;
 
         var startCounts = GetStartCountOfPipeInInventory();
         var inventory = new InventoryModel(startCounts);
         new PipeInventoryPresenter(inventory, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
 
         var popUpWinModel = new PopUpWinModel(_bank, _levelProgress, 10);
-        new PopUpWinPresenter(popUpWinModel, _popUpWinView, _finishPipe, _gameSettings);
+        new PopUpWinPresenter(popUpWinModel, _popUpWinView, _finishPipe, _gameSettings, _audioManager);
 
-        new PopUpLossPresenter(_popUpLossView, _finishPipe);
+        new PopUpLossPresenter(_popUpLossView, _finishPipe, _audioManager);
 
         var anyLevel = new AnyLevel(_anyLevelView, _countRemove, _gameSettings);
         
