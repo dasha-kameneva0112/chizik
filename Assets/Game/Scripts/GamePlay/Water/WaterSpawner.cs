@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class WaterSpawner : MonoBehaviour
@@ -5,6 +6,7 @@ public class WaterSpawner : MonoBehaviour
     [SerializeField] private GameObject _lockInventory;
     [SerializeField] private GameObject _lockBonus;
     [SerializeField] private AudioClip _audioClip;
+    [SerializeField] private LevelTimer _levelTimer;
 
     public GameObject waterDropPrefab;
     private float spawnRate = 0.1f; //частота
@@ -31,6 +33,11 @@ public class WaterSpawner : MonoBehaviour
         spawnedDrops = 0;
         _lockInventory.SetActive(true);
         _lockBonus.SetActive(true);
+
+        if (_levelTimer != null)
+        {
+            _levelTimer.StopTimer();
+        }
     }
 
     public int getTotalDrops()
