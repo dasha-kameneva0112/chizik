@@ -49,8 +49,7 @@ public class Inventory : MonoBehaviour
         return _pipeSegments[pipe] > 0;
     }
 
-
-    public void Delete(PipeType pipe) // если удалить сегмент с поля -> public void Delete(PipeType pipe)
+    public void Delete(PipeType pipe) 
     {
         if (!_pipeSegments.ContainsKey(pipe))
         {
@@ -59,4 +58,15 @@ public class Inventory : MonoBehaviour
         _pipeSegments[pipe]++;
         CountPipeChange?.Invoke(pipe, _pipeSegments[pipe]);
     }
+}
+
+public enum PipeType
+{
+    StraightPipe,
+    CornerPipe,
+    TriangularPipe,
+    CruciformPipe,
+
+    DirtyStraightPipe,
+    DirtyCornerPipe
 }

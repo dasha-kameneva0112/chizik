@@ -111,7 +111,7 @@ MonoBehaviour:
   Size: {x: 1, y: 1}
   pipeType: 0
   baseDirections: []
-  _spriteRenderer: {fileID: 7616324157676888062}
+  _spriteRenderer: {fileID: 7596847225100676727}
 --- !u!61 &-6564413831507282569
 BoxCollider2D:
   m_ObjectHideFlags: 0
