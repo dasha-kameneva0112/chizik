@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
         _triangularPipePrefab.SetSkin(pipe.triangularPipe);
         _cornerPipePrefab.SetSkin(pipe.cornerPipe);
         _cruciformPipePrefab.SetSkin(pipe.cruciformPipe);
-        Debug.Log("pomenal");
+
         _straightPipe.ChangePipeSkin(pipe.icon);
         _cornerPipe.ChangePipeSkin(pipe.cornerPipe);
         _triangularPipe.ChangePipeSkin(pipe.triangularPipe);
