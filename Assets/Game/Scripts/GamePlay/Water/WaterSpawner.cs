@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class WaterSpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject _lockBonus;
+    [SerializeField] private GameObject _lockInventory;
+
     public GameObject waterDropPrefab;
     private float spawnRate = 0.1f; //частота
 
@@ -21,6 +24,8 @@ public class WaterSpawner : MonoBehaviour
         canSpawn = true;
         timer = 0;
         spawnedDrops = 0;
+        _lockBonus.SetActive(true);
+        _lockInventory.SetActive(true);
     }
 
     public int getTotalDrops()
