@@ -10,23 +10,36 @@ public class BonusPipePresenter
     // Префабы для чистых пайпов
     private GameObject _cleanStraightPipePrefab;
     private GameObject _cleanCornerPipePrefab;
+    private AnyLevel _anyLevel;
+    private bool _isRemoveEnded;
 
     public BonusPipePresenter(BonusPipeModel model, BonusPipeView view,
-        GameObject cleanStraightPipePrefab, GameObject cleanCornerPipePrefab)
+        GameObject cleanStraightPipePrefab, GameObject cleanCornerPipePrefab, AnyLevel anyLevel)
     {
         _model = model;
         _view = view;
         _cleanStraightPipePrefab = cleanStraightPipePrefab;
         _cleanCornerPipePrefab = cleanCornerPipePrefab;
         Instance = this;
+        _anyLevel = anyLevel;
 
-        _view.BrushClicked += OnBrushClicked;
+        if (_anyLevel.RemoveCount > 0)
+            _isRemoveEnded = false;
+        else _isRemoveEnded |= true;
+
+            _view.BrushClicked += OnBrushClicked;
         _view.HammerClicked += OnHammerClicked;
+        _anyLevel.RemoveIsEnd += UnblockHammer; 
 
         RefreshView();
     }
 
-    
+    public void UnblockHammer()
+    {
+        _isRemoveEnded = true;
+        _view.UpdateCounts(_model.BrushCount, _model.HammerCount, _isRemoveEnded);
+    }
+
     public void OnPipeClicked(IPipeView pipe)
     {
         if (!_model.IsBonusActive)
@@ -88,7 +101,7 @@ public class BonusPipePresenter
 
     private void RefreshView()
     {
-        _view.UpdateCounts(_model.BrushCount, _model.HammerCount);
+        _view.UpdateCounts(_model.BrushCount, _model.HammerCount, _isRemoveEnded);
         _view.SetBrushActive(_model.IsBrushActive);
         _view.SetHammerActive(_model.IsHammerActive);
     }

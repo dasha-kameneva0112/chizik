@@ -7,6 +7,8 @@ public class AnyLevel
     public event Action BackButtonClicked;
     public event Action RestartButtonClicked;
     public event Action<int> RemoveCountUpdate;
+    public event Action RemoveIsEnd;
+
     public static AnyLevel Instance => _instance;
     public int RemoveCount => _removeCount;
 
@@ -33,6 +35,11 @@ public class AnyLevel
         _removeCount--;
         _anyLevelView.SetRemoveCountText(_removeCount);
         RemoveCountUpdate?.Invoke(RemoveCount);
+
+        if(_removeCount == 0)
+        {
+            RemoveIsEnd?.Invoke();
+        }
     }
 
     private void OnBackButtonClicked()

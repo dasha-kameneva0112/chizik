@@ -35,10 +35,10 @@ public class TestBootLevels : MonoBehaviour
 
         new PopUpLossPresenter(_popUpLossView, _finishPipe);
 
-        new AnyLevel(_anyLevelView, _countRemove, _gameSettings);
+        var anyLevel = new AnyLevel(_anyLevelView, _countRemove, _gameSettings);
         
         var bonusPipeModel = new BonusPipeModel(5, 5);
-        var presenter = new BonusPipePresenter(bonusPipeModel, _view, _cleanStraightPipePrefab, _cleanCornerPipePrefab);
+        var presenter = new BonusPipePresenter(bonusPipeModel, _view, _cleanStraightPipePrefab, _cleanCornerPipePrefab, anyLevel);
 
         var pipes = FindObjectsOfType<BonusApplyPipe>();
         foreach (var pipe in pipes)

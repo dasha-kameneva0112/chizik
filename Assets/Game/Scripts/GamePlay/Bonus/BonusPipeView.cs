@@ -20,13 +20,16 @@ public class BonusPipeView : MonoBehaviour
         hammerButton.onClick.AddListener(() => HammerClicked?.Invoke());
     }
 
-    public void UpdateCounts(int brush, int hammer)
+    public void UpdateCounts(int brush, int hammer, bool isRemoveEnded)
     {
         brushText.text = brush.ToString();
         hammerText.text = hammer.ToString();
 
         brushButton.interactable = brush > 0;
-        hammerButton.interactable = hammer > 0;
+        if(isRemoveEnded)
+        {
+            hammerButton.interactable = hammer > 0;
+        } else hammerButton.interactable = false;
     }
 
     public void SetBrushActive(bool active)
@@ -38,7 +41,6 @@ public class BonusPipeView : MonoBehaviour
     {
         hammerButton.image.color = active ? Color.yellow : Color.white;
     }
-
 
     public BonusApplyPipe ReplaceWithCleanPipe(GameObject cleanPrefab, BonusApplyPipe bonusPipe)
     {
