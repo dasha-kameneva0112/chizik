@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GameSettings : MonoBehaviour
+public class GameSettings : MonoBehaviour, IGameSettings
 {
     public event Action SkinChanged;
     public static GameSettings Instance => _instance;
@@ -43,7 +43,7 @@ public class GameSettings : MonoBehaviour
 
     private void ChangeCurrentSkin(SkinData skin)
     {
-        if(skin.type == SkinType.Chizik)
+        if (skin.type == SkinType.Chizik)
         {
             _currentChizikSkin = skin;
         }

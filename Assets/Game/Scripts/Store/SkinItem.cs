@@ -22,11 +22,13 @@ public class SkinItem : MonoBehaviour
     //private static SkinItem _usedSkin;
 
     private SkinData _usedData;
+    private SkinManager _manager;
     [SerializeField] private float _boughtPositionForY;
 
     private void Awake()
     {
         _button.onClick.AddListener(OnSkinClick);
+        _manager = SkinManager.Instance;
     }
 
     private void OnSkinClick()
@@ -45,7 +47,7 @@ public class SkinItem : MonoBehaviour
 
     public void UpdateSkinStatus()
     {
-        Status status = SkinManager.Instance.GetStatus(_usedData);
+        Status status = _manager.GetStatus(_usedData);
         if(status == Status.Selected)
         {
             _background.GetComponent<Image>().sprite = _selected;
