@@ -21,7 +21,6 @@ public class PopUpWinPresenter
 
         _finishPipe.OnLevelCompleted += OnWin;
         _popUpWinView.RewardClicked += OnRewardClicked;
-        //_popUpWinView.PrizeClicked += OnPrizeClicked;
         _popUpWinView.NextLevelClicked += SwitchToNextLevel;
         _popUpWinView.MainMenuPopUpWinClicked += SwitchToMainMenu;
     }
@@ -44,6 +43,8 @@ public class PopUpWinPresenter
             _cardsModel = _popUpWinModel.CreateCardsModel();
             _popUpCard = _popUpWinView.CreateCards().GetComponent<PopUpCard>();
             _cardsPresentor = new CardsPresentor(_cardsModel, _popUpCard);
+
+            _cardsPresentor.PrizeClicked += OnPrizeClicked;
         }
         else
         {

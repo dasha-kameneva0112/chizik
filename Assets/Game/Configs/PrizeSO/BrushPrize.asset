@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782e06ef167446547aa58fc6c1a71e8b, type: 3}
   m_Name: BrushPrize
   m_EditorClassIdentifier: Scripts::PrizeData
-  id: 
-  displayName: 
-  icon: {fileID: 0}
-  count: 0
+  id: Brush
+  displayName: brush
+  icon: {fileID: 2067296296400695259, guid: 24e922cb6c2b1e447b6c2ad6f03690e9, type: 3}
+  count: 1
   type: 0

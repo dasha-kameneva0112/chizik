@@ -45,6 +45,7 @@ public class PopUpWinView : MonoBehaviour
 
     public GameObject CreateCards()
     {
+        _blackout.SetActive(true);
         return Instantiate(_cardsPrefab, _parentForPopUp.transform);
     }
 

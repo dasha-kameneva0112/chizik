@@ -2729,7 +2729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelProgress
   _startLevelNumber: 1
-  _requirementForGettingPrize: 2
+  _requirementForGettingPrize: 1
 --- !u!4 &798028138
 Transform:
   m_ObjectHideFlags: 0

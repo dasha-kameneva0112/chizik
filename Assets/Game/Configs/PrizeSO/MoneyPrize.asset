@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782e06ef167446547aa58fc6c1a71e8b, type: 3}
   m_Name: MoneyPrize
   m_EditorClassIdentifier: Scripts::PrizeData
-  id: 
-  displayName: 
-  icon: {fileID: 0}
-  count: 0
-  type: 0
+  id: Money
+  displayName: money
+  icon: {fileID: 1857275718073861591, guid: 7806bf01ab5994146a1cd1a5a954e008, type: 3}
+  count: 20
+  type: 2

@@ -68,13 +68,13 @@ public class GameSettings : MonoBehaviour, IGameSettings
         SkinChanged?.Invoke();
     }
 
-    public void UpdateCountOfSponge()
+    public void UpdateCountOfSponge(int count)
     {
-        _countOfBrush++;
+        _countOfBrush = _countOfBrush + count;
     }
 
-    public void UpdateCountOfHammer()
+    public void UpdateCountOfHammer(int count)
     {
-        _countOfHammer++;
+        _countOfHammer = _countOfHammer + count;
     }
 }

@@ -9,4 +9,7 @@ public interface IGameSettings
     int CountOfHammer { get; }
 
     event Action SkinChanged;
+
+    void UpdateCountOfSponge(int count);
+    void UpdateCountOfHammer(int count);
 }

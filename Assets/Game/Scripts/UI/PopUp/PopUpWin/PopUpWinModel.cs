@@ -8,14 +8,16 @@ public class PopUpWinModel
     private readonly ILevelProgress _levelProgress;
     private int _countOfReward;
     private int _numberCurrentLevel;
+    private readonly PrizeData[] _prizeDatas;
 
-    public PopUpWinModel(IBank bank, IGameSettings gameSettings, ILevelProgress levelProgress, int countOfReward)
+    public PopUpWinModel(IBank bank, IGameSettings gameSettings, ILevelProgress levelProgress, int countOfReward, PrizeData[] prizeDatas)
     {
         _bank = bank;
         _gameSettings = gameSettings;
         _levelProgress = levelProgress;
         _numberCurrentLevel = _levelProgress.GetOpenLevel();
         _countOfReward = countOfReward;
+        _prizeDatas = prizeDatas;
     }
 
     public void CompleteLevel()
@@ -37,6 +39,6 @@ public class PopUpWinModel
 
     public CardsModel CreateCardsModel()
     {
-        return new CardsModel(_bank, _gameSettings);
+        return new CardsModel(_bank, _gameSettings, _prizeDatas);
     }
 }

@@ -16,6 +16,7 @@ public class TestBootLevels : MonoBehaviour
     [SerializeField] private AnyLevelView _anyLevelView;
     [SerializeField] private BonusPipeView _view;
     [SerializeField] private int _countRemove;
+    [SerializeField] private PrizeData[] _allPrizeDatas;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _cleanStraightPipePrefab;
@@ -32,7 +33,7 @@ public class TestBootLevels : MonoBehaviour
         var inventory = new InventoryModel(startCounts);
         new PipeInventoryPresenter(inventory, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
 
-        var popUpWinModel = new PopUpWinModel(_bank, _gameSettings, _levelProgress, 10);
+        var popUpWinModel = new PopUpWinModel(_bank, _gameSettings, _levelProgress, 10, _allPrizeDatas);
         new PopUpWinPresenter(popUpWinModel, _popUpWinView, _finishPipe, _gameSettings, _audioManager);
 
         new PopUpLossPresenter(_popUpLossView, _finishPipe, _audioManager);
