@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
   id: bg_winter
   displayName: Winter
-  icon: {fileID: -2528488927998631363, guid: 3e10596af5a12434088b6c009131dc2c, type: 3}
+  icon: {fileID: -2528488927998631363, guid: 785da8765e7d50845a1a763441db50cc, type: 3}
   price: 50
   type: 1
-  levelSprite: {fileID: -4945150112244964232, guid: 68d087d27f8d97441b85aec0caf3cc04, type: 3}
+  levelSprite: {fileID: -4945150112244964232, guid: 1fb6a758533a84147a6f9e05f01cb3b0, type: 3}
+  cornerPipe: {fileID: 0}
+  triangularPipe: {fileID: 0}
+  cruciformPipe: {fileID: 0}

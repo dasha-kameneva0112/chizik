@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
   id: bg_fall
   displayName: Fall
-  icon: {fileID: 6830031340663802236, guid: d71b667b3a83d3c409ed068a8430962b, type: 3}
+  icon: {fileID: 6830031340663802236, guid: 0c15ebe64a4358d42a8c067b50ac8f4a, type: 3}
   price: 50
   type: 1
+  levelSprite: {fileID: -1764107866799279505, guid: 134ffeeb5b20100479b48f9bb1fbd797, type: 3}
+  cornerPipe: {fileID: 0}
+  triangularPipe: {fileID: 0}
+  cruciformPipe: {fileID: 0}
