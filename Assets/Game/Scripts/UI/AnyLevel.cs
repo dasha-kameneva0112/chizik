@@ -1,66 +1,55 @@
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using TMPro;
 
-public class AnyLevel : MonoBehaviour
+public class AnyLevel 
 {
     public event Action BackButtonClicked;
     public event Action RestartButtonClicked;
     public event Action<int> RemoveCountUpdate;
+    public event Action RemoveIsEnd;
+
     public static AnyLevel Instance => _instance;
+    public int RemoveCount => _removeCount;
 
-    [SerializeField] private Button _backButton;
-    [SerializeField] private Button _restartButton;
-    [SerializeField] private Image _background;  
-    [SerializeField] private TMP_Text removeCountText;
-    public int removeCount;
     private static AnyLevel _instance;
+    private IGameSettings _gameSettings;
+    private readonly AnyLevelView _anyLevelView;
+    private int _removeCount;
 
-    private void Awake()
+    public AnyLevel(AnyLevelView anyLevelView, int removeCount, IGameSettings gameSettings)
     {
+        _anyLevelView = anyLevelView;
         _instance = this;
-        removeCount = int.Parse(removeCountText.text);
-    }
+        _removeCount = removeCount;
+        _gameSettings = gameSettings;
 
-    private void Start()
-    {
-        removeCount = int.Parse(removeCountText.text);
-        _backButton.onClick.AddListener(OnBackButtonClicked);
-        _restartButton.onClick.AddListener(OnRestartButtonClicked);
-        ChangeSkin();
-
-        RemoveCountUpdate?.Invoke(removeCount);
+        _anyLevelView.SetRemoveCountText(_removeCount);
+        _anyLevelView.ChangeSkin(_gameSettings.CurrentBackgroundSkin);
+        _anyLevelView.OnBackButtonClick += OnBackButtonClicked;
+        _anyLevelView.OnRestartButtonClick += OnRestartButtonClicked;
     }
 
     public void UpdateRemoveCount()
     {
-        removeCount--;
-        removeCountText.text = removeCount.ToString();
-        RemoveCountUpdate?.Invoke(removeCount);
-    }
+        _removeCount--;
+        _anyLevelView.SetRemoveCountText(_removeCount);
+        RemoveCountUpdate?.Invoke(RemoveCount);
 
-    private void ChangeSkin()
-    {
-        //SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
-        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
-        //SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
-
-        _background.sprite = background.levelSprite;
+        if(_removeCount == 0)
+        {
+            RemoveIsEnd?.Invoke();
+        }
     }
 
     private void OnBackButtonClicked()
     {
-        BackButtonClicked?.Invoke();
         SceneManager.LoadScene("MainMenu");
     }
 
     private void OnRestartButtonClicked()
     {
-        RestartButtonClicked?.Invoke();
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
     }
 }
-

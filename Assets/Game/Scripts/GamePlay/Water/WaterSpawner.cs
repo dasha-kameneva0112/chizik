@@ -4,6 +4,7 @@ public class WaterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _lockInventory;
     [SerializeField] private GameObject _lockBonus;
+    [SerializeField] private AudioClip _audioClip;
 
     public GameObject waterDropPrefab;
     private float spawnRate = 0.1f; //частота
@@ -18,9 +19,13 @@ public class WaterSpawner : MonoBehaviour
     public bool dropEnabled = false;
     private float dropInterval = 5f;
     private float secondTimer = 0f;
+    private AudioManager _audioManager;
 
     public void startWaterSpawn()
     {
+        _audioManager = AudioManager.Instance;
+        _audioManager.PlaySfx(_audioClip, 0.5f);
+
         canSpawn = true;
         timer = 0;
         spawnedDrops = 0;

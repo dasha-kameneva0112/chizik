@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -716173211955997806, guid: bc07f53abfaf6e847b947e1dc5df8e28, type: 3}
+  m_Sprite: {fileID: 6808622306094271886, guid: c345861727c90754eb81d14530e3a5d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,8 +104,8 @@ GameObject:
   - component: {fileID: 768610333984122770}
   - component: {fileID: 294055518184363945}
   - component: {fileID: 5643643701234451364}
-  - component: {fileID: -1492429420515699986}
   - component: {fileID: -8410167248289471112}
+  - component: {fileID: 6561149246952417325}
   m_Layer: 0
   m_Name: triangular_pipe
   m_TagString: Pipe
@@ -363,18 +363,6 @@ PolygonCollider2D:
       - {x: 0.5037557, y: 0.29869726}
       - {x: 0.28252432, y: 0.29778582}
   m_UseDelaunayMesh: 0
---- !u!114 &-1492429420515699986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8715840165578830690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8410167248289471112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,5 +375,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pipeType: 2
-  isPlayerPlaced: 0
+  pipeType: 2
+--- !u!114 &6561149246952417325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715840165578830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeMovement

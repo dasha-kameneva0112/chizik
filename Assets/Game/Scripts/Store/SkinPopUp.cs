@@ -17,19 +17,30 @@ public class SkinPopUp : MonoBehaviour
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _button;
     [SerializeField] private Button _closeButton;
-
+    [SerializeField] private AudioClip _sfxBuyButton;
+    [SerializeField] private AudioClip _sfxSelectButton;
     [SerializeField] private float _enableTabPositionForY;
 
     private SkinData _skinData;
+    private ISkinManager _skinManager;
+    private IBank _bank;
+    private AudioManager _audioManager;
 
     void Start()
     {
         _button.onClick.AddListener(OnButtonClick);
         _closeButton.onClick.AddListener(OnCloseClick);
+
+        _skinManager = SkinManager.Instance;
+        _bank = BankPresenter.Instance;
+        _audioManager = AudioManager.Instance;
     }
 
-    public void Initialize(SkinData skin)
+    public void Initialize(SkinData skin, ISkinManager skinManager, IBank bank)
     {
+        _skinManager = skinManager;
+        _bank = bank;
+
         _skinData = skin;
         _icon.sprite = skin.icon;
 
@@ -39,12 +50,12 @@ public class SkinPopUp : MonoBehaviour
 
         _name.text = skin.displayName;
 
-        Status status = SkinManager.Instance.GetStatus(skin);
+        Status status = _skinManager.GetStatus(skin);
         if(status == Status.NotBought)
         {
             _button.GetComponentInChildren<TextMeshProUGUI>().text = "BUY";
             _price.text = skin.price + " $";
-            if(skin.price > Bank.Instance.Money)
+            if(skin.price > _bank.Money)
             {
                 _button.interactable = false;
                 //var outline = _button.gameObject.GetComponent<Outline>();
@@ -87,19 +98,21 @@ public class SkinPopUp : MonoBehaviour
         
         if(tmp.text == "BUY")
         {
-            if (SkinManager.Instance.TryBuySkin(_skinData))
+            if (_skinManager.TryBuySkin(_skinData))
             {
+                _audioManager.PlaySfx(_sfxBuyButton);
                 BuyButtonClick?.Invoke();
                 OnUpdateNeeded?.Invoke();
             }
         }
         if(tmp.text == "SELECT")
         {
-            SkinManager.Instance.SelectSkin(_skinData);
+            _audioManager.PlaySfx(_sfxSelectButton);
+            _skinManager.SelectSkin(_skinData);
             SelectButtonClick?.Invoke();
         }
 
-        Initialize(_skinData);
+        Initialize(_skinData, _skinManager, _bank);
         OnUpdateNeeded?.Invoke();
     }
 

@@ -1,0 +1,11 @@
+public enum PipeType
+{
+    StraightPipe,
+    CornerPipe,
+    TriangularPipe,
+    CruciformPipe,
+
+    DirtyStraightPipe,
+    DirtyCornerPipe,
+    FinishPipe
+}

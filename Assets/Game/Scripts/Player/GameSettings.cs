@@ -2,13 +2,18 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GameSettings : MonoBehaviour
+public class GameSettings : MonoBehaviour, IGameSettings
 {
     public event Action SkinChanged;
     public static GameSettings Instance => _instance;
     public SkinData CurrentChizikSkin => _currentChizikSkin;
     public SkinData CurrentBackgroundSkin => _currentBackgroundSkin;
     public SkinData CurrentPipeSkin => _currentPipeSkin;
+    public int CountOfBrush => _countOfBrush;
+    public int CountOfHammer => _countOfHammer;
+
+    [SerializeField] private int _countOfBrush;
+    [SerializeField] private int _countOfHammer;
 
     [Header("Basic skins")]
     [SerializeField] private SkinData _chizikBasicSkin;
@@ -30,11 +35,14 @@ public class GameSettings : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        SkinManager.Instance.SelectionSkin += ChangeCurrentSkin;
+        _currentChizikSkin = _chizikBasicSkin;
+        _currentBackgroundSkin = _backgroundBasicSkin;
+        _currentPipeSkin = _pipeBasicSkin;
     }
 
     private void Start()
     {
+        SkinManager.Instance.SelectionSkin += ChangeCurrentSkin;
         _currentChizikSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Chizik);
         _currentBackgroundSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Background);
         _currentPipeSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Pipe);
@@ -42,9 +50,9 @@ public class GameSettings : MonoBehaviour
         SkinChanged?.Invoke();
     }
 
-    private void ChangeCurrentSkin(SkinData skin)
+    public void ChangeCurrentSkin(SkinData skin)
     {
-        if(skin.type == SkinType.Chizik)
+        if (skin.type == SkinType.Chizik)
         {
             _currentChizikSkin = skin;
         }
@@ -58,5 +66,15 @@ public class GameSettings : MonoBehaviour
         }
 
         SkinChanged?.Invoke();
+    }
+
+    public void UpdateCountOfSponge(int count)
+    {
+        _countOfBrush = _countOfBrush + count;
+    }
+
+    public void UpdateCountOfHammer(int count)
+    {
+        _countOfHammer = _countOfHammer + count;
     }
 }

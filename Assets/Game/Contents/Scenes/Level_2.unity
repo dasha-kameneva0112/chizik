@@ -770,6 +770,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
+--- !u!114 &82568138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
+  m_PrefabInstance: {fileID: 82568137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &172230288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1229,7 @@ GameObject:
   - component: {fileID: 265889379}
   - component: {fileID: 265889378}
   - component: {fileID: 265889377}
-  - component: {fileID: 265889376}
+  - component: {fileID: 265889380}
   m_Layer: 5
   m_Name: GamePlay
   m_TagString: Untagged
@@ -1261,23 +1272,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &265889376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265889374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e552806dd392c44858f2b2c3d3879b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnyLevel
-  _backButton: {fileID: 1389691986}
-  _restartButton: {fileID: 1322497030}
-  _background: {fileID: 964657170}
-  removeCountText: {fileID: 636379308}
-  removeCount: 0
 --- !u!114 &265889377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1341,6 +1335,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &265889380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265889374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0c43f98d432604791310906c23e23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnyLevelView
+  _backButton: {fileID: 1389691986}
+  _restartButton: {fileID: 1322497030}
+  _background: {fileID: 964657170}
+  _removeCountText: {fileID: 636379308}
 --- !u!1 &292998953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockInventory: {fileID: 0}
   _lockBonus: {fileID: 0}
+  _audioClip: {fileID: 0}
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 1
 --- !u!1 &298012958
@@ -1480,6 +1491,7 @@ GameObject:
   - component: {fileID: 311373841}
   - component: {fileID: 311373840}
   - component: {fileID: 311373839}
+  - component: {fileID: 311373843}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1590,6 +1602,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &311373843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311373838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 1fb2ae96b725d4e429d66682990ac589, type: 3}
 --- !u!1 &447705571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1627,7 @@ GameObject:
   - component: {fileID: 447705575}
   - component: {fileID: 447705574}
   - component: {fileID: 447705573}
+  - component: {fileID: 447705576}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1710,6 +1736,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447705571}
   m_CullTransparentMesh: 1
+--- !u!114 &447705576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447705571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 89cdb0fb5bfc43f4592375321715dfd1, type: 3}
 --- !u!1 &453273316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568925126}
-  - component: {fileID: 568925125}
+  - component: {fileID: 568925127}
   m_Layer: 0
   m_Name: PopUpWinController
   m_TagString: Untagged
@@ -1938,24 +1977,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &568925125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568925124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6232c4625dc16849a9f736e372d85e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PopUpWinController
-  _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
-  _parentForPopUp: {fileID: 265889374}
-  _background: {fileID: 964657168}
-  _blackout: {fileID: 510382893}
-  _reward: {fileID: 311373839}
-  _countOfReward: 30
 --- !u!4 &568925126
 Transform:
   m_ObjectHideFlags: 0
@@ -1971,6 +1992,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568925127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568925124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854a039939f9e134cb6b6575ece599ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpWinView
+  _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
+  _parentForPopUp: {fileID: 265889374}
+  _background: {fileID: 964657168}
+  _blackout: {fileID: 510382893}
+  _rewardButton: {fileID: 311373839}
+  _inventory: {fileID: 2082542696}
+  _cardsPrefab: {fileID: 7187870280027729688, guid: 76df71ff12c8a6449b9dd0df7769b6fa, type: 3}
 --- !u!1 &574725173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,6 +2681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockInventory: {fileID: 1222811355}
   _lockBonus: {fileID: 1352247429}
+  _audioClip: {fileID: 8300000, guid: ce163a18cd773354681a67b163ec35a8, type: 3}
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 0
 --- !u!1 &803998428
@@ -3213,7 +3254,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishPipe
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: _pipeType
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -8812639299230404571, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+    - {fileID: -7676137658951393487, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3287,6 +3334,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76996e620886a1540acb44573bb89628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &986171128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  m_PrefabInstance: {fileID: 986171124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986171125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &991939907
 GameObject:
   m_ObjectHideFlags: 0
@@ -3497,7 +3555,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017037786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fd7a4edfe239044fb1938d1086f39d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 31918dcb39bf4944b84f1d81ec2cda7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopUpLossController
   _popUpLossPrefab: {fileID: 7187870280027729688, guid: a1935d91782fb174085d030381f5fdf9, type: 3}
@@ -3795,6 +3853,7 @@ GameObject:
   - component: {fileID: 1126734266}
   - component: {fileID: 1126734265}
   - component: {fileID: 1126734268}
+  - component: {fileID: 1126734269}
   m_Layer: 5
   m_Name: CruciformPipe
   m_TagString: Untagged
@@ -3934,6 +3993,19 @@ MonoBehaviour:
   _button: {fileID: 1126734265}
   _type: 3
   _pipeSkin: {fileID: 1712694231}
+--- !u!114 &1126734269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126734262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: e4ecc4160cd09c84493dc1f6efee8184, type: 3}
 --- !u!1 &1193712989
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,6 +4422,64 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1280832608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280832610}
+  - component: {fileID: 1280832609}
+  m_Layer: 0
+  m_Name: TestLevelBoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1280832609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280832608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c15ae3ea9aa7dc43bc0f50c3946ed4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestBootLevels
+  _gameField: {fileID: 2011296084}
+  _popUpWinView: {fileID: 568925127}
+  _popUpLossView: {fileID: 1017037787}
+  _pipeInventoryView: {fileID: 2082542706}
+  _finishPipe: {fileID: 986171127}
+  _anyLevelView: {fileID: 265889380}
+  _view: {fileID: 1855995613}
+  _countRemove: 2
+  _allPrizeDatas:
+  - {fileID: 11400000, guid: 1b3b70cd8366acc45a6ca69573ccae5b, type: 2}
+  - {fileID: 11400000, guid: a3ef5529b4c881c4f92163b9225c4713, type: 2}
+  - {fileID: 11400000, guid: f588c27e20d1eb5449690a4772ea747d, type: 2}
+  _cleanStraightPipePrefab: {fileID: 176041896990589198, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
+  _cleanCornerPipePrefab: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+--- !u!4 &1280832610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280832608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17057, y: 2.35079, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281625794
 GameObject:
   m_ObjectHideFlags: 0
@@ -4498,6 +4628,7 @@ GameObject:
   - component: {fileID: 1322497032}
   - component: {fileID: 1322497031}
   - component: {fileID: 1322497030}
+  - component: {fileID: 1322497033}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -4607,6 +4738,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322497028}
   m_CullTransparentMesh: 1
+--- !u!114 &1322497033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322497028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 390df303d571394498fe2cbe7b4b4b68, type: 3}
 --- !u!1 &1352247429
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,6 +4913,7 @@ GameObject:
   - component: {fileID: 1389691988}
   - component: {fileID: 1389691987}
   - component: {fileID: 1389691986}
+  - component: {fileID: 1389691989}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -4878,6 +5023,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389691984}
   m_CullTransparentMesh: 1
+--- !u!114 &1389691989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389691984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 390df303d571394498fe2cbe7b4b4b68, type: 3}
 --- !u!1 &1420681043
 GameObject:
   m_ObjectHideFlags: 0
@@ -5474,50 +5632,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659536207}
   m_CullTransparentMesh: 1
---- !u!1 &1690741332
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1690741334}
-  - component: {fileID: 1690741333}
-  m_Layer: 0
-  m_Name: PopUpEndOfGameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1690741333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690741332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b68b1c9baba1344cb0c99553a410f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PopUpEndOfGame
---- !u!4 &1690741334
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690741332}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1100.1027, y: 527.4571, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712694229
 GameObject:
   m_ObjectHideFlags: 0
@@ -5755,16 +5869,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855995609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34f8a8b95bd6be4e9c292ab99a4436b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2df68eaff387aec47b1d99ed587d3974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _brushButton: {fileID: 39723600}
-  _hammerButton: {fileID: 774129327}
-  _brushCountText: {fileID: 1281625796}
-  _hammerCountText: {fileID: 81584086}
-  _cleanStraightPipePrefab: {fileID: 176041896990589198, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
-  _cleanCornerPipePrefab: {fileID: 8715840165578830690, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
-  image: {fileID: 1222811355}
+  brushButton: {fileID: 39723600}
+  hammerButton: {fileID: 774129327}
+  brushText: {fileID: 1281625796}
+  hammerText: {fileID: 81584086}
+  blockImage: {fileID: 1352247429}
 --- !u!1 &1937361093
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,6 +5988,9 @@ MonoBehaviour:
   CornerPipe: {fileID: 2133712926}
   TriangularPipe: {fileID: 2089170227}
   CruciformPipe: {fileID: 1126734265}
+  _startPipesOnFiels:
+  - {fileID: 82568138}
+  - {fileID: 986171128}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!114 &2011296085
@@ -5948,6 +6063,7 @@ GameObject:
   - component: {fileID: 2046556182}
   - component: {fileID: 2046556181}
   - component: {fileID: 2046556184}
+  - component: {fileID: 2046556185}
   m_Layer: 5
   m_Name: StraightPipe
   m_TagString: Untagged
@@ -6087,6 +6203,19 @@ MonoBehaviour:
   _button: {fileID: 2046556181}
   _type: 0
   _pipeSkin: {fileID: 298012960}
+--- !u!114 &2046556185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046556178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: e4ecc4160cd09c84493dc1f6efee8184, type: 3}
 --- !u!1 &2082542696
 GameObject:
   m_ObjectHideFlags: 0
@@ -6102,7 +6231,6 @@ GameObject:
   - component: {fileID: 2082542699}
   - component: {fileID: 2082542698}
   - component: {fileID: 2082542706}
-  - component: {fileID: 2082542705}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -6235,22 +6363,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2082542705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082542696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  _countStraightPipe: 3
-  _countCornerPipe: 4
-  _countTriangularPipe: 2
-  _countCruciformPipe: 4
 --- !u!114 &2082542706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6271,7 +6383,6 @@ MonoBehaviour:
   _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
   _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
   _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
-  _gameField: {fileID: 2011296084}
 --- !u!1 &2089170224
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,6 +6396,7 @@ GameObject:
   - component: {fileID: 2089170228}
   - component: {fileID: 2089170227}
   - component: {fileID: 2089170230}
+  - component: {fileID: 2089170231}
   m_Layer: 5
   m_Name: TriangularPipe
   m_TagString: Untagged
@@ -6424,6 +6536,19 @@ MonoBehaviour:
   _button: {fileID: 2089170227}
   _type: 2
   _pipeSkin: {fileID: 1461049949}
+--- !u!114 &2089170231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089170224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: e4ecc4160cd09c84493dc1f6efee8184, type: 3}
 --- !u!1 &2125090550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6573,6 +6698,7 @@ GameObject:
   - component: {fileID: 2133712927}
   - component: {fileID: 2133712926}
   - component: {fileID: 2133712929}
+  - component: {fileID: 2133712930}
   m_Layer: 5
   m_Name: CornerPipe
   m_TagString: Untagged
@@ -6712,6 +6838,19 @@ MonoBehaviour:
   _button: {fileID: 2133712926}
   _type: 1
   _pipeSkin: {fileID: 172230290}
+--- !u!114 &2133712930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133712923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: e4ecc4160cd09c84493dc1f6efee8184, type: 3}
 --- !u!1 &2147213131
 GameObject:
   m_ObjectHideFlags: 0
@@ -6802,8 +6941,8 @@ SceneRoots:
   - {fileID: 1095890024}
   - {fileID: 265889375}
   - {fileID: 24091259}
-  - {fileID: 1690741334}
   - {fileID: 934008924}
   - {fileID: 986171124}
   - {fileID: 568925126}
   - {fileID: 1017037788}
+  - {fileID: 1280832610}

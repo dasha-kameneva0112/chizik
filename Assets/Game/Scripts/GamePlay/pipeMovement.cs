@@ -1,45 +1,53 @@
+using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PipeMovement : MonoBehaviour
 {
     private Camera mainCamera;
     private SpriteRenderer _spriteRenderer;
+    private BonusApplyPipe _applyPipe;
+    private AudioManager _audioManager;
 
     void Start()
     {
         mainCamera = Camera.main;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _applyPipe = GetComponent<BonusApplyPipe>();
+
+        _audioManager = AudioManager.Instance;
     }
 
     private void Update()
     {
-        Vector2 worldPos = GetMouseWorldPosition();
+        Vector2 worldPos = GetMouseWorldPosition(); 
 
-        Rotate(worldPos);
+        Rotate(worldPos, _applyPipe);
 
         if (_spriteRenderer.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
-            if (AnyLevel.Instance.removeCount > 0)
+            if (AnyLevel.Instance.RemoveCount > 0)
             {
-                BonusAppliedPipe segment = GetComponent<BonusAppliedPipe>();
-
-                Destroy(gameObject);
-                AnyLevel.Instance.UpdateRemoveCount();
-                Inventory.Instance.Delete(segment.GetPipeType());
+                if (_applyPipe.PipeType != PipeType.FinishPipe)
+                {
+                    Destroy(gameObject);
+                    AnyLevel.Instance.UpdateRemoveCount();
+                    InventoryModel.Instance.Delete(_applyPipe.PipeType);
+                    _audioManager.DeletePipe();
+                }
             }
-        }        
+        }
     }
 
-    private void Rotate(Vector2 worldPos)
+    private void Rotate(Vector2 worldPos, BonusApplyPipe segment)
     {
         if (_spriteRenderer.bounds.Contains(worldPos) && Mouse.current.rightButton.wasPressedThisFrame)
         {
-            transform.Rotate(0, 0, 90);
-            return;
+            if (segment.PipeType != PipeType.FinishPipe)
+            {
+                transform.Rotate(0, 0, 90);
+                return;
+            }
         }
     }
 

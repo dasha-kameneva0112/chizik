@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MAIN MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb32d5317d73381439537e25b0817261, type: 2}
-  m_sharedMaterial: {fileID: -5814661109116640037, guid: eb32d5317d73381439537e25b0817261, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bc669080624ed1746a9bc09f6900a27f, type: 2}
+  m_sharedMaterial: {fileID: 4615460040357327345, guid: bc669080624ed1746a9bc09f6900a27f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -282,8 +282,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb32d5317d73381439537e25b0817261, type: 2}
-  m_sharedMaterial: {fileID: -5814661109116640037, guid: eb32d5317d73381439537e25b0817261, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bc669080624ed1746a9bc09f6900a27f, type: 2}
+  m_sharedMaterial: {fileID: 4615460040357327345, guid: bc669080624ed1746a9bc09f6900a27f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 15430100078273425}
   - component: {fileID: 3138867980512205398}
   - component: {fileID: 705858114874475444}
+  - component: {fileID: 2502145177213860768}
   m_Layer: 5
   m_Name: TryAgain
   m_TagString: Untagged
@@ -472,6 +473,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2502145177213860768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855141005709026810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 390df303d571394498fe2cbe7b4b4b68, type: 3}
 --- !u!1 &5266992617407963113
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +498,7 @@ GameObject:
   - component: {fileID: 7460965930938203252}
   - component: {fileID: 2479565478894180973}
   - component: {fileID: 6633958636264810129}
+  - component: {fileID: 7950941689243956177}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -593,6 +608,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7950941689243956177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266992617407963113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: 390df303d571394498fe2cbe7b4b4b68, type: 3}
 --- !u!1 &6203005645789043178
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,8 +854,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: TRY AGAIN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb32d5317d73381439537e25b0817261, type: 2}
-  m_sharedMaterial: {fileID: -5814661109116640037, guid: eb32d5317d73381439537e25b0817261, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bc669080624ed1746a9bc09f6900a27f, type: 2}
+  m_sharedMaterial: {fileID: 4615460040357327345, guid: bc669080624ed1746a9bc09f6900a27f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

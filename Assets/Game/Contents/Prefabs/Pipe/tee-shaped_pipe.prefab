@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9093946837164022268, guid: 04a35ec7a11988b4db8ee4a9a6ff6e8b, type: 3}
+  m_Sprite: {fileID: -4307623591464454488, guid: f3eb3f79793e16e4e8232fd12a1028af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 3957399715287344759}
   - component: {fileID: 6771025859432148148}
   - component: {fileID: 7421373882985892367}
-  - component: {fileID: -312750485404199339}
   - component: {fileID: -1727477586957339900}
+  - component: {fileID: -1203009899576653640}
   m_Layer: 0
   m_Name: tee-shaped_pipe
   m_TagString: Pipe
@@ -417,18 +417,6 @@ PolygonCollider2D:
       - {x: 0.28272992, y: 0.27041996}
       - {x: 0.2825245, y: 0.4923693}
   m_UseDelaunayMesh: 0
---- !u!114 &-312750485404199339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6885039772152292513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1727477586957339900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,5 +429,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pipeType: 3
-  isPlayerPlaced: 0
+  pipeType: 3
+--- !u!114 &-1203009899576653640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885039772152292513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeMovement
