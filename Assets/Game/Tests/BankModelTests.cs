@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[TestFixture]
 public class BankModelTests
 {
     private BankModel _bank;
