@@ -10,7 +10,7 @@ public class FinishPipe : MonoBehaviour
     public static FinishPipe Instance;
 
     private int arrived = 0;
-    public HashSet<PipeSegment> leakedPipes = new HashSet<PipeSegment>();
+    public HashSet<Pipe> leakedPipes = new HashSet<Pipe>();
 
     private int totalDrops = 0;
     private int failedDrops = 0;

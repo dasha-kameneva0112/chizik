@@ -5,7 +5,7 @@ public class WaterDrop : MonoBehaviour
 {
     private float speed = 3f;
 
-    private PipeSegment currentPipe;
+    private Pipe currentPipe;
     private Vector2 direction;
 
     private Rigidbody2D rb;
@@ -34,7 +34,7 @@ public class WaterDrop : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.2f);
         if (hit.collider != null)
         {
-            PipeSegment pipe = hit.collider.GetComponent<PipeSegment>();
+            Pipe pipe = hit.collider.GetComponent<Pipe>();
             if (pipe != null)
             {
                 Vector3 outDir = pipe.getOutputDirection(transform.position, direction);
@@ -53,12 +53,12 @@ public class WaterDrop : MonoBehaviour
         rb.AddForce(force, ForceMode2D.Force);
     }
 
-    PipeSegment getPipeUnder()
+    Pipe getPipeUnder()
     {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.1f);
         if (hit)
         {
-            return hit.GetComponent<PipeSegment>();
+            return hit.GetComponent<Pipe>();
         }
         return null;
     }
@@ -77,7 +77,7 @@ public class WaterDrop : MonoBehaviour
             return;
         }
 
-        PipeSegment pipe = collision.GetComponent<PipeSegment>();
+        Pipe pipe = collision.GetComponent<Pipe>();
         if (pipe == null)
         {
             die();
