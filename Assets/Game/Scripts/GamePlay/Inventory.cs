@@ -19,14 +19,6 @@ public class Inventory : MonoBehaviour
     private static Inventory _instance;
     private readonly Dictionary<PipeType, int> _pipeSegments = new Dictionary<PipeType, int>();
 
-    // для тестов 
-    //public PipeInInventory(Dictionary<PipeType, int> startConsumables)
-    //{
-    //    if (_instance == null)
-    //        _instance = this;
-    //    _pipeSegments = new Dictionary<PipeType, int>(startConsumables);
-    //}
-
     private void Awake()
     {
         _instance = this;

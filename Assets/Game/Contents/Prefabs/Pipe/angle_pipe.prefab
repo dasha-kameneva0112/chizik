@@ -199,9 +199,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
-  spriteRenderer: {fileID: 4550336315492666665}
   pipeType: 0
   baseDirections: []
+  _spriteRenderer: {fileID: 6025690132475729487}
 --- !u!60 &7599763758303902572
 PolygonCollider2D:
   m_ObjectHideFlags: 0
