@@ -1015,6 +1015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockInventory: {fileID: 0}
   _lockBonus: {fileID: 0}
+  _audioClip: {fileID: 0}
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 1
 --- !u!1 &204198964
@@ -2127,6 +2128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockInventory: {fileID: 0}
   _lockBonus: {fileID: 0}
+  _audioClip: {fileID: 0}
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 1
 --- !u!1 &434973289
@@ -2179,6 +2181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockInventory: {fileID: 1888134438}
   _lockBonus: {fileID: 836877263}
+  _audioClip: {fileID: 8300000, guid: ce163a18cd773354681a67b163ec35a8, type: 3}
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 0
 --- !u!1001 &436769703

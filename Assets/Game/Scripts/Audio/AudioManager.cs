@@ -7,18 +7,14 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance => _instance;
 
     [SerializeField] private AudioSource _sfxSource;
-    [SerializeField] private Button _sfxButton;
-    [SerializeField] private Button _musicButton;
     [SerializeField] private AudioClip _sfxVictory;
     [SerializeField] private AudioClip _sfxLoose;
     [SerializeField] private AudioClip _sfxSponge;
     [SerializeField] private AudioClip _sfxHammer;
 
     private static AudioManager _instance;
-    private AudioButton _audioButtonSfx;
-    private AudioButton _audioButtonMusic;
-    private bool _isSfxOn;
-    private bool _isMusicOn;
+    private bool _isSfxOn = true;
+    private bool _isMusicOn = true;
 
     private void Awake()
     {
@@ -26,26 +22,7 @@ public class AudioManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
-
-            _isSfxOn = true;
-            _isMusicOn = true;
         }
-    }
-
-    private void Start()
-    {
-        _sfxButton.onClick.AddListener(ClickOnSfx);
-        _musicButton.onClick.AddListener(ClickOnMusic);
-        _audioButtonSfx = _sfxButton.GetComponent<AudioButton>();
-        _audioButtonMusic = _musicButton.GetComponent<AudioButton>();
-
-        ChangeImageOnButtons();
-    }
-
-    public void ChangeImageOnButtons()
-    {
-        _audioButtonSfx.ChangeImage(_isSfxOn);
-        _audioButtonMusic.ChangeImage(_isMusicOn);
     }
 
     public bool GetButtonOn(AudioChannel audioChannel)
@@ -80,13 +57,11 @@ public class AudioManager : MonoBehaviour
     public void ClickOnSfx()
     {
         _isSfxOn = !_isSfxOn;
-        _audioButtonSfx.ChangeImage(_isSfxOn);
     }
 
     public void ClickOnMusic()
     {
         _isMusicOn = !_isMusicOn;
-        _audioButtonMusic.ChangeImage(_isMusicOn);
     }
 
     public void TurnOnSfxWin()

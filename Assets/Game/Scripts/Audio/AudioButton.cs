@@ -9,10 +9,28 @@ public class AudioButton : MonoBehaviour
     [SerializeField] private Sprite _turnOffImage;
 
     private Image _image;
+    private AudioManager _audioManager;
 
     void Start()
     {
+        _audioManager = AudioManager.Instance;
         _image = _button.GetComponentInChildren<Image>();
+        
+        _button.onClick.AddListener(OnClick);
+        ChangeImage(_audioManager.GetButtonOn(_audioChannel));
+    }
+
+    private void OnClick()
+    {
+        if(_audioChannel == AudioChannel.Music)
+        {
+            _audioManager.ClickOnMusic();
+        }
+        else
+        {
+            _audioManager.ClickOnSfx();
+        }
+        ChangeImage(_audioManager.GetButtonOn(_audioChannel));
     }
 
     public void ChangeImage(bool isOn)
