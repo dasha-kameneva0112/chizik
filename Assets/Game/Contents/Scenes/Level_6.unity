@@ -947,8 +947,8 @@ MonoBehaviour:
   TriangularPipe: {fileID: 299682550}
   CruciformPipe: {fileID: 510518767}
   _startPipesOnFiels:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1811614262}
+  - {fileID: 2113252212}
   - {fileID: 1132463649}
   - {fileID: 2006210228}
   GridSize: {x: 8, y: 5}
@@ -1808,6 +1808,10 @@ PrefabInstance:
     - target: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: m_Name
       value: FinishPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: pipeType
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: _pipeType
@@ -6674,6 +6678,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2063237705040631634, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
   m_PrefabInstance: {fileID: 1811614260}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1811614262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
+  m_PrefabInstance: {fileID: 1811614260}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1865930895
 GameObject:
   m_ObjectHideFlags: 0
@@ -7404,6 +7419,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 734463226421090740, guid: 95334217387143f448a539ebfeb55f80, type: 3}
   m_PrefabInstance: {fileID: 2113252210}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2113252212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
+  m_PrefabInstance: {fileID: 2113252210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &2123719738
 GameObject:
   m_ObjectHideFlags: 0

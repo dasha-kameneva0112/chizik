@@ -2726,7 +2726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts::AudioButton
   _button: {fileID: 737848132}
-  _audioChannel: 0
+  _audioChannel: 1
   _turnOnImage: {fileID: -8893586491508853817, guid: a5cd0d379320bd149a81877460c1d2e1, type: 3}
   _turnOffImage: {fileID: -4701843975573080589, guid: 47fcf008522a87a4b95e3388ddc0de1b, type: 3}
 --- !u!1 &764699339
@@ -3280,7 +3280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelProgress
   _startLevelNumber: 1
-  _requirementForGettingPrize: 2
+  _requirementForGettingPrize: 1
 --- !u!4 &798028138
 Transform:
   m_ObjectHideFlags: 0

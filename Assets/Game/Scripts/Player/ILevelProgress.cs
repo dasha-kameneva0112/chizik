@@ -5,4 +5,5 @@
 
     int GetOpenLevel();
     void UpdateNumberLevel();
+    void SetRequirementForGettingPrize(int c);
 }

@@ -2424,6 +2424,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2063237705040631634, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
   m_PrefabInstance: {fileID: 599444814}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &599444816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
+  m_PrefabInstance: {fileID: 599444814}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &605462359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,6 +3120,10 @@ PrefabInstance:
     - target: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: m_Name
       value: FinishPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: pipeType
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: _pipeType
@@ -3907,6 +3922,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2063237705040631634, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
   m_PrefabInstance: {fileID: 1155265390}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155265392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
+  m_PrefabInstance: {fileID: 1155265390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1166724528
 GameObject:
   m_ObjectHideFlags: 0
@@ -5832,10 +5858,11 @@ MonoBehaviour:
   TriangularPipe: {fileID: 230126614}
   CruciformPipe: {fileID: 696626861}
   _startPipesOnFiels:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1887762653}
+  - {fileID: 1155265392}
   - {fileID: 1943847592}
   - {fileID: 908825391}
+  - {fileID: 599444816}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!114 &1800474446
@@ -6201,6 +6228,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6174363064084570695, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
   m_PrefabInstance: {fileID: 1887762651}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1887762653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  m_PrefabInstance: {fileID: 1887762651}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1893390340
 GameObject:
   m_ObjectHideFlags: 0

@@ -82,7 +82,7 @@ public class BonusPipePresenter
             return;
         }
 
-        if (_model.IsHammerActive && !pipe.IsDirty && !pipe.IsFinishPipe)
+        if (_model.IsHammerActive && !pipe.IsDirty && pipe.PipeType != PipeType.FinishPipe )
         {
             _audioManager.TurnOnSfxHammer();
             _model.UseHammer(pipe.PipeType);
