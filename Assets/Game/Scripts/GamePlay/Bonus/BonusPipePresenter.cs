@@ -2,41 +2,94 @@
 
 public class BonusPipePresenter
 {
-    private BonusPipeModel _model;
-    private IBonusPipeView _view;
-    private BonusManager _manager;
+    public static BonusPipePresenter Instance { get; private set; }
 
-    public BonusPipePresenter(BonusPipeModel model, IBonusPipeView pipe)
+    private BonusPipeModel _model;
+    private BonusPipeView _view;
+
+    // Префабы для чистых пайпов
+    private GameObject _cleanStraightPipePrefab;
+    private GameObject _cleanCornerPipePrefab;
+
+    public BonusPipePresenter(BonusPipeModel model, BonusPipeView view,
+        GameObject cleanStraightPipePrefab, GameObject cleanCornerPipePrefab)
     {
         _model = model;
-        _view = pipe;
-        _manager = BonusManager.Instance;
+        _view = view;
+        _cleanStraightPipePrefab = cleanStraightPipePrefab;
+        _cleanCornerPipePrefab = cleanCornerPipePrefab;
+        Instance = this;
 
-        _view.OnClicked += HandleViewClicked;
+        _view.BrushClicked += OnBrushClicked;
+        _view.HammerClicked += OnHammerClicked;
+
+        RefreshView();
     }
 
-    public void HandleViewClicked()
+    
+    public void OnPipeClicked(IPipeView pipe)
     {
-        if (_manager != null && _manager.IsBonusActive())
+        if (!_model.IsBonusActive)
         {
-            _manager.OnPipeClicked(this);
+            return;
+        }
+
+        if (_model.IsBrushActive && pipe.IsDirty)
+        {
+            _model.UseBrush();
+
+            GameObject cleanPrefab = null;
+            if (pipe is BonusApplyPipe bonusPipe)
+            {
+                switch (bonusPipe.PipeType)
+                {
+                    case PipeType.DirtyStraightPipe:
+                        cleanPrefab = _cleanStraightPipePrefab;
+                        break;
+                    case PipeType.DirtyCornerPipe:
+                        cleanPrefab = _cleanCornerPipePrefab;
+                        break;
+                }
+
+                if (cleanPrefab != null)
+                {
+                    var bonus = _view.ReplaceWithCleanPipe(cleanPrefab, bonusPipe);
+                    if(bonus != null)
+                    {
+                        bonus.ClickedPipe += OnPipeClicked;
+                    }
+                }
+            }
+
+            pipe.DestroyPipe();
+            RefreshView();
+            return;
+        }
+
+        if (_model.IsHammerActive && !pipe.IsDirty)
+        {
+            _model.UseHammer();
+            pipe.DestroyPipe();
+            RefreshView();
         }
     }
 
-    public PipeType GetPipeType()
+    private void OnBrushClicked()
     {
-        if (_model.IsFinishPipe == true)
-            return PipeType.FinishPipe;
-        return _model.Type;
+        _model.ToggleBrush();
+        RefreshView();
     }
 
-    public bool IsPlayerPlaced() => _model.IsPlayerPlaced;
-    public bool IsDirty() => _model.IsDirty();
-    public void SetAsPlayerPlaced() => _model.SetAsPlayerPlaced();
-    public void SetFinishPipe() => _model.SetFinishPipe();
+    private void OnHammerClicked()
+    {
+        _model.ToggleHammer();
+        RefreshView();
+    }
 
-
-    public Vector3 GetPosition() => _view.Position;
-    public Quaternion GetRotation() => _view.Rotation;
-    public void DestroyPipe() => _view.DestroyPipe();
+    private void RefreshView()
+    {
+        _view.UpdateCounts(_model.BrushCount, _model.HammerCount);
+        _view.SetBrushActive(_model.IsBrushActive);
+        _view.SetHammerActive(_model.IsHammerActive);
+    }
 }

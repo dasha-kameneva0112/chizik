@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BonusAppliedPipe
-  _pipeType: 1
+  pipeType: 1
 --- !u!114 &-5693293602258926030
 MonoBehaviour:
   m_ObjectHideFlags: 0

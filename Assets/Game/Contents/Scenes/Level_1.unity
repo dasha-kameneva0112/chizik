@@ -549,16 +549,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 146755557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34f8a8b95bd6be4e9c292ab99a4436b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2df68eaff387aec47b1d99ed587d3974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BonusManager
-  _brushButton: {fileID: 683549810}
-  _hammerButton: {fileID: 1717392545}
-  _brushCountText: {fileID: 1570748383}
-  _hammerCountText: {fileID: 1879666209}
-  _cleanStraightPipePrefab: {fileID: 176041896990589198, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
-  _cleanCornerPipePrefab: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
-  image: {fileID: 188074086}
+  brushButton: {fileID: 683549810}
+  hammerButton: {fileID: 1717392545}
+  brushText: {fileID: 1570748383}
+  hammerText: {fileID: 1879666209}
+  blockImage: {fileID: 581911443}
 --- !u!1 &162715056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3314,6 +3312,10 @@ MonoBehaviour:
   _pipeInventoryView: {fileID: 1515171807}
   _finishPipe: {fileID: 300433063}
   _anyLevelView: {fileID: 2140481379}
+  _view: {fileID: 146755561}
+  _countRemove: 2
+  _cleanStraightPipePrefab: {fileID: 176041896990589198, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
+  _cleanCornerPipePrefab: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
 --- !u!4 &893869447
 Transform:
   m_ObjectHideFlags: 0
@@ -4277,6 +4279,10 @@ PrefabInstance:
     - target: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: m_Name
       value: FinishPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: pipeType
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: _pipeType

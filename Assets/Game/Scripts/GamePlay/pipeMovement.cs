@@ -28,7 +28,7 @@ public class PipeMovement : MonoBehaviour
                 {
                     Destroy(gameObject);
                     AnyLevel.Instance.UpdateRemoveCount();
-                    InventoryModel.Instance.Delete(segment.Presenter.GetPipeType());
+                    InventoryModel.Instance.Delete(segment.PipeType);
                 }
             }
         }

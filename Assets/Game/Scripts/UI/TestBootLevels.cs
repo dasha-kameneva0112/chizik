@@ -13,6 +13,12 @@ public class TestBootLevels : MonoBehaviour
     [SerializeField] private PipeInventoryView _pipeInventoryView;
     [SerializeField] private FinishPipe _finishPipe;
     [SerializeField] private AnyLevelView _anyLevelView;
+    [SerializeField] private BonusPipeView _view;
+    [SerializeField] private int _countRemove;
+
+    [Header("Prefabs")]
+    [SerializeField] private GameObject _cleanStraightPipePrefab;
+    [SerializeField] private GameObject _cleanCornerPipePrefab;
 
     private void Start()
     {
@@ -20,16 +26,32 @@ public class TestBootLevels : MonoBehaviour
         _levelProgress = LevelProgress.Instance;
         _bank = BankPresenter.Instance;
 
+        var startCounts = GetStartCountOfPipeInInventory();
+        var inventory = new InventoryModel(startCounts);
+        new PipeInventoryPresenter(inventory, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
+
         var popUpWinModel = new PopUpWinModel(_bank, _levelProgress, 10);
         new PopUpWinPresenter(popUpWinModel, _popUpWinView, _finishPipe, _gameSettings);
 
         new PopUpLossPresenter(_popUpLossView, _finishPipe);
-        var startCounts = GetStartCountOfPipeInInventory();
 
-        var inventory = new InventoryModel(startCounts);
-        new PipeInventoryPresenter(inventory, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
+        new AnyLevel(_anyLevelView, _countRemove, _gameSettings);
 
-        new AnyLevel(_anyLevelView, 2, _gameSettings);
+        bool isHammerActive;
+        if (_countRemove > 0)
+        {
+            isHammerActive = false;
+        }    
+        else isHammerActive = true;
+        
+        var bonusPipeModel = new BonusPipeModel(5, 5);
+        var presenter = new BonusPipePresenter(bonusPipeModel, _view, _cleanStraightPipePrefab, _cleanCornerPipePrefab);
+
+        var pipes = FindObjectsOfType<BonusApplyPipe>();
+        foreach (var pipe in pipes)
+        {
+            pipe.ClickedPipe += presenter.OnPipeClicked;
+        }
     }
 
     private Dictionary<PipeType, int> GetStartCountOfPipeInInventory()

@@ -1,22 +1,52 @@
-﻿public class BonusPipeModel
-{
-    public PipeType Type { get; private set; }
-    public bool IsPlayerPlaced { get; private set; }
-    public bool IsFinishPipe { get; private set; }
+﻿using UnityEngine;
 
-    public BonusPipeModel(PipeType type)
+public class BonusPipeModel
+{
+    public int BrushCount { get; private set; }
+    public int HammerCount { get; private set; }
+
+    public bool IsBrushActive { get; private set; }
+    public bool IsHammerActive { get; private set; }
+
+    public bool IsBonusActive => IsBrushActive || IsHammerActive;
+
+    public BonusPipeModel(int brushCount, int hammerCount)
     {
-        Type = type;
-        IsPlayerPlaced = false;
+        BrushCount = brushCount;
+        HammerCount = hammerCount;
     }
 
-    public void SetAsPlayerPlaced() => IsPlayerPlaced = true;
+    public void ToggleBrush()
+    {
+        if (BrushCount <= 0) return;
 
+        IsBrushActive = !IsBrushActive;
+        IsHammerActive = false;
+    }
 
-    public bool IsDirty() => Type == PipeType.DirtyStraightPipe ||
-                             Type == PipeType.DirtyCornerPipe;
+    public void ToggleHammer()
+    {
+        if (HammerCount <= 0) return;
 
-    public bool SetFinishPipe() => IsFinishPipe = true;
+        IsHammerActive = !IsHammerActive;
+        IsBrushActive = false;
+    }
 
+    public void UseBrush()
+    {
+        BrushCount--;
+        Deactivate();
+    }
+
+    public void UseHammer()
+    {
+        HammerCount--;
+        Deactivate();
+    }
+
+    public void Deactivate()
+    {
+        IsBrushActive = false;
+        IsHammerActive = false;
+    }
 }
-

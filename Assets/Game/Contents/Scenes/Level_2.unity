@@ -4412,6 +4412,10 @@ MonoBehaviour:
   _pipeInventoryView: {fileID: 2082542706}
   _finishPipe: {fileID: 986171127}
   _anyLevelView: {fileID: 265889380}
+  _view: {fileID: 0}
+  _countRemove: 0
+  _cleanStraightPipePrefab: {fileID: 0}
+  _cleanCornerPipePrefab: {fileID: 0}
 --- !u!4 &1280832610
 Transform:
   m_ObjectHideFlags: 0
@@ -5788,16 +5792,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855995609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34f8a8b95bd6be4e9c292ab99a4436b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2df68eaff387aec47b1d99ed587d3974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _brushButton: {fileID: 39723600}
-  _hammerButton: {fileID: 774129327}
-  _brushCountText: {fileID: 1281625796}
-  _hammerCountText: {fileID: 81584086}
-  _cleanStraightPipePrefab: {fileID: 176041896990589198, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
-  _cleanCornerPipePrefab: {fileID: 8715840165578830690, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
-  image: {fileID: 1222811355}
+  brushButton: {fileID: 39723600}
+  hammerButton: {fileID: 774129327}
+  brushText: {fileID: 1281625796}
+  hammerText: {fileID: 81584086}
+  blockImage: {fileID: 1352247429}
 --- !u!1 &1937361093
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,42 +2,39 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BonusApplyPipe : MonoBehaviour, IBonusPipeView
+public class BonusApplyPipe : MonoBehaviour, IPipeView
 {
-    [Header("Тип трубы")]
-    [SerializeField] private PipeType _pipeType;
+    [SerializeField] private PipeType pipeType;
 
-    private BonusPipePresenter _presenter;
+    public PipeType PipeType => pipeType;
+    public bool IsPlayerPlaced { get; private set; } = false;
+    public bool IsDirty =>
+        pipeType == PipeType.DirtyStraightPipe ||
+        pipeType == PipeType.DirtyCornerPipe;
 
-    public event Action OnClicked;
+    public event Action<IPipeView> ClickedPipe;
 
-    public BonusPipePresenter Presenter => _presenter;
-
-    public void Awake()
+    public void SetAsPlayerPlaced()
     {
-        _presenter = new BonusPipePresenter(new BonusPipeModel(_pipeType), this);
+        IsPlayerPlaced = true;
+    }
+
+    public void DestroyPipe()
+    {
+        Destroy(gameObject);
     }
 
     private void Update()
     {
-        if (Mouse.current == null) return;
-
-        if (!Mouse.current.leftButton.wasPressedThisFrame) return;
+        if (!Mouse.current.leftButton.wasPressedThisFrame)
+            return;
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            OnClicked?.Invoke();
+            ClickedPipe?.Invoke(this);
         }
     }
-
-
-    public Vector3  Position => transform.position;
-    public Quaternion Rotation => transform.rotation;
-
-    public PipeType PipeType => _pipeType;
-
-    public void DestroyPipe () => Destroy(gameObject);
 }

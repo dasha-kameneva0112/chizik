@@ -59,16 +59,18 @@ public class GameField : MonoBehaviour
             if(finishPipe != null)
             {
                 var view = pipe.GetComponent<BonusApplyPipe>();
-                view.Presenter.SetFinishPipe();
+                //view.Presenter.SetFinishPipe();
             }
 
-            var pipeView = pipe.GetComponent<BonusApplyPipe>();
-            if (pipeView != null && pipeView.Presenter != null)
+            var bonus = pipe.GetComponent<BonusApplyPipe>();
+            if (bonus != null)
             {
-                pipeView.Presenter.SetAsPlayerPlaced();
+                bonus.SetAsPlayerPlaced();
             }
         }
     }
+
+    
 
     // начать размещение новой трубы
     public void StartPlacingPipe(Pipe pipePrefab)
@@ -170,10 +172,12 @@ public class GameField : MonoBehaviour
                 _grid[placeX + x, placeY + y] = _flyingPipe;
             }
         }
-        var pipeView = _flyingPipe.GetComponent<BonusApplyPipe>();
-        if (pipeView != null && pipeView.Presenter != null)
+
+        BonusApplyPipe bonus = _flyingPipe.GetComponent<BonusApplyPipe>();
+        if (bonus != null)
         {
-            pipeView.Presenter.SetAsPlayerPlaced();
+            bonus.SetAsPlayerPlaced();
+            bonus.ClickedPipe += BonusPipePresenter.Instance.OnPipeClicked;
         }
         // Труба больше не "летает" — игрок может взять новую
         _flyingPipe = null;
