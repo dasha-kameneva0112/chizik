@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 1063859152827270219}
   - component: {fileID: 7312254225839866601}
   - component: {fileID: 7235916764190425135}
+  - component: {fileID: 8908758791277241774}
   m_Layer: 0
   m_Name: Card_2
   m_TagString: Untagged
@@ -649,6 +650,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8908758791277241774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449177529646157888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: a820ff9aa025fcf4e94fdf0b1bb5947b, type: 3}
 --- !u!1 &5054754792759767218
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Scripts::ButtonSound
-  _soundClip: {fileID: 8300000, guid: b4621e3105b21e94f8e7ef38aa1a3275, type: 3}
+  _soundClip: {fileID: 8300000, guid: a820ff9aa025fcf4e94fdf0b1bb5947b, type: 3}
 --- !u!1 &6861274437145645525
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +810,7 @@ GameObject:
   - component: {fileID: 8825341454219319720}
   - component: {fileID: 2287229207926251156}
   - component: {fileID: 2292623737464642479}
+  - component: {fileID: 8514775494070112334}
   m_Layer: 0
   m_Name: Card_3
   m_TagString: Untagged
@@ -905,6 +920,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8514775494070112334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861274437145645525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6137b11105b3c34b8c05ec5c0d82394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Scripts::ButtonSound
+  _soundClip: {fileID: 8300000, guid: a820ff9aa025fcf4e94fdf0b1bb5947b, type: 3}
 --- !u!1 &7187870280027729688
 GameObject:
   m_ObjectHideFlags: 0

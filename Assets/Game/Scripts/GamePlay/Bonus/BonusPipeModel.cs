@@ -10,10 +10,13 @@ public class BonusPipeModel
 
     public bool IsBonusActive => IsBrushActive || IsHammerActive;
 
-    public BonusPipeModel(int brushCount, int hammerCount)
+    private InventoryModel _inventory;
+
+    public BonusPipeModel(int brushCount, int hammerCount, InventoryModel inventory)
     {
         BrushCount = brushCount;
         HammerCount = hammerCount;
+        _inventory = inventory;
     }
 
     public void ToggleBrush()
@@ -38,9 +41,10 @@ public class BonusPipeModel
         Deactivate();
     }
 
-    public void UseHammer()
+    public void UseHammer(PipeType type)
     {
         HammerCount--;
+        _inventory.Delete(type);
         Deactivate();
     }
 

@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _sfxLoose;
     [SerializeField] private AudioClip _sfxSponge;
     [SerializeField] private AudioClip _sfxHammer;
+    [SerializeField] private AudioClip _sfxFreeDelete;
 
     [SerializeField] private AudioClip _menuMusic;
 
@@ -96,6 +97,11 @@ public class AudioManager : MonoBehaviour
     public void TurnOnSfxHammer()
     {
         PlaySfx(_sfxHammer);
+    }
+
+    public void DeletePipe()
+    {
+        PlaySfx(_sfxFreeDelete);
     }
 
     public void PlayMusic(AudioClip clip)

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,12 +7,15 @@ public class PipeMovement : MonoBehaviour
     private Camera mainCamera;
     private SpriteRenderer _spriteRenderer;
     private BonusApplyPipe _applyPipe;
+    private AudioManager _audioManager;
 
     void Start()
     {
         mainCamera = Camera.main;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _applyPipe = GetComponent<BonusApplyPipe>();
+
+        _audioManager = AudioManager.Instance;
     }
 
     private void Update()
@@ -29,6 +33,7 @@ public class PipeMovement : MonoBehaviour
                     Destroy(gameObject);
                     AnyLevel.Instance.UpdateRemoveCount();
                     InventoryModel.Instance.Delete(_applyPipe.PipeType);
+                    _audioManager.DeletePipe();
                 }
             }
         }
