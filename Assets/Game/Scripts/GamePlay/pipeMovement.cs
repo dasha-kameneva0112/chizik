@@ -5,41 +5,44 @@ public class PipeMovement : MonoBehaviour
 {
     private Camera mainCamera;
     private SpriteRenderer _spriteRenderer;
+    private BonusApplyPipe _applyPipe;
 
     void Start()
     {
         mainCamera = Camera.main;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _applyPipe = GetComponent<BonusApplyPipe>();
     }
 
     private void Update()
     {
-        Vector2 worldPos = GetMouseWorldPosition();
+        Vector2 worldPos = GetMouseWorldPosition(); 
 
-        Rotate(worldPos);
+        Rotate(worldPos, _applyPipe);
 
         if (_spriteRenderer.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
             if (AnyLevel.Instance.RemoveCount > 0)
             {
-                BonusApplyPipe segment = GetComponent<BonusApplyPipe>();
-
-                if (segment.PipeType != PipeType.FinishPipe)
+                if (_applyPipe.PipeType != PipeType.FinishPipe)
                 {
                     Destroy(gameObject);
                     AnyLevel.Instance.UpdateRemoveCount();
-                    InventoryModel.Instance.Delete(segment.PipeType);
+                    InventoryModel.Instance.Delete(_applyPipe.PipeType);
                 }
             }
         }
     }
 
-    private void Rotate(Vector2 worldPos)
+    private void Rotate(Vector2 worldPos, BonusApplyPipe segment)
     {
         if (_spriteRenderer.bounds.Contains(worldPos) && Mouse.current.rightButton.wasPressedThisFrame)
         {
-            transform.Rotate(0, 0, 90);
-            return;
+            if (segment.PipeType != PipeType.FinishPipe)
+            {
+                transform.Rotate(0, 0, 90);
+                return;
+            }
         }
     }
 

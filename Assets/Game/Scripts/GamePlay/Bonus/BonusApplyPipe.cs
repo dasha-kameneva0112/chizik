@@ -14,6 +14,8 @@ public class BonusApplyPipe : MonoBehaviour, IPipeView
 
     public event Action<IPipeView> ClickedPipe;
 
+    public bool IsFinishPipe { get; private set; }
+
     public void SetAsPlayerPlaced()
     {
         IsPlayerPlaced = true;
@@ -22,6 +24,11 @@ public class BonusApplyPipe : MonoBehaviour, IPipeView
     public void DestroyPipe()
     {
         Destroy(gameObject);
+    }
+
+    public void SetFinishPipe()
+    {
+        IsFinishPipe = true;
     }
 
     private void Update()

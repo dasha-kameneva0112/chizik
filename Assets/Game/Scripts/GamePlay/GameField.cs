@@ -59,7 +59,7 @@ public class GameField : MonoBehaviour
             if(finishPipe != null)
             {
                 var view = pipe.GetComponent<BonusApplyPipe>();
-                //view.Presenter.SetFinishPipe();
+                view.SetFinishPipe();
             }
 
             var bonus = pipe.GetComponent<BonusApplyPipe>();

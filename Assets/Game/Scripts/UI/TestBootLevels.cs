@@ -36,13 +36,6 @@ public class TestBootLevels : MonoBehaviour
         new PopUpLossPresenter(_popUpLossView, _finishPipe);
 
         new AnyLevel(_anyLevelView, _countRemove, _gameSettings);
-
-        bool isHammerActive;
-        if (_countRemove > 0)
-        {
-            isHammerActive = false;
-        }    
-        else isHammerActive = true;
         
         var bonusPipeModel = new BonusPipeModel(5, 5);
         var presenter = new BonusPipePresenter(bonusPipeModel, _view, _cleanStraightPipePrefab, _cleanCornerPipePrefab);
