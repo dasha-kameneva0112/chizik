@@ -93,6 +93,42 @@ public class TestBootLevels : MonoBehaviour
                     { PipeType.CruciformPipe, 3 }
                 };
                 break;
+            case 5:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 6 },
+                    { PipeType.CornerPipe, 4 },
+                    { PipeType.TriangularPipe, 1 },
+                    { PipeType.CruciformPipe, 2 }
+                };
+                break;
+            case 6:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 8 },
+                    { PipeType.CornerPipe, 6 },
+                    { PipeType.TriangularPipe, 0 },
+                    { PipeType.CruciformPipe, 1 }
+                };
+                break;
+            case 7:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 6 },
+                    { PipeType.CornerPipe, 5 },
+                    { PipeType.TriangularPipe, 1 },
+                    { PipeType.CruciformPipe, 2 }
+                };
+                break;
+            case 8:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 8 },
+                    { PipeType.CornerPipe, 6 },
+                    { PipeType.TriangularPipe, 0 },
+                    { PipeType.CruciformPipe, 3 }
+                };
+                break;
         }
         return startCounts;
     }

@@ -34,6 +34,14 @@ public class ScenePresenter
             SceneManager.LoadScene("Level_3");
         if( numberOfCurrentLevel == 4)
             SceneManager.LoadScene("Level_4");
+        if (numberOfCurrentLevel == 5)
+            SceneManager.LoadScene("Level_5");
+        if (numberOfCurrentLevel == 6)
+            SceneManager.LoadScene("Level_6");
+        if (numberOfCurrentLevel == 7)
+            SceneManager.LoadScene("Level_7");
+        if (numberOfCurrentLevel == 8)
+            SceneManager.LoadScene("Level_8");
     }
 
     private void ChangeSkin()
