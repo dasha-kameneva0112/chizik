@@ -17,3 +17,7 @@ MonoBehaviour:
   icon: {fileID: -7347277767829423379, guid: d8d6d145601ea6845b3f87e7b79e9a58, type: 3}
   price: 0
   type: 2
+  levelSprite: {fileID: 0}
+  cornerPipe: {fileID: 3580289874254184329, guid: 19213624ca2b8b942badbc65fbd45ccd, type: 3}
+  triangularPipe: {fileID: 6808622306094271886, guid: c345861727c90754eb81d14530e3a5d9, type: 3}
+  cruciformPipe: {fileID: -4307623591464454488, guid: f3eb3f79793e16e4e8232fd12a1028af, type: 3}

@@ -3,6 +3,12 @@ using UnityEngine;
 public class Pipe : MonoBehaviour
 {
     public Vector2Int Size = Vector2Int.one;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    public void SetSkin(Sprite sprite)
+    {
+        spriteRenderer.sprite = sprite;
+    }
 
     private void OnDrawGizmosSelected()
     {

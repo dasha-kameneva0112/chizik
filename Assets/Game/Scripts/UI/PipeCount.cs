@@ -11,6 +11,7 @@ public class PipeCount : MonoBehaviour
     [SerializeField] private TMP_Text _text;
     [SerializeField] private Button _button;
     [SerializeField] private PipeType _type;
+    [SerializeField] private Image _pipeSkin;
 
     private void Start()
     {
@@ -50,5 +51,10 @@ public class PipeCount : MonoBehaviour
     public void Disable()
     {
         _button.interactable = false;
+    }
+
+    public void ChangePipeSkin(Sprite sprite)
+    {
+        _pipeSkin.sprite = sprite;
     }
 }
