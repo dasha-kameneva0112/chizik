@@ -35,13 +35,6 @@ public class GameSettings : MonoBehaviour
         _currentPipeSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Pipe);
 
         SkinManager.Instance.SelectionSkin += ChangeCurrentSkin;
-
-        SkinChanged?.Invoke();
-    }
-
-    void Start()
-    { 
-        //SkinManager.Instance.SelectionSkin += ChangeCurrentSkin;
     }
 
     private void ChangeCurrentSkin(SkinData skin)
