@@ -21,6 +21,7 @@ public class TestBoot : MonoBehaviour
     {
         _gameSettings = GameSettings.Instance;
         _levelProgress = LevelProgress.Instance;
+        new AudioManager();
 
         var bankModel = new BankModel(_startMoney);
         _bank = new BankPresenter(bankModel, _bankView);

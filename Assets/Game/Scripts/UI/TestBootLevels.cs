@@ -26,6 +26,8 @@ public class TestBootLevels : MonoBehaviour
         _levelProgress = LevelProgress.Instance;
         _bank = BankPresenter.Instance;
 
+        new AudioManager();
+
         var startCounts = GetStartCountOfPipeInInventory();
         var inventory = new InventoryModel(startCounts);
         new PipeInventoryPresenter(inventory, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);

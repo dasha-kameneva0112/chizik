@@ -29,6 +29,10 @@ public class GameSettings : MonoBehaviour, IGameSettings
         }
         _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        _currentChizikSkin = _chizikBasicSkin;
+        _currentBackgroundSkin = _backgroundBasicSkin;
+        _currentPipeSkin = _pipeBasicSkin;
     }
 
     private void Start()
