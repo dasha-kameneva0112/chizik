@@ -5961,6 +5961,7 @@ MonoBehaviour:
   _background: {fileID: 964657168}
   _blackout: {fileID: 1907170351}
   _rewardButton: {fileID: 120066486}
+  _inventory: {fileID: 770458852}
 --- !u!1 &1576622783
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class PopUpWinView : MonoBehaviour
     [SerializeField] private GameObject _background;
     [SerializeField] private GameObject _blackout;
     [SerializeField] private Button _rewardButton;
+    [SerializeField] private GameObject _inventory;
 
     public void HideAllPipes()
     {
@@ -26,6 +27,7 @@ public class PopUpWinView : MonoBehaviour
     public void SetWinBackground(Sprite background)
     {
         _background.GetComponent<Image>().sprite = background;
+        _inventory.gameObject.SetActive(false);
     }
 
     public void ShowReward(int reward)
