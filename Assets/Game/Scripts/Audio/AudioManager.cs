@@ -9,9 +9,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _sfxSource;
     [SerializeField] private Button _sfxButton;
     [SerializeField] private Button _musicButton;
-
     [SerializeField] private AudioClip _sfxVictory;
     [SerializeField] private AudioClip _sfxLoose;
+    [SerializeField] private AudioClip _sfxSponge;
+    [SerializeField] private AudioClip _sfxHammer;
 
     private static AudioManager _instance;
     private AudioButton _audioButtonSfx;
@@ -85,5 +86,15 @@ public class AudioManager : MonoBehaviour
     public void TurnOnSfxLoose()
     {
         PlaySfx(_sfxLoose);
+    }
+
+    public void TurnOnSfxSponge()
+    {
+        PlaySfx(_sfxSponge);
+    }
+
+    public void TurnOnSfxHammer()
+    {
+        PlaySfx(_sfxHammer);
     }
 }

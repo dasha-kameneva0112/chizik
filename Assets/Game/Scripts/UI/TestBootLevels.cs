@@ -40,7 +40,7 @@ public class TestBootLevels : MonoBehaviour
         var anyLevel = new AnyLevel(_anyLevelView, _countRemove, _gameSettings);
         
         var bonusPipeModel = new BonusPipeModel(5, 5);
-        var presenter = new BonusPipePresenter(bonusPipeModel, _view, _cleanStraightPipePrefab, _cleanCornerPipePrefab, anyLevel);
+        var presenter = new BonusPipePresenter(bonusPipeModel, _view, _cleanStraightPipePrefab, _cleanCornerPipePrefab, anyLevel, _audioManager);
 
         var pipes = FindObjectsOfType<BonusApplyPipe>();
         foreach (var pipe in pipes)

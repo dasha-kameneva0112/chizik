@@ -12,9 +12,10 @@ public class BonusPipePresenter
     private GameObject _cleanCornerPipePrefab;
     private AnyLevel _anyLevel;
     private bool _isRemoveEnded;
+    private AudioManager _audioManager;
 
     public BonusPipePresenter(BonusPipeModel model, BonusPipeView view,
-        GameObject cleanStraightPipePrefab, GameObject cleanCornerPipePrefab, AnyLevel anyLevel)
+        GameObject cleanStraightPipePrefab, GameObject cleanCornerPipePrefab, AnyLevel anyLevel, AudioManager audioManager)
     {
         _model = model;
         _view = view;
@@ -22,6 +23,7 @@ public class BonusPipePresenter
         _cleanCornerPipePrefab = cleanCornerPipePrefab;
         Instance = this;
         _anyLevel = anyLevel;
+        _audioManager = audioManager;
 
         if (_anyLevel.RemoveCount > 0)
             _isRemoveEnded = false;
@@ -49,6 +51,7 @@ public class BonusPipePresenter
 
         if (_model.IsBrushActive && pipe.IsDirty)
         {
+            _audioManager.TurnOnSfxSponge();
             _model.UseBrush();
 
             GameObject cleanPrefab = null;
@@ -81,6 +84,7 @@ public class BonusPipePresenter
 
         if (_model.IsHammerActive && !pipe.IsDirty && !pipe.IsFinishPipe)
         {
+            _audioManager.TurnOnSfxHammer();
             _model.UseHammer();
             pipe.DestroyPipe();
             RefreshView();

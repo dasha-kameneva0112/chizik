@@ -6225,6 +6225,8 @@ MonoBehaviour:
   _musicButton: {fileID: 1210541676}
   _sfxVictory: {fileID: 8300000, guid: 4221550ff772cd24da912377c4af87f7, type: 3}
   _sfxLoose: {fileID: 8300000, guid: fc2e82be267d2d842872b3e51ae60b35, type: 3}
+  _sfxSponge: {fileID: 8300000, guid: f949ddbac4caa3745a19a24cc0ed01b6, type: 3}
+  _sfxHammer: {fileID: 8300000, guid: 117f798e41e044c41b041f04b412942c, type: 3}
 --- !u!4 &1783586264
 Transform:
   m_ObjectHideFlags: 0
