@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6802182195439193649}
   - component: {fileID: -6564413831507282569}
   - component: {fileID: -5360619163059410087}
-  - component: {fileID: 1232510967037643368}
   - component: {fileID: 8791694943611875223}
   - component: {fileID: 6611657328562190578}
   m_Layer: 0
@@ -111,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
   spriteRenderer: {fileID: 7596847225100676727}
+  pipeType: 0
+  baseDirections: []
 --- !u!61 &-6564413831507282569
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,22 +204,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.1903601}
   m_EdgeRadius: 0
---- !u!114 &1232510967037643368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176041896990589198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9545fdef276c742803750c0f196ad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipeType: 0
-  baseDirections:
-  - {x: -1, y: 0}
-  - {x: 1, y: 0}
 --- !u!114 &8791694943611875223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +309,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9202335561012944314, guid: a07e739e52df8b441a8663f1fdc7d2e9, type: 3}
+  m_Sprite: {fileID: -7347277767829423379, guid: d8d6d145601ea6845b3f87e7b79e9a58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

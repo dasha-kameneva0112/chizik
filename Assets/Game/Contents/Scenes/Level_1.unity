@@ -609,13 +609,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 162715056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeCount
   _text: {fileID: 1705197041}
   _button: {fileID: 162715059}
   _type: 1
-  _pipeSkin: {fileID: 0}
+  _pipeSkin: {fileID: 572400561}
 --- !u!114 &162715059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,13 +1063,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 280555128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeCount
   _text: {fileID: 793036415}
   _button: {fileID: 280555131}
   _type: 2
-  _pipeSkin: {fileID: 0}
+  _pipeSkin: {fileID: 2092099014}
 --- !u!114 &280555131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 660002481219595424, guid: 6cfec5f9e321fa549b4ff1b731ad5181, type: 3}
+  m_Sprite: {fileID: 660002481219595424, guid: 31c8f777313e6134d92ee5456a9e3787, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 660002481219595424, guid: 6cfec5f9e321fa549b4ff1b731ad5181, type: 3}
+  m_Sprite: {fileID: 660002481219595424, guid: 31c8f777313e6134d92ee5456a9e3787, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3861,13 +3861,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463294424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeCount
   _text: {fileID: 1900045510}
   _button: {fileID: 1463294427}
   _type: 3
-  _pipeSkin: {fileID: 0}
+  _pipeSkin: {fileID: 1470009998}
 --- !u!114 &1463294427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4129,7 +4129,7 @@ GameObject:
   - component: {fileID: 1475309510}
   - component: {fileID: 1475309509}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4320,10 +4320,10 @@ GameObject:
   - component: {fileID: 1515171805}
   - component: {fileID: 1515171804}
   - component: {fileID: 1515171803}
-  - component: {fileID: 1515171802}
-  - component: {fileID: 1515171801}
   - component: {fileID: 1515171800}
   - component: {fileID: 1515171799}
+  - component: {fileID: 1515171807}
+  - component: {fileID: 1515171806}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -4393,43 +4393,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515171797}
   m_CullTransparentMesh: 1
---- !u!114 &1515171801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515171797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db88faf64f159a14db8ae4c70cc6c85c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeInInventory
-  _countStraightPipe: 2
-  _countCornerPipe: 2
-  _countTriangularPipe: 1
-  _countCruciformPipe: 10
---- !u!114 &1515171802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515171797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  _straightPipe: {fileID: 1620898939}
-  _cornerPipe: {fileID: 162715058}
-  _triangularPipe: {fileID: 280555130}
-  _cruciformPipe: {fileID: 1463294426}
-  _straightPipePrefab: {fileID: 6802182195439193649, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
-  _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
-  _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
-  _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
-  _gameField: {fileID: 1492018743}
 --- !u!114 &1515171803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4493,6 +4456,43 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1515171806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515171797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  _countStraightPipe: 3
+  _countCornerPipe: 3
+  _countTriangularPipe: 2
+  _countCruciformPipe: 5
+--- !u!114 &1515171807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515171797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38e3ba157046fa42a5f174325c1ca9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeInventoryUI
+  _straightPipe: {fileID: 1620898939}
+  _cornerPipe: {fileID: 162715058}
+  _triangularPipe: {fileID: 280555130}
+  _cruciformPipe: {fileID: 1463294426}
+  _straightPipePrefab: {fileID: 6802182195439193649, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
+  _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
+  _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
+  _gameField: {fileID: 1492018743}
 --- !u!1 &1569670172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,13 +4801,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1620898937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeCount
   _text: {fileID: 604633718}
   _button: {fileID: 1620898940}
   _type: 0
-  _pipeSkin: {fileID: 0}
+  _pipeSkin: {fileID: 346897748}
 --- !u!114 &1620898940
 MonoBehaviour:
   m_ObjectHideFlags: 0

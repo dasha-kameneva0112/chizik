@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3973545818212796256, guid: 7751c784414978f44809a26f5e70c259, type: 3}
+  m_Sprite: {fileID: 3580289874254184329, guid: 19213624ca2b8b942badbc65fbd45ccd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: -8346448366835997762}
   - component: {fileID: 7599763758303902572}
   - component: {fileID: 3305378472781766354}
-  - component: {fileID: 5072656979226016093}
   - component: {fileID: -8812639299230404571}
   - component: {fileID: 9044604941700482083}
   m_Layer: 0
@@ -201,6 +200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
   spriteRenderer: {fileID: 4550336315492666665}
+  pipeType: 0
+  baseDirections: []
 --- !u!60 &7599763758303902572
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -307,22 +308,6 @@ PolygonCollider2D:
       - {x: 0.49999994, y: -0.1885781}
       - {x: 0.50196934, y: -0.13785012}
   m_UseDelaunayMesh: 0
---- !u!114 &5072656979226016093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7844223947536011051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9545fdef276c742803750c0f196ad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipeType: 0
-  baseDirections:
-  - {x: 0, y: 1}
-  - {x: 1, y: 0}
 --- !u!114 &-8812639299230404571
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,12 +56,6 @@ public class PopUpEndOfGame : MonoBehaviour
     {
         // Bank.Instance.AddMoney(_countOfReward);
         _reward.gameObject.SetActive(false);
-        Canvas canvas = _reward.GetComponentInParent<Canvas>();
-        if (canvas != null)
-        {
-            canvas.sortingOrder = 999;
-            canvas.overrideSorting = true; // Игнорировать родительский sorting
-        }
         CreatePopUpWin();
     }
 

@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 660002481219595424, guid: 6cfec5f9e321fa549b4ff1b731ad5181, type: 3}
+  m_Sprite: {fileID: 660002481219595424, guid: 31c8f777313e6134d92ee5456a9e3787, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 660002481219595424, guid: 6cfec5f9e321fa549b4ff1b731ad5181, type: 3}
+  m_Sprite: {fileID: 660002481219595424, guid: 31c8f777313e6134d92ee5456a9e3787, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3245,7 +3245,7 @@ GameObject:
   - component: {fileID: 991939910}
   - component: {fileID: 991939909}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3692,7 +3692,7 @@ GameObject:
   - component: {fileID: 1126734267}
   - component: {fileID: 1126734266}
   - component: {fileID: 1126734265}
-  - component: {fileID: 1126734264}
+  - component: {fileID: 1126734268}
   m_Layer: 5
   m_Name: CruciformPipe
   m_TagString: Untagged
@@ -3722,22 +3722,6 @@ RectTransform:
   m_AnchoredPosition: {x: -106, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1126734264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126734262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 803998430}
-  _button: {fileID: 1126734265}
-  _type: 3
-  _pipeSkin: {fileID: 1712694231}
 --- !u!114 &1126734265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3832,6 +3816,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126734262}
   m_CullTransparentMesh: 1
+--- !u!114 &1126734268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126734262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 803998430}
+  _button: {fileID: 1126734265}
+  _type: 3
+  _pipeSkin: {fileID: 1712694231}
 --- !u!1 &1193712989
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,7 +5772,7 @@ GameObject:
   - component: {fileID: 2046556183}
   - component: {fileID: 2046556182}
   - component: {fileID: 2046556181}
-  - component: {fileID: 2046556180}
+  - component: {fileID: 2046556184}
   m_Layer: 5
   m_Name: StraightPipe
   m_TagString: Untagged
@@ -5802,22 +5802,6 @@ RectTransform:
   m_AnchoredPosition: {x: 106, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2046556180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046556178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 1210456941}
-  _button: {fileID: 2046556181}
-  _type: 0
-  _pipeSkin: {fileID: 298012960}
 --- !u!114 &2046556181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5912,6 +5896,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046556178}
   m_CullTransparentMesh: 1
+--- !u!114 &2046556184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046556178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 1210456941}
+  _button: {fileID: 2046556181}
+  _type: 0
+  _pipeSkin: {fileID: 298012960}
 --- !u!1 &2082542696
 GameObject:
   m_ObjectHideFlags: 0
@@ -5924,10 +5924,10 @@ GameObject:
   - component: {fileID: 2082542704}
   - component: {fileID: 2082542703}
   - component: {fileID: 2082542702}
-  - component: {fileID: 2082542701}
-  - component: {fileID: 2082542700}
   - component: {fileID: 2082542699}
   - component: {fileID: 2082542698}
+  - component: {fileID: 2082542706}
+  - component: {fileID: 2082542705}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -5997,43 +5997,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082542696}
   m_CullTransparentMesh: 1
---- !u!114 &2082542700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082542696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db88faf64f159a14db8ae4c70cc6c85c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeInInventory
-  _countStraightPipe: 3
-  _countCornerPipe: 4
-  _countTriangularPipe: 1
-  _countCruciformPipe: 2
---- !u!114 &2082542701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082542696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  _straightPipe: {fileID: 2046556180}
-  _cornerPipe: {fileID: 2133712925}
-  _triangularPipe: {fileID: 2089170226}
-  _cruciformPipe: {fileID: 1126734264}
-  _straightPipePrefab: {fileID: 6802182195439193649, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
-  _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
-  _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
-  _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
-  _gameField: {fileID: 2011296084}
 --- !u!114 &2082542702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6097,6 +6060,43 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2082542705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082542696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  _countStraightPipe: 3
+  _countCornerPipe: 4
+  _countTriangularPipe: 2
+  _countCruciformPipe: 4
+--- !u!114 &2082542706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082542696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38e3ba157046fa42a5f174325c1ca9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeInventoryUI
+  _straightPipe: {fileID: 2046556184}
+  _cornerPipe: {fileID: 2133712929}
+  _triangularPipe: {fileID: 2089170230}
+  _cruciformPipe: {fileID: 1126734268}
+  _straightPipePrefab: {fileID: 6802182195439193649, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
+  _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
+  _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
+  _gameField: {fileID: 2011296084}
 --- !u!1 &2089170224
 GameObject:
   m_ObjectHideFlags: 0
@@ -6109,7 +6109,7 @@ GameObject:
   - component: {fileID: 2089170229}
   - component: {fileID: 2089170228}
   - component: {fileID: 2089170227}
-  - component: {fileID: 2089170226}
+  - component: {fileID: 2089170230}
   m_Layer: 5
   m_Name: TriangularPipe
   m_TagString: Untagged
@@ -6139,22 +6139,6 @@ RectTransform:
   m_AnchoredPosition: {x: -336, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2089170226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089170224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 2125090552}
-  _button: {fileID: 2089170227}
-  _type: 2
-  _pipeSkin: {fileID: 1461049949}
 --- !u!114 &2089170227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6249,6 +6233,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089170224}
   m_CullTransparentMesh: 1
+--- !u!114 &2089170230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089170224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 2125090552}
+  _button: {fileID: 2089170227}
+  _type: 2
+  _pipeSkin: {fileID: 1461049949}
 --- !u!1 &2125090550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,7 +6397,7 @@ GameObject:
   - component: {fileID: 2133712928}
   - component: {fileID: 2133712927}
   - component: {fileID: 2133712926}
-  - component: {fileID: 2133712925}
+  - component: {fileID: 2133712929}
   m_Layer: 5
   m_Name: CornerPipe
   m_TagString: Untagged
@@ -6427,22 +6427,6 @@ RectTransform:
   m_AnchoredPosition: {x: 336, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2133712925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133712923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 453273318}
-  _button: {fileID: 2133712926}
-  _type: 1
-  _pipeSkin: {fileID: 172230290}
 --- !u!114 &2133712926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6537,6 +6521,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133712923}
   m_CullTransparentMesh: 1
+--- !u!114 &2133712929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133712923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 453273318}
+  _button: {fileID: 2133712926}
+  _type: 1
+  _pipeSkin: {fileID: 172230290}
 --- !u!1 &2147213131
 GameObject:
   m_ObjectHideFlags: 0
