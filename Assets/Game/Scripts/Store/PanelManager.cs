@@ -37,6 +37,8 @@ public class PanelManager : MonoBehaviour
         SkinManager.Instance.RegisterSkins(_chizikSkins);
         SkinManager.Instance.RegisterSkins(_backgroundSkins);
         SkinManager.Instance.RegisterSkins(_pipeSkins);
+
+        SkinManager.Instance.LoadSkinsFromPrefs();
     }
 
     private void ShowSkins(SkinData[] skins)
