@@ -9,6 +9,11 @@ public class GameSettings : MonoBehaviour, IGameSettings
     public SkinData CurrentChizikSkin => _currentChizikSkin;
     public SkinData CurrentBackgroundSkin => _currentBackgroundSkin;
     public SkinData CurrentPipeSkin => _currentPipeSkin;
+    public int CountOfBrush => _countOfBrush;
+    public int CountOfHammer => _countOfHammer;
+
+    [SerializeField] private int _countOfBrush;
+    [SerializeField] private int _countOfHammer;
 
     [Header("Basic skins")]
     [SerializeField] private SkinData _chizikBasicSkin;
@@ -61,5 +66,15 @@ public class GameSettings : MonoBehaviour, IGameSettings
         }
 
         SkinChanged?.Invoke();
+    }
+
+    public void UpdateCountOfSponge()
+    {
+        _countOfBrush++;
+    }
+
+    public void UpdateCountOfHammer()
+    {
+        _countOfHammer++;
     }
 }

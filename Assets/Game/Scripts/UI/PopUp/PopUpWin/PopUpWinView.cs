@@ -15,6 +15,7 @@ public class PopUpWinView : MonoBehaviour
     [SerializeField] private GameObject _blackout;
     [SerializeField] private Button _rewardButton;
     [SerializeField] private GameObject _inventory;
+    [SerializeField] private GameObject _cardsPrefab;
 
     public void HideAllPipes()
     {
@@ -40,6 +41,11 @@ public class PopUpWinView : MonoBehaviour
     public void HideReward()
     {
         _rewardButton.gameObject.SetActive(false);
+    }
+
+    public GameObject CreateCards()
+    {
+        return Instantiate(_cardsPrefab, _parentForPopUp.transform);
     }
 
     public void CreatePopUpWin(int level)

@@ -7,6 +7,9 @@ public class PopUpWinPresenter
     private readonly FinishPipe _finishPipe;
     private readonly IGameSettings _gameSettings;
     private readonly AudioManager _audioManager;
+    private CardsModel _cardsModel;
+    private PopUpCard _popUpCard;
+    private CardsPresentor _cardsPresentor;
 
     public PopUpWinPresenter(PopUpWinModel popUpWinModel, PopUpWinView popUpWinView, FinishPipe finishPipe, IGameSettings gameSettings, AudioManager audioManager)
     {
@@ -18,6 +21,7 @@ public class PopUpWinPresenter
 
         _finishPipe.OnLevelCompleted += OnWin;
         _popUpWinView.RewardClicked += OnRewardClicked;
+        //_popUpWinView.PrizeClicked += OnPrizeClicked;
         _popUpWinView.NextLevelClicked += SwitchToNextLevel;
         _popUpWinView.MainMenuPopUpWinClicked += SwitchToMainMenu;
     }
@@ -35,6 +39,22 @@ public class PopUpWinPresenter
     {
         _popUpWinModel.AddReward();
         _popUpWinView.HideReward();
+        if(_popUpWinModel.AbilityGetPrize())
+        {
+            _cardsModel = _popUpWinModel.CreateCardsModel();
+            _popUpCard = _popUpWinView.CreateCards().GetComponent<PopUpCard>();
+            _cardsPresentor = new CardsPresentor(_cardsModel, _popUpCard);
+        }
+        else
+        {
+            _popUpWinView.CreatePopUpWin(_popUpWinModel.NumberCurrentLevel);
+        }
+    }
+
+    public void OnPrizeClicked()
+    {
+        //_popUpWinModel.AddPrize();
+        //_popUpWinView.HidePrize();
         _popUpWinView.CreatePopUpWin(_popUpWinModel.NumberCurrentLevel);
     }
 

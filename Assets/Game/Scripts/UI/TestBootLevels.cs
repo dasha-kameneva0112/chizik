@@ -32,14 +32,14 @@ public class TestBootLevels : MonoBehaviour
         var inventory = new InventoryModel(startCounts);
         new PipeInventoryPresenter(inventory, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
 
-        var popUpWinModel = new PopUpWinModel(_bank, _levelProgress, 10);
+        var popUpWinModel = new PopUpWinModel(_bank, _gameSettings, _levelProgress, 10);
         new PopUpWinPresenter(popUpWinModel, _popUpWinView, _finishPipe, _gameSettings, _audioManager);
 
         new PopUpLossPresenter(_popUpLossView, _finishPipe, _audioManager);
 
         var anyLevel = new AnyLevel(_anyLevelView, _countRemove, _gameSettings);
         
-        var bonusPipeModel = new BonusPipeModel(5, 5);
+        var bonusPipeModel = new BonusPipeModel(_gameSettings.CountOfBrush, _gameSettings.CountOfHammer);
         var presenter = new BonusPipePresenter(bonusPipeModel, _view, _cleanStraightPipePrefab, _cleanCornerPipePrefab, anyLevel, _audioManager);
 
         var pipes = FindObjectsOfType<BonusApplyPipe>();

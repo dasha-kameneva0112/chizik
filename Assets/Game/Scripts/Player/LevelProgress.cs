@@ -1,5 +1,6 @@
 using System;
 using UnityEditor;
+using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,12 +8,17 @@ public class LevelProgress : MonoBehaviour, ILevelProgress
 {
     public static LevelProgress Instance => _instance;
     public int CurrentLevelNumber => _currentLevelNumber;
+    public bool AbilityToGetPrize => _abilityToGetPrize;
 
     [SerializeField] private int _startLevelNumber;
+    [SerializeField] private int _requirementForGettingPrize;
+
     private int _currentLevelNumber;
     private const string PrefKey = "LevelProgress_CurrentLevel";
 
     private static LevelProgress _instance;
+    private int _gettingPrize = 0;
+    private bool _abilityToGetPrize = false;
 
     private void Awake()
     {
@@ -49,7 +55,18 @@ public class LevelProgress : MonoBehaviour, ILevelProgress
         if (currentScene == _currentLevelNumber.ToString())
         {
             _currentLevelNumber++;
+            _gettingPrize++;
             SaveToPref();
+        }
+
+        if(_gettingPrize == _requirementForGettingPrize)
+        {
+            _abilityToGetPrize = true;
+            _gettingPrize = 0;
+        }
+        else
+        {
+            _abilityToGetPrize = false;
         }
     }
 
