@@ -4459,6 +4459,10 @@ MonoBehaviour:
   _anyLevelView: {fileID: 265889380}
   _view: {fileID: 1855995613}
   _countRemove: 2
+  _allPrizeDatas:
+  - {fileID: 11400000, guid: 1b3b70cd8366acc45a6ca69573ccae5b, type: 2}
+  - {fileID: 11400000, guid: a3ef5529b4c881c4f92163b9225c4713, type: 2}
+  - {fileID: 11400000, guid: f588c27e20d1eb5449690a4772ea747d, type: 2}
   _cleanStraightPipePrefab: {fileID: 176041896990589198, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
   _cleanCornerPipePrefab: {fileID: 7844223947536011051, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
 --- !u!4 &1280832610
