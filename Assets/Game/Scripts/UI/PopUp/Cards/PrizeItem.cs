@@ -17,13 +17,12 @@ public class PrizeItem : MonoBehaviour
         _type = _data.type;
         _count.text = "+" + _data.count;
         _icon.sprite = _data.icon;
+
         //_icon.SetNativeSize();
         //if (_type != PrizeType.Money)
         //{
-        //    
         //    float multiplier = 4.0f;
         //    _icon.rectTransform.sizeDelta *= multiplier;
         //}
-
     }
 }

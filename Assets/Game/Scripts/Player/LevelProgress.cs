@@ -48,6 +48,11 @@ public class LevelProgress : MonoBehaviour, ILevelProgress
         }
     }
 
+    public void SetRequirementForGettingPrize(int c)
+    {
+        _requirementForGettingPrize = c;
+    }
+
     public void UpdateNumberLevel()
     {
         string currentScene = SceneManager.GetActiveScene().name;
@@ -78,6 +83,7 @@ public class LevelProgress : MonoBehaviour, ILevelProgress
     private void ResetLevels()
     {
         _currentLevelNumber = _startLevelNumber;
+        _gettingPrize = 0;
 
         PlayerPrefs.DeleteKey("currentLevel");
         Debug.Log(_currentLevelNumber);
