@@ -67,7 +67,7 @@ public class BonusPipePresenter
                 if (cleanPrefab != null)
                 {
                     var bonus = _view.ReplaceWithCleanPipe(cleanPrefab, bonusPipe);
-                    if(bonus != null)
+                    if (bonus != null)
                     {
                         bonus.ClickedPipe += OnPipeClicked;
                     }
@@ -79,7 +79,7 @@ public class BonusPipePresenter
             return;
         }
 
-        if (_model.IsHammerActive && !pipe.IsDirty)
+        if (_model.IsHammerActive && !pipe.IsDirty && !pipe.IsFinishPipe)
         {
             _model.UseHammer();
             pipe.DestroyPipe();

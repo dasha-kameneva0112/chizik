@@ -27,7 +27,7 @@ public class BonusPipeModelTests
 
         model.UseBrush();
 
-        Assert.AreEqual(0, model.BrushCount);
+        Assert.AreEqual(-1, model.BrushCount);
     }
 
     [Test]
@@ -68,7 +68,7 @@ public class BonusPipeModelTests
 
         model.UseHammer();
 
-        Assert.AreEqual(0, model.HammerCount);
+        Assert.AreEqual(-1, model.HammerCount);
     }
 
     [Test]

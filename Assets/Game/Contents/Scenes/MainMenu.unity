@@ -6038,7 +6038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a844a07d18feb40968b126aae37f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitButton
-  _confirmPanel: {fileID: 0}
+  _confirmPanel: {fileID: 2056772436}
 --- !u!1 &1803502765
 GameObject:
   m_ObjectHideFlags: 0
