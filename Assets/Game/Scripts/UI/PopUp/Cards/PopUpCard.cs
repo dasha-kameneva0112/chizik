@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public class PopUpCard : MonoBehaviour
 {
-    public event Action CardSelected;
+    public event Action FirstCardSelected;
+    public event Action SecondCardSelected;
+    public event Action PreviousCardSelected;
 
     [SerializeField] private Button _firstCard;
     [SerializeField] private Button _secondCard;

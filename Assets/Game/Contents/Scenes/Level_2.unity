@@ -2010,6 +2010,7 @@ MonoBehaviour:
   _blackout: {fileID: 510382893}
   _rewardButton: {fileID: 311373839}
   _inventory: {fileID: 2082542696}
+  _cardsPrefab: {fileID: 7187870280027729688, guid: 76df71ff12c8a6449b9dd0df7769b6fa, type: 3}
 --- !u!1 &574725173
 GameObject:
   m_ObjectHideFlags: 0

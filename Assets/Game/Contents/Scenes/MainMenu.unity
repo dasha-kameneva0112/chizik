@@ -2729,6 +2729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelProgress
   _startLevelNumber: 1
+  _requirementForGettingPrize: 0
 --- !u!4 &798028138
 Transform:
   m_ObjectHideFlags: 0
@@ -4809,6 +4810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c6d9131c7379344b872333f1d852da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSettings
+  _countOfBrush: 3
+  _countOfHammer: 3
   _chizikBasicSkin: {fileID: 11400000, guid: 0137c8a3533b32842b73f78f716506f6, type: 2}
   _backgroundBasicSkin: {fileID: 11400000, guid: fb94a5ac02085fe4ba76847a24eef26f, type: 2}
   _pipeBasicSkin: {fileID: 11400000, guid: 62f88e4fd451a1841ad76e84f9380246, type: 2}

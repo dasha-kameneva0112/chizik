@@ -5493,6 +5493,7 @@ MonoBehaviour:
   _blackout: {fileID: 689023517}
   _rewardButton: {fileID: 475948864}
   _inventory: {fileID: 1515171797}
+  _cardsPrefab: {fileID: 7187870280027729688, guid: 76df71ff12c8a6449b9dd0df7769b6fa, type: 3}
 --- !u!1 &1788220767
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class CardsPresentor
         _cardsModel = cardsModel;
         _popUpCard = popUpCard;
 
+        //_popUpCard.FirstCardSelected += 
     }
+
 
 }
