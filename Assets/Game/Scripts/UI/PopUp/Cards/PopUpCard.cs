@@ -28,7 +28,7 @@ public class PopUpCard : MonoBehaviour
         ChangeSizeCards(numberOfCard);
         // замнить картинку
         _button.gameObject.SetActive(true);
-        CardSelected?.Invoke();
+        //CardSelected?.Invoke();
     }
 
     private void ChangeSizeCards(int number)
