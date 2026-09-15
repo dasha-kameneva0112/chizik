@@ -29,10 +29,20 @@ public class pipeMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         {
             rightClick();
         }
+
+        if (Keyboard.current != null && Keyboard.current.backspaceKey.wasPressedThisFrame)
+        {
+            backSpaceClick();
+        }
     }
 
     void rightClick()
     {
         transform.Rotate(0, 0, 90, Space.Self);
+    }
+
+    void backSpaceClick()
+    {
+        Destroy(gameObject);
     }
 }
