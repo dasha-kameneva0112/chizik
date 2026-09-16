@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,10 @@ public class Levels : MonoBehaviour
     [SerializeField] private Sprite _currentLevel;
     [SerializeField] private Sprite _lockedLevel;
 
+    [Header("Text Colors")]
+    [SerializeField] private Color _completedTextColor;  
+    [SerializeField] private Color _lockedTextColor;       
+
     private int _numberCurrentLevel = 3; 
 
     private void Start()
@@ -31,27 +36,30 @@ public class Levels : MonoBehaviour
         _fourthLevelButton.onClick.AddListener(OnFourthLevelButtonClicked);
         _backButton.onClick.AddListener(OnBackButtonClicked);
 
-        UpdateSptireOfLevel(_firstLevelButton, 1);
-        UpdateSptireOfLevel(_secondLevelButton, 2);
-        UpdateSptireOfLevel(_thirdLevelButton, 3);
-        UpdateSptireOfLevel(_fourthLevelButton, 4); 
+        UpdateSpriteOfLevel(_firstLevelButton, 1);
+        UpdateSpriteOfLevel(_secondLevelButton, 2);
+        UpdateSpriteOfLevel(_thirdLevelButton, 3);
+        UpdateSpriteOfLevel(_fourthLevelButton, 4); 
     }
 
-    private void UpdateSptireOfLevel(Button levelButton, int number)
+    private void UpdateSpriteOfLevel(Button levelButton, int number)
     {
         if(number < _numberCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _completedLevel;
+            levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _completedTextColor;
             levelButton.interactable = true;
         }
         if(number > _numberCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _lockedLevel;
+            levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _lockedTextColor;
             levelButton.interactable = false;
         }
         if(number == _numberCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _currentLevel;
+            levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _completedTextColor;
             levelButton.interactable = true;
         }
     }
