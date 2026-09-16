@@ -1,0 +1,68 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Inventory : MonoBehaviour
+{
+    [SerializeField] private PipeCount _straightPipe;
+    [SerializeField] private PipeCount _cornerPipe;
+    [SerializeField] private PipeCount _triangularPipe;
+    [SerializeField] private PipeCount _cruciformPipe;
+
+    [Header("Pipe Prefabs")]
+    [SerializeField] private Pipe _straightPipePrefab;
+    [SerializeField] private Pipe _cornerPipePrefab;
+    [SerializeField] private Pipe _triangularPipePrefab;
+    [SerializeField] private Pipe _cruciformPipePrefab;
+
+    [SerializeField] private GameField _gameField;
+
+    void Start()
+    {
+        _straightPipe.Button.onClick.AddListener(OnStraightPipeCLicked);
+        _cornerPipe.Button.onClick.AddListener(OnCornerPipeClicked);
+        _triangularPipe.Button.onClick.AddListener(OnTriangularPipeClicked);
+        _cruciformPipe.Button.onClick.AddListener(OnCruciformPipeClicked);
+
+        _straightPipe.Enable();
+        _cornerPipe.Enable();
+        _triangularPipe.Enable();
+        _cruciformPipe.Enable();
+    }
+
+    public void OnStraightPipeCLicked()
+    {
+        if(PipeInInventory.Instance.IsEnough(PipeType.StraightPipe))
+        {
+            PipeInInventory.Instance.Use(PipeType.StraightPipe);
+            _gameField.StartPlacingPipe(_straightPipePrefab);
+        }
+    }
+
+    public void OnCornerPipeClicked()
+    {
+        if (PipeInInventory.Instance.IsEnough(PipeType.CornerPipe))
+        {
+            PipeInInventory.Instance.Use(PipeType.CornerPipe);
+            _gameField.StartPlacingPipe(_cornerPipePrefab);
+        }
+    }
+
+    public void OnTriangularPipeClicked()
+    {
+        if (PipeInInventory.Instance.IsEnough(PipeType.TriangularPipe))
+        {
+            PipeInInventory.Instance.Use(PipeType.TriangularPipe);
+            _gameField.StartPlacingPipe(_triangularPipePrefab);
+        }
+    }
+
+    public void OnCruciformPipeClicked()
+    {
+        if (PipeInInventory.Instance.IsEnough(PipeType.CruciformPipe))
+        {
+            PipeInInventory.Instance.Use(PipeType.CruciformPipe);
+            _gameField.StartPlacingPipe(_cruciformPipePrefab);
+        }
+    }
+}
