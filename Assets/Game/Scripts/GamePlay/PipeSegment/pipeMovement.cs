@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.InputSystem;
 
-public class dragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class pipeMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
@@ -21,4 +22,17 @@ public class dragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnEndDrag(PointerEventData eventData) { }
 
     public void OnPointerDown(PointerEventData eventData) { }
+
+    void Update()
+    {
+        if (Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            rightClick();
+        }
+    }
+
+    void rightClick()
+    {
+        transform.Rotate(0, 0, 90, Space.Self);
+    }
 }
