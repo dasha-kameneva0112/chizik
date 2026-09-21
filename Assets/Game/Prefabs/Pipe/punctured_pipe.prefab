@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2063237705040631634}
   - component: {fileID: 7616324157676888062}
   - component: {fileID: 6802182195439193649}
+  - component: {fileID: -5755304880363355319}
   m_Layer: 0
   m_Name: punctured_pipe
   m_TagString: Untagged
@@ -105,6 +106,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
+--- !u!114 &-5755304880363355319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176041896990589198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::pipeMovement
 --- !u!1 &4177443779113937707
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 6174363064084570695}
   - component: {fileID: 6025690132475729487}
   - component: {fileID: -8346448366835997762}
+  - component: {fileID: -6983973144440382478}
   m_Layer: 0
   m_Name: angle_pipe
   m_TagString: Untagged
@@ -195,5 +196,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
-  normalSortingOrder: 0
-  flyingSortingOrder: 1000
+--- !u!114 &-6983973144440382478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844223947536011051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::pipeMovement
+  canvas: {fileID: 0}
