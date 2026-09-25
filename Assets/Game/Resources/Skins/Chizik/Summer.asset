@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
   m_Name: Summer
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  id: 2
+  id: chizik_summer
   displayName: Summer
   icon: {fileID: -6239856434688706780, guid: c45ef1d9c0814b445b5bca835342d0c9, type: 3}
   price: 100

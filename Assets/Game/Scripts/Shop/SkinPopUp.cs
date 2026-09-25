@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework.Interfaces;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,15 +7,18 @@ using UnityEngine.UI;
 
 public class SkinPopUp : MonoBehaviour
 {
-    public event Action<SkinData> BuyButtonClick;
-    public event Action<SkinData> SelectButtonClick;
+    public event Action BuyButtonClick;
+    public event Action SelectButtonClick;
     public event Action CloseButtonClick;
+    public event Action OnUpdateNeeded;
 
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _button;
     [SerializeField] private Button _closeButton;
+
+    [SerializeField] private float _enableTabPositionForY;
 
     private SkinData _skinData;
 
@@ -29,17 +33,44 @@ public class SkinPopUp : MonoBehaviour
         _skinData = skin;
         _icon.sprite = skin.icon;
 
-        // 1. Сначала ставим родной размер спрайта
         _icon.SetNativeSize();
-
-        // 2. Потом увеличиваем в нужное количество раз (например в 2.5 раза)
-        float multiplier = 2.5f; // подбери под себя: 2.5f, 2.8f, 3f — как нравится
+        float multiplier = 2.5f; 
         _icon.rectTransform.sizeDelta *= multiplier;
 
         _name.text = skin.displayName;
-        _price.text = skin.price + " $";
 
-        // изменить состояние кнопки
+        Status status = SkinManager.Instance.GetStatus(skin);
+        if(status == Status.NotBought)
+        {
+            _button.GetComponentInChildren<TextMeshProUGUI>().text = "BUY";
+            _price.text = skin.price + " $";
+        }
+        else if(status == Status.Purchased)
+        {
+            _button.GetComponentInChildren<TextMeshProUGUI>().text = "SELECT";
+            _button.interactable = true; 
+            _price.gameObject.SetActive(false);
+
+            Vector3 pos = _name.rectTransform.anchoredPosition;
+            pos.y = _enableTabPositionForY;
+            _name.rectTransform.anchoredPosition = pos;
+
+            multiplier = 1.2f;
+            _name.rectTransform.localScale *= multiplier;
+        }
+        else
+        {
+            _button.GetComponentInChildren<TextMeshProUGUI>().text = "SELECT";
+            _button.interactable = false;
+            _price.gameObject.SetActive(false);
+
+            Vector3 pos = _name.rectTransform.anchoredPosition;
+            pos.y = _enableTabPositionForY;
+            _name.rectTransform.anchoredPosition = pos;
+
+            multiplier = 1.2f;
+            _name.rectTransform.localScale *= multiplier;
+        }
     }
 
     private void OnButtonClick()
@@ -48,12 +79,18 @@ public class SkinPopUp : MonoBehaviour
         
         if(tmp.text == "BUY")
         {
-            BuyButtonClick?.Invoke(_skinData);
+            SkinManager.Instance.BuySkin(_skinData);
+            BuyButtonClick?.Invoke();
+            OnUpdateNeeded?.Invoke();
         }
         if(tmp.text == "SELECT")
         {
-            SelectButtonClick?.Invoke(_skinData);
+            SkinManager.Instance.SelectSkin(_skinData);
+            SelectButtonClick?.Invoke();
         }
+
+        Initialize(_skinData);
+        OnUpdateNeeded?.Invoke();
     }
 
     private void OnCloseClick()

@@ -21,41 +21,38 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private GameObject _skinItemPrefab;
     [SerializeField] private GameObject _skinPopUpPrefab;
 
+    private SkinData[] _lastShownSkins; // запоминаем последнюю вкладку
+
     private void OnEnable()
     {
         _blackout.SetActive(false);
-        _store.ChizikButtonClick += SwitchToChizikPanel;
-        _store.BackgroundButtonClick += SwitchToBackgroundPanel;
-        _store.PipeButtonClick += SwitchToPipePanel;
-        _store.CloseButtonClick += SwitchToMainMenu;
-        // .SkinClick += OnSkinClick;
+        _store.ChizikButtonClick += (() => ShowSkins(_chizikSkins));
+        _store.BackgroundButtonClick += (() => ShowSkins(_backgroundSkins));
+        _store.PipeButtonClick += (() => ShowSkins(_pipeSkins));
+        _store.CloseButtonClick += Clear;
     }
 
-    private void SwitchToChizikPanel()
+    private void Awake()
     {
-        Clear();
-        ShowSkins(_chizikSkins);
-    }
+        SkinManager.Instance.RegisterSkins(_chizikSkins);
+        SkinManager.Instance.RegisterSkins(_backgroundSkins);
+        SkinManager.Instance.RegisterSkins(_pipeSkins);
 
-    private void SwitchToBackgroundPanel()
-    {
-        Clear();
-        ShowSkins(_backgroundSkins);
-    }
-
-    private void SwitchToPipePanel()
-    {
-        Clear();
-        ShowSkins(_pipeSkins);
+        //var allSkins = _chizikSkins.Concat(_backgroundSkins).Concat(_pipeSkins).ToArray();
+        //_allSkin = allSkins;
     }
 
     private void ShowSkins(SkinData[] skins)
     {
+        Clear();
+        _lastShownSkins = skins;
+
         foreach (var skin in skins)
         {
             var item = Instantiate(_skinItemPrefab, _parent.transform);
             var skinItem = item.GetComponent<SkinItem>();
             skinItem.Initialize(skin);
+            skinItem.UpdateSkinStatus();
 
             skinItem.SkinClick += OnSkinClick;
         }
@@ -72,32 +69,28 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    private void SwitchToMainMenu()
-    {
-        Clear();
-    }
-
     private void OnSkinClick(SkinData skin)
     {
         _blackout.SetActive(true);
         var popUp = Instantiate(_skinPopUpPrefab, _parentForPopUp.transform);
         var skinPopUp = popUp.GetComponent<SkinPopUp>();
         skinPopUp.Initialize(skin);
-        skinPopUp.CloseButtonClick += ClosePopUp;
 
-        // подписки на кнопки 
-    }
+        // обновляем список после любого действия
+        skinPopUp.OnUpdateNeeded += (() =>
+        {
+            if (_lastShownSkins != null)
+                ShowSkins(_lastShownSkins);
+        });
 
-    private void ClosePopUp()
-    {
-        _blackout.SetActive(false);
+        skinPopUp.CloseButtonClick += () => _blackout.SetActive(false);
     }
 
     private void OnDisable()
     {
-        _store.ChizikButtonClick -= SwitchToChizikPanel;
-        _store.BackgroundButtonClick -= SwitchToBackgroundPanel;
-        _store.PipeButtonClick -= SwitchToPipePanel;
-        _store.CloseButtonClick -= SwitchToMainMenu;
+        _store.ChizikButtonClick -= (() => ShowSkins(_chizikSkins));
+        _store.BackgroundButtonClick -= (() => ShowSkins(_backgroundSkins));
+        _store.PipeButtonClick -= (() => ShowSkins(_pipeSkins));
+        _store.CloseButtonClick -= Clear;
     }
 }

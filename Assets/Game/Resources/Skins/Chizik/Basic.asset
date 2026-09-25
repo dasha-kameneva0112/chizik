@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
   m_Name: Basic
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  id: 0
+  id: chizik_basic
   displayName: Basic
   icon: {fileID: 5615817515197204732, guid: 17cdd114d821e4042ae9c318b2c8e711, type: 3}
   price: 0
