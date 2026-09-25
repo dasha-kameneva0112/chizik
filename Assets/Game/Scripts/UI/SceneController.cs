@@ -6,7 +6,7 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private MainMenu _menu;
     [SerializeField] private Levels _levels;
-    // store
+    [SerializeField] private Store _store;
 
     private int _numberCurrentLevel = 3;
 
@@ -14,12 +14,13 @@ public class SceneController : MonoBehaviour
     {
         _menu.gameObject.SetActive(true);
         _levels.gameObject.SetActive(false);
-        // _store.gameObject.SetActive(false);
+        _store.gameObject.SetActive(false);
 
         _menu.PlayButtonClicked += SwitchToGamePlay;
         _menu.LevelsButtonClicked += SwitchToLevels;
         _menu.StoreButtonClicked += SwitchToStore;
         _levels.BackButtonClicked += SwitchToMenu;
+        _store.CloseButtonClick += SwitchToMenu;
         // переключение между сценами _levels.
     }
 
@@ -44,12 +45,13 @@ public class SceneController : MonoBehaviour
     private void SwitchToStore()
     {
         _menu.gameObject.SetActive(false);
-        // _store.gameObject.SetActive(true);
+        _store.gameObject.SetActive(true);
     }
 
     private void SwitchToMenu()
     {
         _menu.gameObject.SetActive(true);
         _levels.gameObject.SetActive(false);
+        _store.gameObject.SetActive(false);
     }
 }
