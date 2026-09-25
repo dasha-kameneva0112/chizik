@@ -547,6 +547,9 @@ MonoBehaviour:
   _name: {fileID: 6705422870629329287}
   _price: {fileID: 8015741612689459728}
   _type: 0
+  _button: {fileID: 2140022671157911886}
+  _skinPopUpPrefab: {fileID: 1097580592875294732, guid: 529fd6c8b139ca74fa3308a1820ed943, type: 3}
+  _parent: {fileID: 0}
 --- !u!1 &5031836767225868682
 GameObject:
   m_ObjectHideFlags: 0
