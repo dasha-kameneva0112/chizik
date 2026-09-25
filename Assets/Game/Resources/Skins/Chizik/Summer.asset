@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
+  m_Name: Summer
+  m_EditorClassIdentifier: Assembly-CSharp::SkinData
+  id: 2
+  displayName: Summer
+  icon: {fileID: -6239856434688706780, guid: c45ef1d9c0814b445b5bca835342d0c9, type: 3}
+  price: 100
+  type: 0

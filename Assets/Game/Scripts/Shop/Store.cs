@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Store : MonoBehaviour
 {
+    public event Action ChizikButtonClick;
+    public event Action BackgroundButtonClick;
+    public event Action PipeButtonClick;
     public event Action CloseButtonClick;
 
     [SerializeField] private Button _chizikButton;
@@ -37,26 +40,29 @@ public class Store : MonoBehaviour
 
     private void OnChizikButtonClick()
     {
-        // загрузка скинов
         Enable(_chizikButton);
         Disable(_backgroundButton);
         Disable(_pipeButton);
+
+        ChizikButtonClick?.Invoke();
     }
 
     private void OnBackgroundButtonClick()
     {
-        // загрузка скинов
         Enable(_backgroundButton);
         Disable(_chizikButton);
         Disable(_pipeButton);
+
+        BackgroundButtonClick?.Invoke();
     }
 
     private void OnPipeButtonClick()
     {
-        // загрузка скинов
         Enable(_pipeButton);
         Disable(_backgroundButton);
         Disable(_chizikButton);
+
+        PipeButtonClick?.Invoke();
     }
 
     private void Enable(Button btn)
