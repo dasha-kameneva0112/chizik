@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Unity.VisualScripting;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class SkinManager : MonoBehaviour
 {
+    public event Action<SkinData> SelectionSkin;
     public static SkinManager Instance
     {
         get
@@ -59,56 +61,44 @@ public class SkinManager : MonoBehaviour
     public void BuySkin(SkinData skin)
     {
         string id = skin.id;
-
-        // Сначала собираем все ключи, которые нужно поменять
-        var keysToDemote = new List<string>();
-
-        foreach (var kvp in _skins)
-        {
-            SkinData other = FindSkinById(kvp.Key);
-            if (other != null && other.type == skin.type && kvp.Value == Status.Selected)
-            {
-                keysToDemote.Add(kvp.Key);
-            }
-        }
-
-        // Теперь безопасно меняем статусы
-        foreach (var key in keysToDemote)
-        {
-            _skins[key] = Status.Purchased;
-        }
+        DeselectAllOfType(skin.type);
 
         // Покупаем и сразу выбираем
         if (_skins.ContainsKey(id))
         {
             _skins[id] = Status.Selected;
+            SelectionSkin?.Invoke(skin);
         }
     }
 
     public void SelectSkin(SkinData skin)
     {
         string id = skin.id;
-
-        // То же самое — сначала собираем, потом меняем
-        var keysToDemote = new List<string>();
-
-        foreach (var kvp in _skins)
-        {
-            SkinData other = FindSkinById(kvp.Key);
-            if (other != null && other.type == skin.type && kvp.Value == Status.Selected)
-            {
-                keysToDemote.Add(kvp.Key);
-            }
-        }
-
-        foreach (var key in keysToDemote)
-        {
-            _skins[key] = Status.Purchased;
-        }
-
+        DeselectAllOfType(skin.type);
         if (_skins.ContainsKey(id) && _skins[id] != Status.NotBought)
         {
             _skins[id] = Status.Selected;
+            SelectionSkin?.Invoke(skin);
+        }
+    }
+
+    private void DeselectAllOfType(SkinType type)
+    {
+        // Сначала собираем все ключи, которые нужно поменять
+        var keysToChange = new List<string>();
+        foreach (var kvp in _skins)
+        {
+            SkinData s = FindSkinById(kvp.Key);
+            if (s != null && s.type == type && kvp.Value == Status.Selected)
+            {
+                keysToChange.Add(kvp.Key);
+            }
+        }
+
+        // Потом меняем статусы
+        foreach (var key in keysToChange)
+        {
+            _skins[key] = Status.Purchased;
         }
     }
 
