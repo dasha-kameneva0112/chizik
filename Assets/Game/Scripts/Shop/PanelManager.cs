@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelManager : MonoBehaviour
 {
     [SerializeField] private Store _store;
     [SerializeField] private GameObject _parent;
- 
+    [SerializeField] private ScrollRect _scrollRect;
+
     [Header("Skins")]
     [SerializeField] private SkinData[] _chizikSkins;
     [SerializeField] private SkinData[] _backgroundSkins;
@@ -41,7 +43,8 @@ public class PanelManager : MonoBehaviour
 
     private void ShowSkins(SkinData[] skins)
     {
-        foreach(var skin in skins)
+        _scrollRect.verticalNormalizedPosition = 1f;
+        foreach (var skin in skins)
         {
             var item = Instantiate(_skinItemPrefab, _parent.transform);
             item.GetComponent<SkinItem>().Initialize(skin);

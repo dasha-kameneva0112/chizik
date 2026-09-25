@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
   id: 0
   displayName: Gold
-  icon: {fileID: 1931577923189646119, guid: 9706dd06a48f0b04399d87b4dc20b6fc, type: 3}
+  icon: {fileID: -9202335561012944314, guid: a07e739e52df8b441a8663f1fdc7d2e9, type: 3}
   price: 80
   type: 2
