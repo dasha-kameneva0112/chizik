@@ -15,9 +15,9 @@ TagManager:
   - Water
   - UI
   - Fluids
-  - 
-  - 
-  - 
+  - Water
+  - Pipes
+  - PipeClick
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Pipes
     uniqueID: 3127541419
+    locked: 0
+  - name: PipeClick
+    uniqueID: 4018310909
     locked: 0
   - name: Default
     uniqueID: 0

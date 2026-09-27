@@ -98,11 +98,12 @@ GameObject:
   - component: {fileID: 2527447853133792263}
   - component: {fileID: 5328607624091420181}
   - component: {fileID: 8444333611509689097}
-  - component: {fileID: 4858517328212382174}
   - component: {fileID: 2450807239810322965}
   - component: {fileID: 3957399715287344759}
   - component: {fileID: 6771025859432148148}
   - component: {fileID: 7421373882985892367}
+  - component: {fileID: -7587592787868584000}
+  - component: {fileID: -312750485404199339}
   m_Layer: 0
   m_Name: tee-shaped_pipe
   m_TagString: Untagged
@@ -194,18 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
---- !u!114 &4858517328212382174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6885039772152292513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::pipeMovement
 --- !u!60 &2450807239810322965
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -419,3 +408,29 @@ PolygonCollider2D:
       - {x: 0.28272992, y: 0.27041996}
       - {x: 0.2825245, y: 0.4923693}
   m_UseDelaunayMesh: 0
+--- !u!114 &-7587592787868584000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885039772152292513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9545fdef276c742803750c0f196ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipeType: 3
+  mainFlowDirection: {x: 0, y: 0}
+--- !u!114 &-312750485404199339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885039772152292513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

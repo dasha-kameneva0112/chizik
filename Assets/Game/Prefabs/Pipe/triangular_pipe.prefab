@@ -98,10 +98,11 @@ GameObject:
   - component: {fileID: 734463226421090740}
   - component: {fileID: 6976660007603314507}
   - component: {fileID: 2240974326565292453}
-  - component: {fileID: 3639293583583479163}
   - component: {fileID: 768610333984122770}
   - component: {fileID: 294055518184363945}
   - component: {fileID: 5643643701234451364}
+  - component: {fileID: 409477764568791827}
+  - component: {fileID: -1492429420515699986}
   m_Layer: 0
   m_Name: triangular_pipe
   m_TagString: Untagged
@@ -193,18 +194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
---- !u!114 &3639293583583479163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8715840165578830690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::pipeMovement
 --- !u!60 &768610333984122770
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -365,3 +354,29 @@ PolygonCollider2D:
       - {x: 0.5037557, y: 0.29869726}
       - {x: 0.28252432, y: 0.29778582}
   m_UseDelaunayMesh: 0
+--- !u!114 &409477764568791827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715840165578830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9545fdef276c742803750c0f196ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipeType: 2
+  mainFlowDirection: {x: 0, y: 0}
+--- !u!114 &-1492429420515699986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715840165578830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
