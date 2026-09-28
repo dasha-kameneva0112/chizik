@@ -9,9 +9,18 @@ public class WaterSpawner : MonoBehaviour
     private int spawnedDrops = 0;
 
     private float timer = 0;
+    private bool canSpawn = false;
+
+    public void startWaterSpawn()
+    {
+        canSpawn = true;
+        spawnedDrops = 0;
+    }
 
     private void Update()
     {
+        if (!canSpawn) return;
+
         if (spawnedDrops >= totalDrops) return;
 
         timer += Time.deltaTime;
