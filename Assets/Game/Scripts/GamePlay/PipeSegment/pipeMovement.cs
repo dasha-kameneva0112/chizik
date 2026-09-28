@@ -3,46 +3,47 @@ using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
 
-public class pipeMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class pipeMovement : MonoBehaviour
 {
-    //[SerializeField] private Canvas canvas;
-    private RectTransform rectTransform;
-    private void Awake()
+    private Camera mainCamera;
+    void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        mainCamera = Camera.main;
     }
 
-    public void OnBeginDrag(PointerEventData eventData) { }
-
-    public void OnDrag(PointerEventData eventData)
+    private void Update()
     {
-        rectTransform.anchoredPosition += eventData.delta;
-    }
-
-    public void OnEndDrag(PointerEventData eventData) { }
-
-    public void OnPointerDown(PointerEventData eventData) { }
-
-    void Update()
-    {
-        if (Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            rightClick();
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            Collider2D[] allColliders = GetComponents<Collider2D>();
+
+            foreach (Collider2D col in allColliders)
+            {
+                if (col.bounds.Contains(worldPos))
+                {
+                    transform.Rotate(0, 0, 90);
+                }
+            }
         }
 
-        if (Keyboard.current != null && Keyboard.current.backspaceKey.wasPressedThisFrame)
+        if (Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
-            backSpaceClick();
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            Collider2D[] allColliders = GetComponents<Collider2D>();
+
+            foreach (Collider2D col in allColliders)
+            {
+                if (col.bounds.Contains(worldPos))
+                {
+                    Destroy(gameObject);    
+                }
+            }
         }
-    }
-
-    void rightClick()
-    {
-        transform.Rotate(0, 0, 90, Space.Self);
-    }
-
-    void backSpaceClick()
-    {
-        Destroy(gameObject);
+                
     }
 }
