@@ -7,4 +7,8 @@ public enum PipeType
     CornerPipe,
     TriangularPipe,
     CruciformPipe,
+
+
+    DirtyStraightPipe,
+    DirtyCornerPipe
 }
