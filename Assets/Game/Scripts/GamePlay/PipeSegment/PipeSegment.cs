@@ -4,98 +4,54 @@ using System.Collections.Generic;
 
 public enum pipeType
 {
-    Straight,
-    Corner,
-    Tee,
-    Cross,
-    Dirty,
+    Normal,
     Leak,
-    Offmap,
-    NotConnected
+    Dirty
 }
 
 public class PipeSegment : MonoBehaviour
 {
-    public pipeType pipeType;
-    public Vector2Int mainFlowDirection;
-    void Start()
-    {
-        mainFlowDirection = GetMainDirectionFromRotation();
-    }
+    public pipeType pipeType = pipeType.Normal;
+    public Vector2Int[] baseDirections;
 
-    Vector2Int GetMainDirectionFromRotation()
+    public Vector3 getOutputDirection(Vector3 dropWorldPos, Vector3 currentDir)
     {
-        int rot = Mathf.RoundToInt(transform.eulerAngles.z) % 360;
+        Vector3 localDrop = transform.InverseTransformDirection(dropWorldPos);
 
-        if (pipeType == pipeType.Straight)
+        Vector2Int enteringDir;
+
+        if (Mathf.Abs(localDrop.x) > Mathf.Abs(localDrop.y))
         {
-            if (rot == 0) return Vector2Int.right;
-            if (rot == 90) return Vector2Int.down;
-            if (rot == 180) return Vector2Int.left;
-            if (rot == 270) return Vector2Int.up;
+            enteringDir = (localDrop.x > 0) ? Vector2Int.right : Vector2Int.left;
+        }
+        else
+        {
+            enteringDir = (localDrop.y > 0) ? Vector2Int.up : Vector2Int.down;
         }
 
-        if (pipeType == pipeType.Corner)
+        bool validEnter = false;
+        foreach (var direction in baseDirections)
         {
-            if (rot == 0) return Vector2Int.right;
-            if (rot == 90) return Vector2Int.down;
-            if (rot == 180) return Vector2Int.left;
-            if (rot == 270) return Vector2Int.up;
+            if (direction == enteringDir)
+            {
+                validEnter = true;
+                break;
+            }
         }
 
-        if (pipeType == pipeType.Tee)
-            return Vector2Int.down;
-
-        if (pipeType == pipeType.Cross)
-            return Vector2Int.down;
-
-        return Vector2Int.down;
-    }
-
-    public List<Vector2Int> getOutputDirections()
-    {
-        List<Vector2Int> dirs = new List<Vector2Int>();
-
-        int rot = Mathf.RoundToInt(transform.eulerAngles.z);
-        rot = (rot % 360 + 360) % 360;
-
-        switch (pipeType)
+        if (!validEnter)
         {
-            case pipeType.Straight:
-                if (rot == 0 || rot == 180)
-                {
-                    dirs.Add(Vector2Int.left);
-                    dirs.Add(Vector2Int.right);
-                }
-                else
-                {
-                    dirs.Add(Vector2Int.up);
-                    dirs.Add(Vector2Int.down);
-                }
-                break;
-            case pipeType.Corner:
-                if (rot == 0) dirs.AddRange(new[] { Vector2Int.up, Vector2Int.right });
-                if (rot == 90) dirs.AddRange(new[] { Vector2Int.right, Vector2Int.down });
-                if (rot == 180) dirs.AddRange(new[] { Vector2Int.down, Vector2Int.left });
-                if (rot == 270) dirs.AddRange(new[] { Vector2Int.left, Vector2Int.up });
-                break;
-            case pipeType.Tee:
-                if (rot == 0) dirs.AddRange(new[] { Vector2Int.left, Vector2Int.up, Vector2Int.right });
-                if (rot == 90) dirs.AddRange(new[] { Vector2Int.up, Vector2Int.right, Vector2Int.down });
-                if (rot == 180) dirs.AddRange(new[] { Vector2Int.right, Vector2Int.down, Vector2Int.left });
-                if (rot == 270) dirs.AddRange(new[] { Vector2Int.down, Vector2Int.left, Vector2Int.up });
-                break;
-            case pipeType.Cross:
-                dirs.AddRange(new[]
-                {
-                    Vector2Int.left,
-                    Vector2Int.right,
-                    Vector2Int.up,
-                    Vector2Int.down,
-                });
-                break;
+            return currentDir.normalized;
         }
 
-        return dirs;
+        foreach (var direction in baseDirections)
+        {
+            if (direction == -enteringDir) continue;
+
+            Vector3 worldDir = transform.TransformDirection(new Vector3(direction.x, direction.y, 0));
+            return worldDir.normalized;
+        }
+
+        return Vector3.zero;
     }
 }
