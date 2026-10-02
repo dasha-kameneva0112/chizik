@@ -105,6 +105,7 @@ public class GameField : MonoBehaviour
         return false; // Все клетки свободны
     }
 
+
     // Окончательно размещает летающую трубу на поле
     private void PlaceFlyingPipe(int placeX, int placeY)
     {
