@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +16,9 @@ public class PopUpEndOfGame : MonoBehaviour
     [SerializeField] private GameObject _parentForPopUp;
     [SerializeField] private GameObject _blackout;
 
+    [SerializeField] private Button _reward;
+    [SerializeField] private int _countOfReward;
+
     private int _numberCurrentLevel = 3;
 
     void Start()
@@ -29,6 +34,14 @@ public class PopUpEndOfGame : MonoBehaviour
 
     void OnWin()
     {
+        _blackout.SetActive(true);
+        _reward.interactable = true;
+        _reward.GetComponentInChildren<TextMeshProUGUI>().text = "+" + _countOfReward;
+        _reward.onClick.AddListener(CreatePopUpReward);
+    }
+    void CreatePopUpReward()
+    {
+        Bank.Instance.AddMoney(_countOfReward);
         CreatePopUpWin();
     }
     void OnLoss()
