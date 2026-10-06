@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7241470243085662881}
   - component: {fileID: 8398895563218303336}
   - component: {fileID: 7287379487545441471}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2668932697986030077}
   - component: {fileID: 5013947545321985234}
   - component: {fileID: 5988000798775812783}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 3279980749625738138}
   - component: {fileID: 6488555157656069978}
   - component: {fileID: 3943290468201133975}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 4134632869813103593}
   - component: {fileID: 4121416710286307387}
   - component: {fileID: 6628704223381883307}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 15430100078273425}
   - component: {fileID: 3138867980512205398}
   - component: {fileID: 705858114874475444}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NextLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 7460965930938203252}
   - component: {fileID: 2479565478894180973}
   - component: {fileID: 6633958636264810129}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 7292739663216424043}
   - component: {fileID: 3711834895435688312}
   - component: {fileID: 1913829917462260989}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 7327962266643123802}
   - component: {fileID: 3997781914530211353}
   - component: {fileID: 1390208929807684281}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PopUpWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 3888471859480126372}
   - component: {fileID: 7983849458623804718}
   - component: {fileID: 5297717802151345042}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
