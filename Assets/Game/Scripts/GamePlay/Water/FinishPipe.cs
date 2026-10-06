@@ -49,7 +49,15 @@ public class FinishPipe : MonoBehaviour
         int proccessed = arrived + failedDrops;
         if (proccessed >= totalDrops)
         {
-            Debug.Log("Result" + getFinalPercant() + "%");
+            float result = getFinalPercant();
+            if (result >= 91f)
+            {
+                PopUpEndOfGame.instance.OnWin();
+            }
+            else
+            {
+                PopUpEndOfGame.instance.OnLoss();
+            }
         }
     }
 
