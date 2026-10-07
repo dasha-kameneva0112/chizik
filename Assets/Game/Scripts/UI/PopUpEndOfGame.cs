@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class PopUpEndOfGame : MonoBehaviour
 {
-    public static PopUpEndOfGame instance;
-
     [Header("Prefabs")]
     [SerializeField] private GameObject _popUpWinPrefab;
     [SerializeField] private GameObject _popUpLossPrefab;
@@ -19,41 +17,37 @@ public class PopUpEndOfGame : MonoBehaviour
     [SerializeField] private Button _reward;
     [SerializeField] private int _countOfReward;
 
-    private void Awake()
-    {
-        instance = this;
-    }
+    private int _numberCurrentLevel = 3;
 
     private void Start()
     {
-        _numberCurrentLevel = getCurrentLevel();
-    }
-    public void OnWin()
-    {
-        CreatePopUpWin();
-    }
-        _blackout.SetActive(true);
-        _reward.interactable = true;
-        _reward.GetComponentInChildren<TextMeshProUGUI>().text = "+" + _countOfReward;
-        _reward.onClick.AddListener(CreatePopUpReward);
-    }
-    void CreatePopUpReward()
-    {
-        Bank.Instance.AddMoney(_countOfReward);
-        CreatePopUpWin();
-    }
-    public void OnLoss()
-    {
-        CreatePopUpLoss();
+        _numberCurrentLevel = GetCurrentLevel();
+
+        FinishPipe.Instance.OnLevelCompleted += OnWin;
+        FinishPipe.Instance.OnLevelFailed += CreatePopUpLoss;
     }
 
-    private int getCurrentLevel()
+    private int GetCurrentLevel()
     {
         string sceneName = SceneManager.GetActiveScene().name;
         return int.Parse(sceneName.Replace("Level_", ""));
     }
 
-    private void hideAllPipes()
+    public void OnWin()
+    {
+        _blackout.SetActive(true);
+        _reward.interactable = true;
+        _reward.GetComponentInChildren<TextMeshProUGUI>().text = "+" + _countOfReward;
+        _reward.onClick.AddListener(CreatePopUpReward);
+    }
+
+    void CreatePopUpReward()
+    {
+        Bank.Instance.AddMoney(_countOfReward);
+        CreatePopUpWin();
+    }
+
+    private void HideAllPipes()
     {
         foreach (var pipe in GameObject.FindGameObjectsWithTag("Pipe"))
         {
@@ -63,7 +57,7 @@ public class PopUpEndOfGame : MonoBehaviour
 
     private void CreatePopUpWin()
     {
-        hideAllPipes();
+        HideAllPipes();
         _blackout.SetActive(true);
         var popUp = Instantiate(_popUpWinPrefab, _parentForPopUp.transform);
         popUp.GetComponent<PopUpWin>().SetLevel(_numberCurrentLevel);
@@ -74,7 +68,7 @@ public class PopUpEndOfGame : MonoBehaviour
 
     private void CreatePopUpLoss()
     {
-        hideAllPipes();
+        HideAllPipes();
         _blackout.SetActive(true);
         var popUp = Instantiate(_popUpLossPrefab, _parentForPopUp.transform);
 
