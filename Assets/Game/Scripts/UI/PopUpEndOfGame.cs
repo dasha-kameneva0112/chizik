@@ -21,7 +21,7 @@ public class PopUpEndOfGame : MonoBehaviour
 
     private void Start()
     {
-        _numberCurrentLevel = GetCurrentLevel();
+        //_numberCurrentLevel = GetCurrentLevel();
 
         FinishPipe.Instance.OnLevelCompleted += OnWin;
         FinishPipe.Instance.OnLevelFailed += CreatePopUpLoss;
@@ -35,15 +35,21 @@ public class PopUpEndOfGame : MonoBehaviour
 
     public void OnWin()
     {
-        _blackout.SetActive(true);
-        _reward.interactable = true;
+        _reward.gameObject.SetActive(true);
         _reward.GetComponentInChildren<TextMeshProUGUI>().text = "+" + _countOfReward;
         _reward.onClick.AddListener(CreatePopUpReward);
     }
 
     void CreatePopUpReward()
     {
-        Bank.Instance.AddMoney(_countOfReward);
+        // Bank.Instance.AddMoney(_countOfReward);
+        _reward.gameObject.SetActive(false);
+        Canvas canvas = _reward.GetComponentInParent<Canvas>();
+        if (canvas != null)
+        {
+            canvas.sortingOrder = 999;
+            canvas.overrideSorting = true; // Игнорировать родительский sorting
+        }
         CreatePopUpWin();
     }
 
