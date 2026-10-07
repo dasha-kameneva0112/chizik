@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class pipeMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] private Canvas canvas;
+    //[SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class pipeMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rectTransform.anchoredPosition += eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData) { }
