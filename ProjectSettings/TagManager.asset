@@ -8,6 +8,7 @@ TagManager:
   - PipeEntry
   - PipeExit
   - KillZone
+  - LeakZone
   layers:
   - Default
   - TransparentFX
