@@ -21,7 +21,7 @@ public class PopUpEndOfGame : MonoBehaviour
 
     private void Start()
     {
-        //_numberCurrentLevel = GetCurrentLevel();
+        _numberCurrentLevel = GetCurrentLevel();
 
         FinishPipe.Instance.OnLevelCompleted += OnWin;
         FinishPipe.Instance.OnLevelFailed += CreatePopUpLoss;
