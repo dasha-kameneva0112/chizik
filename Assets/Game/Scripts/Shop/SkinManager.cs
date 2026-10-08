@@ -58,17 +58,24 @@ public class SkinManager : MonoBehaviour
         }
     }
 
-    public void BuySkin(SkinData skin)
+    public bool TryBuySkin(SkinData skin)
     {
-        string id = skin.id;
-        DeselectAllOfType(skin.type);
-
-        // Покупаем и сразу выбираем
-        if (_skins.ContainsKey(id))
+        if (Bank.Instance.SpendMoney(skin.price))
         {
-            _skins[id] = Status.Selected;
-            SelectionSkin?.Invoke(skin);
+            string id = skin.id;
+            DeselectAllOfType(skin.type);
+
+            // Покупаем и сразу выбираем
+            if (_skins.ContainsKey(id))
+            {
+                _skins[id] = Status.Selected;
+                SelectionSkin?.Invoke(skin);
+            }
+
+            return true;
         }
+
+        return false;
     }
 
     public void SelectSkin(SkinData skin)
