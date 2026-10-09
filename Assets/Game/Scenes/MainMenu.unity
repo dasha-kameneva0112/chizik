@@ -3520,6 +3520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PanelManager
   _store: {fileID: 1702514257}
   _parent: {fileID: 661740768}
+  _scrollRect: {fileID: 1619753232}
   _chizikSkins:
   - {fileID: 11400000, guid: 0137c8a3533b32842b73f78f716506f6, type: 2}
   - {fileID: 11400000, guid: 2b0d8db8d516dcc4d8d4d8c59b3e746b, type: 2}
