@@ -1532,6 +1532,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!1 &689023517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689023518}
+  - component: {fileID: 689023520}
+  - component: {fileID: 689023519}
+  m_Layer: 5
+  m_Name: Blackout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &689023518
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689023517}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1297747142}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 938, y: 285}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &689023519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689023517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -9139546488396919142, guid: ad2eccbd8717c99488dc07be9832a40c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &689023520
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689023517}
+  m_CullTransparentMesh: 1
 --- !u!1 &737848130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,6 +3262,7 @@ RectTransform:
   - {fileID: 1851247788}
   - {fileID: 2126455093}
   - {fileID: 1470948469}
+  - {fileID: 689023518}
   m_Father: {fileID: 1702514256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3521,6 +3597,8 @@ MonoBehaviour:
   _store: {fileID: 1702514257}
   _parent: {fileID: 661740768}
   _scrollRect: {fileID: 1619753232}
+  _parentForPopUp: {fileID: 1702514255}
+  _blackout: {fileID: 689023517}
   _chizikSkins:
   - {fileID: 11400000, guid: 0137c8a3533b32842b73f78f716506f6, type: 2}
   - {fileID: 11400000, guid: 2b0d8db8d516dcc4d8d4d8c59b3e746b, type: 2}
@@ -3532,6 +3610,7 @@ MonoBehaviour:
   _pipeSkins:
   - {fileID: 11400000, guid: 187cc6d39eceee948b2a85dff6f5f990, type: 2}
   _skinItemPrefab: {fileID: 4565313830948695916, guid: 1ecca12846e6f204b86c55b372653a14, type: 3}
+  _skinPopUpPrefab: {fileID: 1097580592875294732, guid: 529fd6c8b139ca74fa3308a1820ed943, type: 3}
 --- !u!1 &1529770005
 GameObject:
   m_ObjectHideFlags: 0

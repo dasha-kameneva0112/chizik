@@ -34,38 +34,45 @@ public class Store : MonoBehaviour
         _backgroundButton.onClick.AddListener(OnBackgroundButtonClick);
         _pipeButton.onClick.AddListener(OnPipeButtonClick);
         _closeButton.onClick.AddListener(OnCloseButtonClick);
+    }
+
+    public void OpenShop()
+    {
+        Deselect(_chizikButton);
+        Deselect(_backgroundButton);
+        Deselect(_pipeButton);
 
         OnChizikButtonClick();
     }
 
     private void OnChizikButtonClick()
     {
-        Enable(_chizikButton);
-        Disable(_backgroundButton);
-        Disable(_pipeButton);
+        Select(_chizikButton);
+        Deselect(_backgroundButton);
+        Deselect(_pipeButton);
 
         ChizikButtonClick?.Invoke();
     }
 
     private void OnBackgroundButtonClick()
     {
-        Enable(_backgroundButton);
-        Disable(_chizikButton);
-        Disable(_pipeButton);
+        Select(_backgroundButton);
+        Deselect(_chizikButton);
+        Deselect(_pipeButton);
 
         BackgroundButtonClick?.Invoke();
     }
 
     private void OnPipeButtonClick()
     {
-        Enable(_pipeButton);
-        Disable(_backgroundButton);
-        Disable(_chizikButton);
+        Select(_pipeButton);
+        Deselect(_backgroundButton);
+        Deselect(_chizikButton);
 
         PipeButtonClick?.Invoke();
     }
 
-    private void Enable(Button btn)
+    private void Select(Button btn)
     {
         var tmp1 = btn.GetComponent<Image>();
         tmp1.sprite = _selected;
@@ -79,7 +86,7 @@ public class Store : MonoBehaviour
         tmp.rectTransform.anchoredPosition = pos;
     }
 
-    private void Disable(Button btn)
+    private void Deselect(Button btn)
     {
         var tmp1 = btn.GetComponent<Image>();
         tmp1.sprite = _normal;
