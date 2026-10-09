@@ -4105,10 +4105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db88faf64f159a14db8ae4c70cc6c85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeInInventory
-  _countStraightPipe: 10
-  _countCornerPipe: 11
-  _countTriangularPipe: 8
-  _countCruciformPipe: 4
+  _countStraightPipe: 2
+  _countCornerPipe: 2
+  _countTriangularPipe: 1
+  _countCruciformPipe: 2
 --- !u!114 &1515171802
 MonoBehaviour:
   m_ObjectHideFlags: 0
