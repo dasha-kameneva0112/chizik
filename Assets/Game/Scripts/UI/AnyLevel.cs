@@ -10,11 +10,25 @@ public class AnyLevel : MonoBehaviour
 
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _restartButton;
+    [SerializeField] private Image _background;  
 
     private void Start()
     {
         _backButton.onClick.AddListener(OnBackButtonClicked);
         _restartButton.onClick.AddListener(OnRestartButtonClicked);
+        SkinManager.Instance.SelectionSkin += ChangeSkin;
+    }
+
+    private void ChangeSkin(SkinData skin)
+    {
+        if (skin.type == SkinType.Background)
+        {
+            _background.sprite = skin.icon;
+        }
+        //if( skin.type == SkinType.Pipe)
+        //{
+        //    _pipePrefab.GetComponentInChildren<Image>().sprite = skin.icon; 
+        //}
     }
 
     private void OnBackButtonClicked()
