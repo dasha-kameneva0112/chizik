@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
   m_Name: Winter
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  id: 0
+  id: bg_winter
   displayName: Winter
   icon: {fileID: -2528488927998631363, guid: 3e10596af5a12434088b6c009131dc2c, type: 3}
   price: 50

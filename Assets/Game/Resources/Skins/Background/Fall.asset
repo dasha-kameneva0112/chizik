@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
   m_Name: Fall
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  id: 2
+  id: bg_fall
   displayName: Fall
   icon: {fileID: 6830031340663802236, guid: d71b667b3a83d3c409ed068a8430962b, type: 3}
   price: 50

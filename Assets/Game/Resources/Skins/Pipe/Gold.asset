@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  id: 0
+  id: pipe_gold
   displayName: Gold
   icon: {fileID: -9202335561012944314, guid: a07e739e52df8b441a8663f1fdc7d2e9, type: 3}
   price: 80

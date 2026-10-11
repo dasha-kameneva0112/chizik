@@ -3608,6 +3608,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b49f90d29592c2044b0c892626226090, type: 2}
   - {fileID: 11400000, guid: 92fa038e9b6d58a428f4b3d9642a6bd2, type: 2}
   _pipeSkins:
+  - {fileID: 11400000, guid: 62f88e4fd451a1841ad76e84f9380246, type: 2}
   - {fileID: 11400000, guid: 187cc6d39eceee948b2a85dff6f5f990, type: 2}
   _skinItemPrefab: {fileID: 4565313830948695916, guid: 1ecca12846e6f204b86c55b372653a14, type: 3}
   _skinPopUpPrefab: {fileID: 1097580592875294732, guid: 529fd6c8b139ca74fa3308a1820ed943, type: 3}
