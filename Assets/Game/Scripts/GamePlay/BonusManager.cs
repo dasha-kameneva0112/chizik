@@ -80,6 +80,10 @@ public class BonusManager : MonoBehaviour
 
         if (isHammerActive)
         {
+
+            if (pipe.GetPipeType() == PipeType.DirtyStraightPipe || pipe.GetPipeType() == PipeType.DirtyCornerPipe)
+                return;
+
             if (Keyboard.current.backspaceKey.wasPressedThisFrame)
             {
                 Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -99,6 +103,7 @@ public class BonusManager : MonoBehaviour
             hammerCount--;
             PipeInInventory.Instance.Delete(pipe.GetPipeType()); 
             DeactivateAll();
+            Destroy(pipe.gameObject);
             UpdateUI();
             return;
         }
