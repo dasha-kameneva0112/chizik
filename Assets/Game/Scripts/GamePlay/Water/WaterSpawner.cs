@@ -11,6 +11,11 @@ public class WaterSpawner : MonoBehaviour
     private float timer = 0;
     private bool canSpawn = false;
 
+    [Header("Settings Water Spawner for Leak Pipe")]
+    public bool dropEnabled = false;
+    private float dropInterval = 5f;
+    private float secondTimer = 0f;
+
     public void startWaterSpawn()
     {
         canSpawn = true;
@@ -25,17 +30,35 @@ public class WaterSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!canSpawn) return;
-
-        if (spawnedDrops >= totalDrops) return;
-
-        timer += Time.deltaTime;
-        
-        if (timer > spawnRate)
+        if (canSpawn)
         {
-            timer = 0;
-            spawnDrop();
+            if (spawnedDrops >= totalDrops) return;
+
+            timer += Time.deltaTime;
+        
+            if (timer > spawnRate)
+            {
+                timer = 0;
+                spawnDrop();
+            }
         }
+
+        if (dropEnabled) {
+            secondTimer += Time.deltaTime;
+
+            if (secondTimer >= dropInterval)
+            {
+                secondTimer = 0f;
+                spawnSecondDrop();
+            }
+        
+        }
+        
+    }
+
+    void spawnSecondDrop()
+    {
+        Instantiate(waterDropPrefab, transform.position, Quaternion.identity);
     }
 
     void spawnDrop()
