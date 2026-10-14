@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Levels : MonoBehaviour
@@ -26,10 +27,12 @@ public class Levels : MonoBehaviour
     [SerializeField] private Color _completedTextColor;  
     [SerializeField] private Color _lockedTextColor;       
 
-    private int _numberCurrentLevel = 3; 
+    private int _numberCurrentLevel; 
 
     private void Start()
     {
+        _numberCurrentLevel = getCurrentLevel();
+
         _firstLevelButton.onClick.AddListener(OnFirstLevelButtonClick);
         _secondLevelButton.onClick.AddListener(OnSecondLevelButtonClick);
         _thirdLevelButton.onClick.AddListener(OnThirdLevelButtonClick);
@@ -40,6 +43,12 @@ public class Levels : MonoBehaviour
         UpdateSpriteOfLevel(_secondLevelButton, 2);
         UpdateSpriteOfLevel(_thirdLevelButton, 3);
         UpdateSpriteOfLevel(_fourthLevelButton, 4); 
+    }
+
+    private int getCurrentLevel()
+    {
+        String sceneName = SceneManager.GetActiveScene().name;
+        return int.Parse(sceneName.Replace("Level_", ""));
     }
 
     private void UpdateSpriteOfLevel(Button levelButton, int number)

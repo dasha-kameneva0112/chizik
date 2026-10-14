@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4258848192497270288}
   - component: {fileID: 1604909251059107348}
+  - component: {fileID: 3290022146756758990}
   m_Layer: 0
   m_Name: dirty_pipe_0
   m_TagString: Untagged
@@ -90,6 +91,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3290022146756758990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053638220195070981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BonusAppliedPipe
+  _pipeType: 1
+  isPlayerPlaced: 0
+  cleanSprite: {fileID: 3580289874254184329, guid: 19213624ca2b8b942badbc65fbd45ccd, type: 3}
+  dirtySprite: {fileID: 1931577923189646119, guid: 9706dd06a48f0b04399d87b4dc20b6fc, type: 3}
 --- !u!1 &8715840165578830690
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,10 +118,11 @@ GameObject:
   - component: {fileID: 734463226421090740}
   - component: {fileID: 6976660007603314507}
   - component: {fileID: 2240974326565292453}
-  - component: {fileID: -1786646445134928227}
+  - component: {fileID: 7380446955905020375}
+  - component: {fileID: 8640224456331035415}
   m_Layer: 0
   m_Name: angle_dirty_pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,14 +135,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8715840165578830690}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.01, y: 0.002, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.5, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4258848192497270288}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6976660007603314507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -196,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
---- !u!114 &-1786646445134928227
+--- !u!114 &7380446955905020375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,6 +223,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 8715840165578830690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c9545fdef276c742803750c0f196ad9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::pipeMovement
+  m_EditorClassIdentifier: 
+  pipeType: 2
+  baseDirections:
+  - {x: 0, y: 1}
+  - {x: 1, y: 0}
+--- !u!61 &8640224456331035415
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715840165578830690}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.11098683, y: 0.118385956}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.77802634, y: 0.76322806}
+  m_EdgeRadius: 0
