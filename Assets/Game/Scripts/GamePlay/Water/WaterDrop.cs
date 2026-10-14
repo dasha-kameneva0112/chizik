@@ -71,6 +71,12 @@ public class WaterDrop : MonoBehaviour
             return;
         }
 
+        if (collision.CompareTag("LeakZone"))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         PipeSegment pipe = collision.GetComponent<PipeSegment>();
         if (pipe == null)
         {

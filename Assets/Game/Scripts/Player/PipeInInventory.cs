@@ -57,6 +57,7 @@ public class PipeInInventory : MonoBehaviour
         return _pipeSegments[pipe] > 0;
     }
 
+
     public void Delete(PipeType pipe) // если удалить сегмент с поля -> public void Delete(PipeType pipe)
     {
         if (!_pipeSegments.ContainsKey(pipe))
