@@ -46,6 +46,7 @@ public class SceneController : MonoBehaviour
     {
         _menu.gameObject.SetActive(false);
         _store.gameObject.SetActive(true);
+        _store.OpenShop();
     }
 
     private void SwitchToMenu()

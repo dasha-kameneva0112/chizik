@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Store : MonoBehaviour
 {
+    public event Action ChizikButtonClick;
+    public event Action BackgroundButtonClick;
+    public event Action PipeButtonClick;
     public event Action CloseButtonClick;
 
     [SerializeField] private Button _chizikButton;
@@ -21,47 +24,61 @@ public class Store : MonoBehaviour
     [SerializeField] private float _enableTabPositionForY;
     [SerializeField] private float _disableTabPositionForY;
 
+    [Header("Height for tab")]
+    [SerializeField] private float _enableTabHeight;
+    [SerializeField] private float _disableTabHeight;
+
     void Start()
     {
         _chizikButton.onClick.AddListener(OnChizikButtonClick);
         _backgroundButton.onClick.AddListener(OnBackgroundButtonClick);
         _pipeButton.onClick.AddListener(OnPipeButtonClick);
         _closeButton.onClick.AddListener(OnCloseButtonClick);
+    }
+
+    public void OpenShop()
+    {
+        Deselect(_chizikButton);
+        Deselect(_backgroundButton);
+        Deselect(_pipeButton);
 
         OnChizikButtonClick();
     }
 
     private void OnChizikButtonClick()
     {
-        // загрузка скинов
-        Enable(_chizikButton);
-        Disable(_backgroundButton);
-        Disable(_pipeButton);
+        Select(_chizikButton);
+        Deselect(_backgroundButton);
+        Deselect(_pipeButton);
+
+        ChizikButtonClick?.Invoke();
     }
 
     private void OnBackgroundButtonClick()
     {
-        // загрузка скинов
-        Enable(_backgroundButton);
-        Disable(_chizikButton);
-        Disable(_pipeButton);
+        Select(_backgroundButton);
+        Deselect(_chizikButton);
+        Deselect(_pipeButton);
+
+        BackgroundButtonClick?.Invoke();
     }
 
     private void OnPipeButtonClick()
     {
-        // загрузка скинов
-        Enable(_pipeButton);
-        Disable(_backgroundButton);
-        Disable(_chizikButton);
+        Select(_pipeButton);
+        Deselect(_backgroundButton);
+        Deselect(_chizikButton);
+
+        PipeButtonClick?.Invoke();
     }
 
-    private void Enable(Button btn)
+    private void Select(Button btn)
     {
         var tmp1 = btn.GetComponent<Image>();
-        Vector3 pos1 = tmp1.rectTransform.anchoredPosition;
-        pos1.y = _enableTabPositionForY;
-        tmp1.rectTransform.anchoredPosition = pos1;
         tmp1.sprite = _selected;
+
+        RectTransform rt = btn.GetComponent<RectTransform>(); 
+        rt.sizeDelta = new Vector2(rt.sizeDelta.x, _enableTabHeight);
 
         var tmp = btn.GetComponentInChildren<TextMeshProUGUI>();
         Vector3 pos = tmp.rectTransform.anchoredPosition;
@@ -69,14 +86,14 @@ public class Store : MonoBehaviour
         tmp.rectTransform.anchoredPosition = pos;
     }
 
-    private void Disable(Button btn)
+    private void Deselect(Button btn)
     {
         var tmp1 = btn.GetComponent<Image>();
         tmp1.sprite = _normal;
-        Vector3 pos1 = tmp1.rectTransform.anchoredPosition;
-        pos1.y = _disableTabPositionForY;
-        tmp1.rectTransform.anchoredPosition = pos1;
-        
+
+        RectTransform rt = btn.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(rt.sizeDelta.x, _disableTabHeight);
+
         var tmp = btn.GetComponentInChildren<TextMeshProUGUI>();
         Vector3 pos = tmp.rectTransform.anchoredPosition;
         pos.y = _disableTabPositionForY;
