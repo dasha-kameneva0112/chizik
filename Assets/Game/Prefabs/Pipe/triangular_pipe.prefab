@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 5643643701234451364}
   - component: {fileID: 409477764568791827}
   - component: {fileID: -1492429420515699986}
+  - component: {fileID: -8410167248289471112}
   m_Layer: 0
   m_Name: triangular_pipe
   m_TagString: Pipe
@@ -383,3 +384,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8410167248289471112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715840165578830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pipeType: 2
+  isPlayerPlaced: 0
