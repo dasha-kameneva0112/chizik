@@ -48,6 +48,9 @@ public class Levels : MonoBehaviour
     private int getCurrentLevel()
     {
         String sceneName = SceneManager.GetActiveScene().name;
+
+        if (!sceneName.StartsWith("Level_")) return 1;
+
         return int.Parse(sceneName.Replace("Level_", ""));
     }
 

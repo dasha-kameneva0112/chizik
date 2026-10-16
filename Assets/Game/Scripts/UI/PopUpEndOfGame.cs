@@ -17,7 +17,7 @@ public class PopUpEndOfGame : MonoBehaviour
     [SerializeField] private Button _reward;
     [SerializeField] private int _countOfReward;
 
-    private int _numberCurrentLevel = 3;
+    private int _numberCurrentLevel;
 
     private void Start()
     {
@@ -30,7 +30,15 @@ public class PopUpEndOfGame : MonoBehaviour
     private int GetCurrentLevel()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-        return int.Parse(sceneName.Replace("Level_", ""));
+
+        if (!sceneName.StartsWith("Level_")) return 1;
+
+        string numberPart = sceneName.Replace("Level_", "");
+
+        if (int.TryParse(numberPart, out int level))
+            return level;
+
+        return 1;
     }
 
     public void OnWin()
