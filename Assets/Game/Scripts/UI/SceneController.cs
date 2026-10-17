@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Levels _levels;
     [SerializeField] private Store _store;
 
-    private int _numberCurrentLevel = 3;
+    [SerializeField]  private int _numberCurrentLevel = 1;
 
     private void Start()
     {

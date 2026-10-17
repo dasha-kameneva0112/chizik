@@ -10,7 +10,7 @@ public class AnyLevel : MonoBehaviour
 
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _restartButton;
-    [SerializeField] private Image _background;  
+    [SerializeField] private GameObject _background;  
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class AnyLevel : MonoBehaviour
     {
         if (skin.type == SkinType.Background)
         {
-            _background.sprite = skin.icon;
+            _background.GetComponent<Image>().sprite = skin.icon;
         }
         //if( skin.type == SkinType.Pipe)
         //{
