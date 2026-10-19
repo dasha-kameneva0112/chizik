@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7421373882985892367}
   - component: {fileID: -7587592787868584000}
   - component: {fileID: -312750485404199339}
+  - component: {fileID: -1727477586957339900}
   m_Layer: 0
   m_Name: tee-shaped_pipe
   m_TagString: Pipe
@@ -438,3 +439,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1727477586957339900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885039772152292513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pipeType: 3
+  isPlayerPlaced: 0

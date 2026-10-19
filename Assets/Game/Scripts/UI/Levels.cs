@@ -80,12 +80,7 @@ public class Levels : MonoBehaviour
 
         if (!sceneName.StartsWith("Level_")) return 1;
 
-        string levelStr = sceneName.Replace("Level_", "");
-        if (int.TryParse(levelStr, out int level))
-        {
-            return level;
-        }
-        return 1;
+        return int.Parse(sceneName.Replace("Level_", ""));
     }
 
 
