@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 17cdd114d821e4042ae9c318b2c8e711
+guid: 5b7de859100e92141b90f4a9d29ce069
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5615817515197204732
-    second: "\u0447\u0438\u0436\u0438\u043A-no-bg-preview (carve.photos) 1_0"
+      213: 5469945556982414691
+    second: Rectangle 66_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0447\u0438\u0436\u0438\u043A-no-bg-preview (carve.photos) 1_0"
+      name: Rectangle 66_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 17
-        width: 58
-        height: 94
+        x: 0
+        y: 0
+        width: 190
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf80fb4b6446fed40800000000000000
-      internalID: 5615817515197204732
+      spriteID: 36db9a8c08629eb40800000000000000
+      internalID: 5469945556982414691
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u0447\u0438\u0436\u0438\u043A-no-bg-preview (carve.photos) 1_0": 5615817515197204732
+      Rectangle 66_0: 5469945556982414691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
