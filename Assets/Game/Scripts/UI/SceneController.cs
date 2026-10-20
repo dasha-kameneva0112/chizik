@@ -1,14 +1,15 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private MainMenu _menu;
     [SerializeField] private Levels _levels;
     [SerializeField] private Store _store;
-
-    private int _numberCurrentLevel = 3;
+    [SerializeField] private Image _background;
+    [SerializeField] private Image _chizik;
 
     private void Start()
     {
@@ -21,18 +22,22 @@ public class SceneController : MonoBehaviour
         _menu.StoreButtonClicked += SwitchToStore;
         _levels.BackButtonClicked += SwitchToMenu;
         _store.CloseButtonClick += SwitchToMenu;
-        // переключение между сценами _levels.
+
+        GameSettings.Instance.SkinChanged += ChangeSkin;
+        ChangeSkin();
     }
 
     private void SwitchToGamePlay()
     {
-        if(_numberCurrentLevel == 1)
+        int numberOfCurrentLevel = LevelProgress.Instance.CurrentLevelNumber;
+
+        if (numberOfCurrentLevel == 1)
             SceneManager.LoadScene("Level_1");
-        if(_numberCurrentLevel == 2)
+        if(numberOfCurrentLevel == 2)
             SceneManager.LoadScene("Level_2");
-        if(_numberCurrentLevel == 3)
+        if(numberOfCurrentLevel == 3)
             SceneManager.LoadScene("Level_3");
-        if( _numberCurrentLevel == 4)
+        if( numberOfCurrentLevel == 4)
             SceneManager.LoadScene("Level_4");
     }
 
@@ -54,5 +59,22 @@ public class SceneController : MonoBehaviour
         _menu.gameObject.SetActive(true);
         _levels.gameObject.SetActive(false);
         _store.gameObject.SetActive(false);
+    }
+
+    private void ChangeSkin()
+    {
+        SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
+        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
+
+        _chizik.sprite = chizik.icon;
+        _background.sprite = background.icon;
+    }
+
+    private void OnDestroy()
+    {
+        if (GameSettings.Instance != null)
+        {
+            GameSettings.Instance.SkinChanged -= ChangeSkin;
+        }
     }
 }

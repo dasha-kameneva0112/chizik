@@ -7,20 +7,7 @@ using UnityEngine;
 public class SkinManager : MonoBehaviour
 {
     public event Action<SkinData> SelectionSkin;
-    public static SkinManager Instance
-    {
-        get
-        {
-            // Если кто-то обратился, а инстанса ещё нет
-            if (_instance == null)
-            {
-                GameObject go = new GameObject("[SkinManager]");
-                _instance = go.AddComponent<SkinManager>();
-                DontDestroyOnLoad(go);
-            }
-            return _instance;
-        }
-    }
+    public static SkinManager Instance => _instance;
     public Dictionary<string, Status> Skins => _skins;
 
     private static SkinManager _instance; 
@@ -49,6 +36,7 @@ public class SkinManager : MonoBehaviour
                 if (skin.displayName == "Basic")
                 {
                     _skins.Add(id, Status.Selected);
+                    SelectionSkin?.Invoke(skin);
                 }
                 else
                 {

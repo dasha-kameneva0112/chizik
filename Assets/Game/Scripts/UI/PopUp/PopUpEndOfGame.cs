@@ -1,12 +1,16 @@
+using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class PopUpEndOfGame : MonoBehaviour
 {
+    public event Action OnMainMenu;
+
     [Header("Prefabs")]
     [SerializeField] private GameObject _popUpWinPrefab;
     [SerializeField] private GameObject _popUpLossPrefab;
@@ -22,9 +26,8 @@ public class PopUpEndOfGame : MonoBehaviour
     private void Start()
     {
         _numberCurrentLevel = GetCurrentLevel();
-
-        FinishPipe.Instance.OnLevelCompleted += OnWin;
-        FinishPipe.Instance.OnLevelFailed += CreatePopUpLoss;
+       FinishPipe.Instance.OnLevelCompleted += OnWin;
+       FinishPipe.Instance.OnLevelFailed += CreatePopUpLoss;
     }
 
     private int GetCurrentLevel()
@@ -43,6 +46,7 @@ public class PopUpEndOfGame : MonoBehaviour
 
     public void OnWin()
     {
+        LevelProgress.Instance.UpdateNumberLevel();
         _reward.gameObject.SetActive(true);
         _reward.GetComponentInChildren<TextMeshProUGUI>().text = "+" + _countOfReward;
         _reward.onClick.AddListener(CreatePopUpReward);
@@ -92,13 +96,14 @@ public class PopUpEndOfGame : MonoBehaviour
 
     private void SwitchToNextLevel()
     {
-        _numberCurrentLevel++;
+        _numberCurrentLevel++; // через UpdateNumberLevel()
         SceneManager.LoadScene("Level_" + _numberCurrentLevel);
     }
 
     private void SwitchToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        OnMainMenu?.Invoke();
     }
 
     private void SwitchToTryAgain()
