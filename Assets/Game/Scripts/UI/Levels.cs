@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class Levels : MonoBehaviour
 {
     public event Action FirstLevelButtonClicked;
@@ -12,9 +11,6 @@ public class Levels : MonoBehaviour
     public event Action ThirdLevelButtonClicked;
     public event Action FourthLevelButtonClicked;
     public event Action BackButtonClicked;
-
-    public int CurrentLevelNumber => _numberCurrentLevel;
-    public static Levels Instance => _instance;
 
     [SerializeField] private Button _firstLevelButton;
     [SerializeField] private Button _secondLevelButton;
@@ -29,26 +25,13 @@ public class Levels : MonoBehaviour
 
     [Header("Text Colors")]
     [SerializeField] private Color _completedTextColor;  
-    [SerializeField] private Color _lockedTextColor;       
+    [SerializeField] private Color _lockedTextColor;
 
-    private int _numberCurrentLevel;
-    private static Levels _instance;
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+    private int _numberOfCurrentLevel;
 
     private void Start()
     {
-        _numberCurrentLevel = GetCurrentLevel();
+        _numberOfCurrentLevel = LevelProgress.Instance.CurrentLevelNumber;
 
         _firstLevelButton.onClick.AddListener(OnFirstLevelButtonClick);
         _secondLevelButton.onClick.AddListener(OnSecondLevelButtonClick);
@@ -62,40 +45,21 @@ public class Levels : MonoBehaviour
         UpdateSpriteOfLevel(_fourthLevelButton, 4);
     }
 
-    public int GetCurrentLevel()
-    {
-        String sceneName = SceneManager.GetActiveScene().name;
-
-        if (!sceneName.StartsWith("Level_")) return 1;
-
-        return int.Parse(sceneName.Replace("Level_", ""));
-    }
-
-
-    public void UpdateNumberLevel()
-    {
-        _numberCurrentLevel++;
-        //UpdateSpriteOfLevel(_firstLevelButton, 1);
-        //UpdateSpriteOfLevel(_secondLevelButton, 2);
-        //UpdateSpriteOfLevel(_thirdLevelButton, 3);
-        //UpdateSpriteOfLevel(_fourthLevelButton, 4);
-    }
-
     private void UpdateSpriteOfLevel(Button levelButton, int number)
     {
-        if(number < _numberCurrentLevel)
+        if(number < _numberOfCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _completedLevel;
             levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _completedTextColor;
             levelButton.interactable = true;
         }
-        if(number > _numberCurrentLevel)
+        if(number > _numberOfCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _lockedLevel;
             levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _lockedTextColor;
             levelButton.interactable = false;
         }
-        if(number == _numberCurrentLevel)
+        if(number == _numberOfCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _currentLevel;
             levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _completedTextColor;

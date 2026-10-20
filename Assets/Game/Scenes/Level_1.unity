@@ -4420,7 +4420,7 @@ MonoBehaviour:
   _countStraightPipe: 2
   _countCornerPipe: 2
   _countTriangularPipe: 1
-  _countCruciformPipe: 2
+  _countCruciformPipe: 10
 --- !u!114 &1515171802
 MonoBehaviour:
   m_ObjectHideFlags: 0
