@@ -23,7 +23,7 @@ public class AnyLevel : MonoBehaviour
         removeCount = int.Parse(removeCountText.text);
     }
 
-    public void updateRemoveCount()
+    public void UpdateRemoveCount()
     {
         removeCount--;
         removeCountText.text = removeCount.ToString();
@@ -35,7 +35,7 @@ public class AnyLevel : MonoBehaviour
         removeCount = int.Parse(removeCountText.text);
         _backButton.onClick.AddListener(OnBackButtonClicked);
         _restartButton.onClick.AddListener(OnRestartButtonClicked);
-        SkinManager.Instance.SelectionSkin += ChangeSkin;
+        ChangeSkin(SkinManager.Instance.CurrentSkin);
 
         RemoveCountUpdate?.Invoke(removeCount);
     }

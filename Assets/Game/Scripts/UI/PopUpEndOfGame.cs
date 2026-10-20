@@ -46,7 +46,7 @@ public class PopUpEndOfGame : MonoBehaviour
 
     public void OnWin()
     {
-        //Levels.Instance.UpdateNumberLevel();
+        Levels.Instance.UpdateNumberLevel();
         _reward.gameObject.SetActive(true);
         _reward.GetComponentInChildren<TextMeshProUGUI>().text = "+" + _countOfReward;
         _reward.onClick.AddListener(CreatePopUpReward);

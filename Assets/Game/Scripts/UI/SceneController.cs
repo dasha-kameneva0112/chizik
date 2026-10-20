@@ -21,7 +21,8 @@ public class SceneController : MonoBehaviour
         _menu.StoreButtonClicked += SwitchToStore;
         _levels.BackButtonClicked += SwitchToMenu;
         _store.CloseButtonClick += SwitchToMenu;
-        // переключение между сценами _levels.
+        
+        var l = Levels.Instance;
     }
 
     private void SwitchToGamePlay()
