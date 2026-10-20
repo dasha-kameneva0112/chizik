@@ -3,23 +3,29 @@ using UnityEngine;
 public class WaterSpawner : MonoBehaviour
 {
     public GameObject waterDropPrefab;
-    public float spawnRate = 0.001f; // УВЕЛИЧЬТЕ частоту (меньше число = чаще)
-    public int dropsPerSpawn = 5; // Капель за один раз
+    private float spawnRate = 0.1f; //частота
 
-    void Start()
+    private int totalDrops = 50;
+    private int spawnedDrops = 0;
+
+    private float timer = 0;
+
+    private void Update()
     {
-        InvokeRepeating("SpawnWater", 0f, spawnRate);
+        if (spawnedDrops >= totalDrops) return;
+
+        timer += Time.deltaTime;
+        
+        if (timer > spawnRate)
+        {
+            timer = 0;
+            spawnDrop();
+        }
     }
 
-    void SpawnWater()
+    void spawnDrop()
     {
-        for (int i = 0; i < dropsPerSpawn; i++)
-        {
-            // Небольшой разброс в позиции для натуральности
-            Vector2 randomOffset = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
-            Vector2 spawnPosition = (Vector2)transform.position + randomOffset;
-
-            Instantiate(waterDropPrefab, spawnPosition, Quaternion.identity);
-        }
+        Instantiate(waterDropPrefab, transform.position, Quaternion.identity);  
+        spawnedDrops++;
     }
 }
