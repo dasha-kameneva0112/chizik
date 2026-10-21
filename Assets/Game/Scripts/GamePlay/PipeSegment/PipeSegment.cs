@@ -1,4 +1,4 @@
-using NUnit.Framework;
+пїњusing NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -27,7 +27,6 @@ public class PipeSegment : MonoBehaviour
     {
         int rot = Mathf.RoundToInt(transform.eulerAngles.z) % 360;
 
-        // пр€мые трубы
         if (pipeType == pipeType.Straight)
         {
             if (rot == 0) return Vector2Int.right;
@@ -36,7 +35,6 @@ public class PipeSegment : MonoBehaviour
             if (rot == 270) return Vector2Int.up;
         }
 
-        // угловые трубы
         if (pipeType == pipeType.Corner)
         {
             if (rot == 0) return Vector2Int.right;
@@ -45,11 +43,9 @@ public class PipeSegment : MonoBehaviour
             if (rot == 270) return Vector2Int.up;
         }
 
-        // тройник Ч главный поток вниз
         if (pipeType == pipeType.Tee)
             return Vector2Int.down;
 
-        // крестовина Ч тоже вниз
         if (pipeType == pipeType.Cross)
             return Vector2Int.down;
 
@@ -66,7 +62,8 @@ public class PipeSegment : MonoBehaviour
         switch (pipeType)
         {
             case pipeType.Straight:
-                if (rot == 0 || rot == 180) { 
+                if (rot == 0 || rot == 180)
+                {
                     dirs.Add(Vector2Int.left);
                     dirs.Add(Vector2Int.right);
                 }
