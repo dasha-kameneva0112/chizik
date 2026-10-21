@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 3138867980512205398}
   - component: {fileID: 705858114874475444}
   m_Layer: 5
-  m_Name: NextLevel
+  m_Name: TryAgain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 1081382903773753486}
   - component: {fileID: 7327962266643123802}
   - component: {fileID: 3997781914530211353}
+  - component: {fileID: 3876953858520407641}
   m_Layer: 5
   m_Name: PopUpLose
   m_TagString: Untagged
@@ -744,6 +745,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3876953858520407641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187870280027729688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ef06b5205a1564483d0c3a096ed2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpLoss
+  _tryAgainButton: {fileID: 705858114874475444}
+  _mainMenuButton: {fileID: 6633958636264810129}
 --- !u!1 &7370962928030763151
 GameObject:
   m_ObjectHideFlags: 0
