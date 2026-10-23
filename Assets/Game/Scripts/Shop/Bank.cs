@@ -8,12 +8,12 @@ public class Bank : MonoBehaviour
     public static Bank Instance => _instance;
 
     private static Bank _instance;
-    [SerializeField] private int _startMoney = 100;
+    [SerializeField] private int _startMoney = 1000;
     private int _money;
 
     private void Awake()
     {
-        if (_instance != null)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
             return;
