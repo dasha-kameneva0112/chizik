@@ -14,7 +14,13 @@ public class WaterSpawner : MonoBehaviour
     public void startWaterSpawn()
     {
         canSpawn = true;
+        timer = 0;
         spawnedDrops = 0;
+    }
+
+    public int getTotalDrops()
+    {
+        return totalDrops;
     }
 
     private void Update()
