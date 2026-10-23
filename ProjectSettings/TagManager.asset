@@ -2,8 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Pipe
+  - PipeEntry
+  - PipeExit
+  - KillZone
   layers:
   - Default
   - TransparentFX
@@ -11,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Fluids
+  - Water
+  - Pipes
+  - PipeClick
   - 
   - 
   - 
@@ -38,6 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Water
+    uniqueID: 1197812355
+    locked: 0
+  - name: Pipes
+    uniqueID: 3127541419
+    locked: 0
+  - name: PipeClick
+    uniqueID: 4018310909
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default
+  - Fluids
