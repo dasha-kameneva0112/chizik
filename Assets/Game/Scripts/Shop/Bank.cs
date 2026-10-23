@@ -1,50 +1,41 @@
+using System;
 using UnityEngine;
 
-public class Bank
+public class Bank : MonoBehaviour
 {
-    public static Bank instance;
+    public event Action<int> CoinsChanged;
+    public int Money => _money;
+    public static Bank Instance => _instance;
 
-    private int moneyPlayer = 0;
+    private static Bank _instance;
+    [SerializeField] private int _startMoney = 100;
+    private int _money;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    public static void Initialize()
+    private void Awake()
     {
-        if (instance == null)
+        if (_instance != null)
         {
-            instance = new Bank();
-        }
-    }
-
-    public Bank()
-    {
-        if (instance != null)
-        {
-            Debug.LogError(" ");
+            Destroy(gameObject);
             return;
         }
-        instance = this;
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+        _money = _startMoney;
     }
 
-    public int getMoney()
+    public void AddMoney(int money)
     {
-        return moneyPlayer;
+        _money += money;
+        CoinsChanged?.Invoke(_money);
     }
 
-    public void setMoney(int money)
+    public bool SpendMoney(int money)
     {
-        moneyPlayer = money;
-    }
-
-    public void addMoney(int money)
-    {
-        moneyPlayer += money;
-    }
-
-    public bool spendMoney(int money)
-    {
-        if (moneyPlayer >= money)
+        if (_money >= money)
         {
-            moneyPlayer -= money;
+            _money -= money;
+            CoinsChanged?.Invoke(_money);
             return true;
         }
         return false;
