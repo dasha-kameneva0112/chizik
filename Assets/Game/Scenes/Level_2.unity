@@ -3737,6 +3737,7 @@ MonoBehaviour:
   _text: {fileID: 803998430}
   _button: {fileID: 1126734265}
   _type: 3
+  _pipeSkin: {fileID: 1712694231}
 --- !u!114 &1126734265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5816,6 +5817,7 @@ MonoBehaviour:
   _text: {fileID: 1210456941}
   _button: {fileID: 2046556181}
   _type: 0
+  _pipeSkin: {fileID: 298012960}
 --- !u!114 &2046556181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6152,6 +6154,7 @@ MonoBehaviour:
   _text: {fileID: 2125090552}
   _button: {fileID: 2089170227}
   _type: 2
+  _pipeSkin: {fileID: 1461049949}
 --- !u!114 &2089170227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6439,6 +6442,7 @@ MonoBehaviour:
   _text: {fileID: 453273318}
   _button: {fileID: 2133712926}
   _type: 1
+  _pipeSkin: {fileID: 172230290}
 --- !u!114 &2133712926
 MonoBehaviour:
   m_ObjectHideFlags: 0

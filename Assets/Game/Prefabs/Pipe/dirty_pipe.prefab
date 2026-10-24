@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
+  spriteRenderer: {fileID: 6299958321970466664}
 --- !u!114 &442381511937758564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,8 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BonusAppliedPipe
   _pipeType: 4
   isPlayerPlaced: 0
-  cleanSprite: {fileID: -7347277767829423379, guid: d8d6d145601ea6845b3f87e7b79e9a58, type: 3}
-  dirtySprite: {fileID: 1931577923189646119, guid: 1ff459607802ea04fab1c0fcfb16e31d, type: 3}
 --- !u!1 &3160967414302998007
 GameObject:
   m_ObjectHideFlags: 0

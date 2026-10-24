@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
@@ -28,6 +29,31 @@ public class Inventory : MonoBehaviour
         _cornerPipe.Enable();
         _triangularPipe.Enable();
         _cruciformPipe.Enable();
+
+        //GameSettings.Instance.SkinChanged += ChangeSkin;
+        ChangeSkin();
+    }
+
+    private void ChangeSkin()
+    {
+        SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
+
+        _straightPipePrefab.SetSkin(pipe.icon);
+        _triangularPipePrefab.SetSkin(pipe.triangularPipe);
+        _cornerPipePrefab.SetSkin(pipe.cornerPipe);
+        _cruciformPipePrefab.SetSkin(pipe.cruciformPipe);
+        Debug.Log("pomenal");
+        _straightPipe.ChangePipeSkin(pipe.icon);
+        _cornerPipe.ChangePipeSkin(pipe.cornerPipe);
+        _triangularPipe.ChangePipeSkin(pipe.triangularPipe);
+        _cruciformPipe.ChangePipeSkin(pipe.cruciformPipe);
+
+        // Обновляем ВСЕ существующие трубы на сцене
+        Pipe[] allPipes = FindObjectsOfType<Pipe>();
+        foreach (Pipe p in allPipes)
+        {
+            p.SetSkin(pipe.cornerPipe);
+        }
     }
 
     public void OnStraightPipeCLicked()

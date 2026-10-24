@@ -11,6 +11,11 @@ public class SkinData : ScriptableObject
 
     [Header("Only background")]
     public Sprite levelSprite;
+
+    [Header("Only pipe")]
+    public Sprite cornerPipe;
+    public Sprite triangularPipe;
+    public Sprite cruciformPipe;
 }
 
 public enum SkinType
