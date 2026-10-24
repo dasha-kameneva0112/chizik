@@ -1813,7 +1813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &737848131
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3360,7 +3360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1210541675
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3492,7 +3492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362f1374526059045b8d1e172d93d2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bank
-  _startMoney: 100
+  _startMoney: 1000
 --- !u!4 &1262727958
 Transform:
   m_ObjectHideFlags: 0
