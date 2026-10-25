@@ -10,6 +10,7 @@ public class SkinManager : MonoBehaviour
     public static SkinManager Instance => _instance;
     public Dictionary<string, Status> Skins => _skins;
 
+    private List<SkinData> _dataBaseOfSkins = new List<SkinData>();
     private static SkinManager _instance; 
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
 
@@ -33,6 +34,7 @@ public class SkinManager : MonoBehaviour
 
             if (!_skins.ContainsKey(id))
             {
+                _dataBaseOfSkins.Add(skin);
                 if (skin.displayName == "Basic")
                 {
                     _skins.Add(id, Status.Selected);
@@ -99,7 +101,8 @@ public class SkinManager : MonoBehaviour
 
     private SkinData FindSkinById(string id)
     {
-        foreach (var skin in Resources.LoadAll<SkinData>(""))
+        //SkinData[] allSkins = Resources.LoadAll<SkinData>("Assets/Game/Configs/SkinSO");
+        foreach (var skin in _dataBaseOfSkins)
         {
             if (skin.id == id) return skin;
         }

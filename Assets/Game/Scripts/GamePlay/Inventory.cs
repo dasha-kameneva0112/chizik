@@ -49,11 +49,11 @@ public class Inventory : MonoBehaviour
         _cruciformPipe.ChangePipeSkin(pipe.cruciformPipe);
 
         // Обновляем ВСЕ существующие трубы на сцене
-        Pipe[] allPipes = FindObjectsOfType<Pipe>();
-        foreach (Pipe p in allPipes)
-        {
-            p.SetSkin(pipe.cornerPipe);
-        }
+        //Pipe[] allPipes = FindObjectsOfType<Pipe>();
+        //foreach (Pipe p in allPipes)
+        //{
+        //    p.SetSkin(pipe.cornerPipe);
+        //}
     }
 
     public void OnStraightPipeCLicked()
