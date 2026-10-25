@@ -60,7 +60,7 @@ public class BonusManager : MonoBehaviour
 
     private void OnRemoveCountUpdate(int newCount)
     {
-        isHammerLocked = AnyLevel.instance.removeCount != 0;
+        isHammerLocked = AnyLevel.instance.removeCount == 0;
         if (AnyLevel.instance.removeCount == 0)
         {
             _hammerButton.interactable = true;
