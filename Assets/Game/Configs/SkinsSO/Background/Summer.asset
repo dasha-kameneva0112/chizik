@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
   id: bg_basic
   displayName: Basic
-  icon: {fileID: 7761794303880344006, guid: d0fd9322043b1a44e9f5f0a2f3d36bbd, type: 3}
+  icon: {fileID: 7761794303880344006, guid: c14d826213b2cea4bb9cfa613eb3c33f, type: 3}
   price: 0
   type: 1
-  levelSprite: {fileID: -8763057385167750279, guid: aadba3ea14ed72f4f897797e345802bf, type: 3}
+  levelSprite: {fileID: -8763057385167750279, guid: 15922efc97ecdf742a98e0ae349f199b, type: 3}
+  cornerPipe: {fileID: 0}
+  triangularPipe: {fileID: 0}
+  cruciformPipe: {fileID: 0}
