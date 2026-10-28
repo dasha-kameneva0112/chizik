@@ -1,94 +1,70 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D;
-using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private PipeCount _straightPipe;
-    [SerializeField] private PipeCount _cornerPipe;
-    [SerializeField] private PipeCount _triangularPipe;
-    [SerializeField] private PipeCount _cruciformPipe;
+    public event Action<PipeType, int> CountPipeChange;
 
-    [Header("Pipe Prefabs")]
-    [SerializeField] private Pipe _straightPipePrefab;
-    [SerializeField] private Pipe _cornerPipePrefab;
-    [SerializeField] private Pipe _triangularPipePrefab;
-    [SerializeField] private Pipe _cruciformPipePrefab;
+    public static Inventory Instance => _instance;
 
-    [SerializeField] private GameField _gameField;
+    public Dictionary<PipeType, int> PipeSegments => _pipeSegments;
 
-    void Start()
+    [Header("Number of segment types")]
+    [SerializeField] private int _countStraightPipe;
+    [SerializeField] private int _countCornerPipe;
+    [SerializeField] private int _countTriangularPipe;
+    [SerializeField] private int _countCruciformPipe;
+
+    private static Inventory _instance;
+    private readonly Dictionary<PipeType, int> _pipeSegments = new Dictionary<PipeType, int>();
+
+    // для тестов 
+    //public PipeInInventory(Dictionary<PipeType, int> startConsumables)
+    //{
+    //    if (_instance == null)
+    //        _instance = this;
+    //    _pipeSegments = new Dictionary<PipeType, int>(startConsumables);
+    //}
+
+    private void Awake()
     {
-        _straightPipe.Button.onClick.AddListener(OnStraightPipeCLicked);
-        _cornerPipe.Button.onClick.AddListener(OnCornerPipeClicked);
-        _triangularPipe.Button.onClick.AddListener(OnTriangularPipeClicked);
-        _cruciformPipe.Button.onClick.AddListener(OnCruciformPipeClicked);
+        _instance = this;
 
-        _straightPipe.Enable();
-        _cornerPipe.Enable();
-        _triangularPipe.Enable();
-        _cruciformPipe.Enable();
-
-        //GameSettings.Instance.SkinChanged += ChangeSkin;
-        ChangeSkin();
+        _pipeSegments[PipeType.StraightPipe] = _countStraightPipe;
+        _pipeSegments[PipeType.CornerPipe] = _countCornerPipe;
+        _pipeSegments[PipeType.TriangularPipe] = _countTriangularPipe;
+        _pipeSegments[PipeType.CruciformPipe] = _countCruciformPipe;
     }
 
-    private void ChangeSkin()
+    public void Use(PipeType pipe)
     {
-        SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
-
-        _straightPipePrefab.SetSkin(pipe.icon);
-        _triangularPipePrefab.SetSkin(pipe.triangularPipe);
-        _cornerPipePrefab.SetSkin(pipe.cornerPipe);
-        _cruciformPipePrefab.SetSkin(pipe.cruciformPipe);
-
-        _straightPipe.ChangePipeSkin(pipe.icon);
-        _cornerPipe.ChangePipeSkin(pipe.cornerPipe);
-        _triangularPipe.ChangePipeSkin(pipe.triangularPipe);
-        _cruciformPipe.ChangePipeSkin(pipe.cruciformPipe);
-
-        // Обновляем ВСЕ существующие трубы на сцене
-        //Pipe[] allPipes = FindObjectsOfType<Pipe>();
-        //foreach (Pipe p in allPipes)
-        //{
-        //    p.SetSkin(pipe.cornerPipe);
-        //}
-    }
-
-    public void OnStraightPipeCLicked()
-    {
-        if(PipeInInventory.Instance.IsEnough(PipeType.StraightPipe))
+        if (!_pipeSegments.ContainsKey(pipe))
         {
-            PipeInInventory.Instance.Use(PipeType.StraightPipe);
-            _gameField.StartPlacingPipe(_straightPipePrefab);
+            throw new KeyNotFoundException();
         }
+
+        _pipeSegments[pipe]--;
+        CountPipeChange?.Invoke(pipe, _pipeSegments[pipe]);
     }
 
-    public void OnCornerPipeClicked()
+    public bool IsEnough(PipeType pipe)
     {
-        if (PipeInInventory.Instance.IsEnough(PipeType.CornerPipe))
+        if (!_pipeSegments.ContainsKey(pipe))
         {
-            PipeInInventory.Instance.Use(PipeType.CornerPipe);
-            _gameField.StartPlacingPipe(_cornerPipePrefab);
+            throw new KeyNotFoundException();
         }
+        return _pipeSegments[pipe] > 0;
     }
 
-    public void OnTriangularPipeClicked()
-    {
-        if (PipeInInventory.Instance.IsEnough(PipeType.TriangularPipe))
-        {
-            PipeInInventory.Instance.Use(PipeType.TriangularPipe);
-            _gameField.StartPlacingPipe(_triangularPipePrefab);
-        }
-    }
 
-    public void OnCruciformPipeClicked()
+    public void Delete(PipeType pipe) // если удалить сегмент с поля -> public void Delete(PipeType pipe)
     {
-        if (PipeInInventory.Instance.IsEnough(PipeType.CruciformPipe))
+        if (!_pipeSegments.ContainsKey(pipe))
         {
-            PipeInInventory.Instance.Use(PipeType.CruciformPipe);
-            _gameField.StartPlacingPipe(_cruciformPipePrefab);
+            throw new KeyNotFoundException();
         }
+        _pipeSegments[pipe]++;
+        CountPipeChange?.Invoke(pipe, _pipeSegments[pipe]);
     }
 }

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8331438236401671025}
   - component: {fileID: 7398361233576853838}
   - component: {fileID: 8501942896683346521}
-  - component: {fileID: -3981817737894887483}
   - component: {fileID: 6001491293472634672}
   m_Layer: 0
   m_Name: punctured_pipe
@@ -111,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
   spriteRenderer: {fileID: 1657438363540606864}
+  pipeType: 0
+  baseDirections: []
 --- !u!61 &8331438236401671025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -249,22 +250,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.44498682, y: 0.12969172}
   m_EdgeRadius: 0
---- !u!114 &-3981817737894887483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176041896990589198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9545fdef276c742803750c0f196ad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pipeType: 1
-  baseDirections:
-  - {x: -1, y: 0}
-  - {x: 1, y: 0}
 --- !u!61 &6001491293472634672
 BoxCollider2D:
   m_ObjectHideFlags: 0
