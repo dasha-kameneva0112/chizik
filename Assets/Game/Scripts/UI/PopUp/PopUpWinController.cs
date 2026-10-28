@@ -30,7 +30,7 @@ public class PopUpWinController : MonoBehaviour
 
     void CreatePopUpReward()
     {
-        Bank.Instance.AddMoney(_countOfReward);
+        Bank.Instance.DepositingMoney(_countOfReward);
         _reward.gameObject.SetActive(false);
         CreatePopUpWin();
     }
