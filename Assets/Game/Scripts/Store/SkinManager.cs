@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -38,7 +39,7 @@ public class SkinManager : MonoBehaviour
                 if (skin.displayName == "Basic")
                 {
                     _skins.Add(id, Status.Selected);
-                    SelectionSkin?.Invoke(skin);
+                    //SelectionSkin?.Invoke(skin);
                 }
                 else
                 {
@@ -61,7 +62,7 @@ public class SkinManager : MonoBehaviour
                 _skins[id] = Status.Selected;
                 SelectionSkin?.Invoke(skin);
             }
-
+            SaveSkinsToPrefs();
             return true;
         }
 
@@ -76,6 +77,7 @@ public class SkinManager : MonoBehaviour
         {
             _skins[id] = Status.Selected;
             SelectionSkin?.Invoke(skin);
+            SaveSkinsToPrefs();
         }
     }
 
@@ -115,6 +117,68 @@ public class SkinManager : MonoBehaviour
             return status;
 
         return Status.NotBought;
+    }
+
+    public SkinData GetSelectedSkin(SkinType type)
+    {
+        foreach (var kvp in _skins)
+        {
+            if (kvp.Value == Status.Selected)
+            {
+                SkinData s = FindSkinById(kvp.Key);
+                if (s != null && s.type == type)
+                {
+                    return s;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void SaveSkinsToPrefs()
+    {
+        foreach (var skin in _skins)
+        {
+            PlayerPrefs.SetString("Skin_" + skin.Key, skin.Value.ToString());
+        }
+
+        PlayerPrefs.Save();
+    }
+
+    public void LoadSkinsFromPrefs()
+    {
+        foreach (var key in _skins.Keys.ToList())
+        {
+            _skins[key] = Status.NotBought;
+        }
+
+        var keys = new List<string>(_skins.Keys);
+
+        foreach (string id in keys)
+        {
+            string key = "Skin_" + id;
+
+            if (PlayerPrefs.HasKey(key))
+            {
+                string saved = PlayerPrefs.GetString(key);
+                if (Enum.TryParse(saved, out Status s))
+                {
+                    _skins[id] = s;
+                }
+            }
+        }
+
+        foreach (var kvp in _skins)
+        {
+            if (kvp.Value == Status.Selected)
+            {
+                SkinData s = FindSkinById(kvp.Key);
+                if (s != null)
+                {
+                    SelectionSkin?.Invoke(s);
+                }    
+            }
+        }
     }
 }
 
