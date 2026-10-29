@@ -2485,11 +2485,11 @@ Transform:
   m_GameObject: {fileID: 964657168}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960, y: -540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 2140481378}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &964657170
 SpriteRenderer:
@@ -3010,7 +3010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6174363064084570695, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6174363064084570695, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3114,7 +3114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98490566, g: 0.40037933, b: 0.34007114, a: 0.09019608}
+  m_Color: {r: 0.3411765, g: 0.96639675, b: 0.9843137, a: 0.36862746}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5027,7 +5027,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 964657169}
   - {fileID: 2140212360}
   - {fileID: 1569670173}
   - {fileID: 1492018740}
@@ -5067,3 +5066,4 @@ SceneRoots:
   - {fileID: 2101979333}
   - {fileID: 539154619}
   - {fileID: 1473566768}
+  - {fileID: 964657169}
