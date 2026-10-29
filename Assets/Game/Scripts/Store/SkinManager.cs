@@ -50,8 +50,10 @@ public class SkinManager : MonoBehaviour
 
     public bool TryBuySkin(SkinData skin)
     {
-        if (Bank.Instance.SpendMoney(skin.price))
+        if (Bank.Instance.IsEnoughMoney(skin.price))
         {
+            Bank.Instance.DebitingMoney(skin.price);
+
             string id = skin.id;
             DeselectAllOfType(skin.type);
 
