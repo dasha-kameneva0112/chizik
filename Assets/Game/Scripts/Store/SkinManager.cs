@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class SkinManager : MonoBehaviour
@@ -15,6 +16,8 @@ public class SkinManager : MonoBehaviour
     private static SkinManager _instance; 
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
 
+    [SerializeField] private SkinData[] allSkins;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -25,6 +28,11 @@ public class SkinManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        RegisterSkins(allSkins);
     }
 
     public void RegisterSkins(SkinData[] data)
@@ -47,6 +55,7 @@ public class SkinManager : MonoBehaviour
                 }
             }
         }
+        LoadSkinsFromPrefs();
     }
 
     public bool TryBuySkin(SkinData skin)
@@ -180,6 +189,45 @@ public class SkinManager : MonoBehaviour
             }
         }
     }
+
+    public void DeleteAllSkinsFromPrefs()
+    {
+        foreach (var id in _skins.Keys.ToList())
+        {
+            PlayerPrefs.DeleteKey("Skin_" + id);
+        }
+        PlayerPrefs.Save();
+
+        foreach (var id in _skins.Keys.ToList())
+        {
+            SkinData skin = FindSkinById(id);
+
+            if (skin != null && skin.displayName == "Basic")
+                _skins[id] = Status.Selected;
+            else
+                _skins[id] = Status.NotBought;
+        }
+
+        foreach (var kvp in _skins)
+        {
+            if (kvp.Value == Status.Selected)
+            {
+                SkinData skin = FindSkinById(kvp.Key);
+                if (skin != null)
+                    SelectionSkin?.Invoke(skin);
+            }
+        }
+    }
+
+#if UNITY_EDITOR
+    [MenuItem("Tools/Skins/Reset All Skins")]
+    public static void EditorResetAllSkins()
+    {
+        SkinManager manager = FindAnyObjectByType<SkinManager>();
+        manager.DeleteAllSkinsFromPrefs();
+    }
+#endif
+
 }
 
 public enum Status
