@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 660002481219595424, guid: 6cfec5f9e321fa549b4ff1b731ad5181, type: 3}
+  m_Sprite: {fileID: 660002481219595424, guid: 31c8f777313e6134d92ee5456a9e3787, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 214603163}
   - component: {fileID: 214603162}
   - component: {fileID: 214603161}
-  - component: {fileID: 214603160}
+  - component: {fileID: 214603164}
   m_Layer: 5
   m_Name: StraightPipe
   m_TagString: Untagged
@@ -448,22 +448,6 @@ RectTransform:
   m_AnchoredPosition: {x: 106, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &214603160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214603158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 669526158}
-  _button: {fileID: 214603161}
-  _type: 0
-  _pipeSkin: {fileID: 1204618824}
 --- !u!114 &214603161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +542,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214603158}
   m_CullTransparentMesh: 1
+--- !u!114 &214603164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214603158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 669526158}
+  _button: {fileID: 214603161}
+  _type: 0
+  _pipeSkin: {fileID: 1204618824}
 --- !u!1 &255740051
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +891,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.79, y: 0.79}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 660002481219595424, guid: 6cfec5f9e321fa549b4ff1b731ad5181, type: 3}
+  m_Sprite: {fileID: 660002481219595424, guid: 31c8f777313e6134d92ee5456a9e3787, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 649161284}
   - component: {fileID: 649161283}
   - component: {fileID: 649161282}
-  - component: {fileID: 649161281}
+  - component: {fileID: 649161285}
   m_Layer: 5
   m_Name: CornerPipe
   m_TagString: Untagged
@@ -1951,22 +1951,6 @@ RectTransform:
   m_AnchoredPosition: {x: 336, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &649161281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649161279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 827436620}
-  _button: {fileID: 649161282}
-  _type: 1
-  _pipeSkin: {fileID: 1194925720}
 --- !u!114 &649161282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2061,6 +2045,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649161279}
   m_CullTransparentMesh: 1
+--- !u!114 &649161285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649161279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 827436620}
+  _button: {fileID: 649161282}
+  _type: 1
+  _pipeSkin: {fileID: 1194925720}
 --- !u!1 &669526156
 GameObject:
   m_ObjectHideFlags: 0
@@ -4085,7 +4085,7 @@ GameObject:
   - component: {fileID: 1070350540}
   - component: {fileID: 1070350539}
   - component: {fileID: 1070350538}
-  - component: {fileID: 1070350537}
+  - component: {fileID: 1070350541}
   m_Layer: 5
   m_Name: TriangularPipe
   m_TagString: Untagged
@@ -4115,22 +4115,6 @@ RectTransform:
   m_AnchoredPosition: {x: -336, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1070350537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070350535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 763535922}
-  _button: {fileID: 1070350538}
-  _type: 2
-  _pipeSkin: {fileID: 1270916615}
 --- !u!114 &1070350538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4225,6 +4209,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070350535}
   m_CullTransparentMesh: 1
+--- !u!114 &1070350541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070350535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 763535922}
+  _button: {fileID: 1070350538}
+  _type: 2
+  _pipeSkin: {fileID: 1270916615}
 --- !u!1 &1103299211
 GameObject:
   m_ObjectHideFlags: 0
@@ -4789,7 +4789,7 @@ GameObject:
   - component: {fileID: 1337936188}
   - component: {fileID: 1337936187}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4985,6 +4985,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterDropPrefab: {fileID: 3085585216760302705, guid: 34e05cd1d6e6f74408295a067d6277c0, type: 3}
   dropEnabled: 0
+--- !u!1 &1400692848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400692850}
+  - component: {fileID: 1400692849}
+  m_Layer: 0
+  m_Name: PopUpLossController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400692849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400692848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd7a4edfe239044fb1938d1086f39d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpLossController
+  _popUpLossPrefab: {fileID: 7187870280027729688, guid: a1935d91782fb174085d030381f5fdf9, type: 3}
+  _parentForPopUp: {fileID: 1468578455}
+  _blackout: {fileID: 502669332}
+--- !u!4 &1400692850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400692848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17057, y: 2.35079, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415044712
 GameObject:
   m_ObjectHideFlags: 0
@@ -5107,8 +5154,8 @@ RectTransform:
   - {fileID: 1314608208}
   - {fileID: 613771820}
   - {fileID: 502669333}
-  - {fileID: 1337936186}
   - {fileID: 1892105405}
+  - {fileID: 1337936186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5558,6 +5605,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623678255}
   m_CullTransparentMesh: 1
+--- !u!1 &1640521430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1640521432}
+  - component: {fileID: 1640521431}
+  m_Layer: 0
+  m_Name: PopUpWinController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1640521431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640521430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6232c4625dc16849a9f736e372d85e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpWinController
+  _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
+  _parentForPopUp: {fileID: 1468578455}
+  _blackout: {fileID: 502669332}
+  _reward: {fileID: 487536139}
+  _countOfReward: 30
+--- !u!4 &1640521432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640521430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17057, y: 2.35079, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1725907865
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,7 +6018,7 @@ GameObject:
   - component: {fileID: 1837379062}
   - component: {fileID: 1837379061}
   - component: {fileID: 1837379060}
-  - component: {fileID: 1837379059}
+  - component: {fileID: 1837379063}
   m_Layer: 5
   m_Name: CruciformPipe
   m_TagString: Untagged
@@ -5952,22 +6048,6 @@ RectTransform:
   m_AnchoredPosition: {x: -106, y: 0}
   m_SizeDelta: {x: 176, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1837379059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837379057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8caf53cd38f271a4dad9db1906db6606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PipeCount
-  _text: {fileID: 771351595}
-  _button: {fileID: 1837379060}
-  _type: 3
-  _pipeSkin: {fileID: 394370031}
 --- !u!114 &1837379060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6062,6 +6142,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837379057}
   m_CullTransparentMesh: 1
+--- !u!114 &1837379063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837379057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea350ec1bfeb541bb4c7634c3939b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeSlotInInventory
+  _text: {fileID: 771351595}
+  _button: {fileID: 1837379060}
+  _type: 3
+  _pipeSkin: {fileID: 394370031}
 --- !u!1 &1892105404
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,13 +6465,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1994441537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db88faf64f159a14db8ae4c70cc6c85c, type: 3}
+  m_Script: {fileID: 11500000, guid: f38e3ba157046fa42a5f174325c1ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeInInventory
-  _countStraightPipe: 1
-  _countCornerPipe: 5
-  _countTriangularPipe: 2
-  _countCruciformPipe: 2
+  _straightPipe: {fileID: 214603164}
+  _cornerPipe: {fileID: 649161285}
+  _triangularPipe: {fileID: 1070350541}
+  _cruciformPipe: {fileID: 1837379063}
+  _straightPipePrefab: {fileID: 6802182195439193649, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
+  _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
+  _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
+  _gameField: {fileID: 1496319214}
 --- !u!114 &1994441542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6388,15 +6489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  _straightPipe: {fileID: 214603160}
-  _cornerPipe: {fileID: 649161281}
-  _triangularPipe: {fileID: 1070350537}
-  _cruciformPipe: {fileID: 1837379059}
-  _straightPipePrefab: {fileID: 6802182195439193649, guid: 70c8f018e0562b34cb2e36e80aab1754, type: 3}
-  _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
-  _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
-  _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
-  _gameField: {fileID: 1496319214}
+  _countStraightPipe: 4
+  _countCornerPipe: 5
+  _countTriangularPipe: 3
+  _countCruciformPipe: 4
 --- !u!114 &1994441543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6686,3 +6782,5 @@ SceneRoots:
   - {fileID: 1364373788}
   - {fileID: 824193782}
   - {fileID: 581722499}
+  - {fileID: 1640521432}
+  - {fileID: 1400692850}

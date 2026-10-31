@@ -9,10 +9,10 @@ public enum pipeType
 public class Pipe : MonoBehaviour
 {
     public Vector2Int Size = Vector2Int.one;
-    [SerializeField] private SpriteRenderer spriteRenderer;
-
     public pipeType pipeType = pipeType.Normal;
     public Vector2Int[] baseDirections;
+
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     public Vector3 getOutputDirection(Vector3 dropWorldPos, Vector3 currentDir)
     {
@@ -57,7 +57,7 @@ public class Pipe : MonoBehaviour
 
     public void SetSkin(Sprite sprite)
     {
-        spriteRenderer.sprite = sprite;
+        _spriteRenderer.sprite = sprite;
     }
 
     private void OnDrawGizmosSelected()
