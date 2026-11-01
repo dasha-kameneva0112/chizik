@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8640224456331035415}
   m_Layer: 0
   m_Name: angle_dirty_pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

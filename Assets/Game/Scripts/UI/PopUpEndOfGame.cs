@@ -1,11 +1,11 @@
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PopUpEndOfGame : MonoBehaviour
 {
-    [SerializeField] private Button _win;
-    [SerializeField] private Button _leave;
+    public static PopUpEndOfGame instance;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject _popUpWinPrefab;
@@ -14,30 +14,43 @@ public class PopUpEndOfGame : MonoBehaviour
     [SerializeField] private GameObject _parentForPopUp;
     [SerializeField] private GameObject _blackout;
 
-    private int _numberCurrentLevel = 3;
+    private int _numberCurrentLevel;
 
-    void Start()
+    private void Awake()
     {
-        // привязываем к событиям
-        // победа => CreatePopUpWin;
-        // поражение CreatePopUpLoss;
-
-        // временно - кнопки 
-        _win.onClick.AddListener(OnWin);
-        _leave.onClick.AddListener(OnLoss);
+        instance = this;
     }
 
-    void OnWin()
+    private void Start()
+    {
+        _numberCurrentLevel = getCurrentLevel();
+    }
+    public void OnWin()
     {
         CreatePopUpWin();
     }
-    void OnLoss()
+    public void OnLoss()
     {
         CreatePopUpLoss();
     }
 
+    private int getCurrentLevel()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        return int.Parse(sceneName.Replace("Level_", ""));
+    }
+
+    private void hideAllPipes()
+    {
+        foreach (var pipe in GameObject.FindGameObjectsWithTag("Pipe"))
+        {
+            pipe.SetActive(false);
+        }
+    }
+
     private void CreatePopUpWin()
     {
+        hideAllPipes();
         _blackout.SetActive(true);
         var popUp = Instantiate(_popUpWinPrefab, _parentForPopUp.transform);
         popUp.GetComponent<PopUpWin>().SetLevel(_numberCurrentLevel);
@@ -48,6 +61,7 @@ public class PopUpEndOfGame : MonoBehaviour
 
     private void CreatePopUpLoss()
     {
+        hideAllPipes();
         _blackout.SetActive(true);
         var popUp = Instantiate(_popUpLossPrefab, _parentForPopUp.transform);
 
