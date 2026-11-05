@@ -10,7 +10,7 @@ public class LevelSceneController : MonoBehaviour
         _levels.FirstLevelButtonClicked += SwitchToFirstLevel;
         _levels.SecondLevelButtonClicked += SwitchToSecondLevel;
         _levels.ThirdLevelButtonClicked += SwitchToThirdLevel;
-        _levels.FourthLevelButtonClicked += SwitchToFoutyhLevel;
+        _levels.FourthLevelButtonClicked += SwitchToFourthLevel;
     }
 
     private void SwitchToFirstLevel()
@@ -28,7 +28,7 @@ public class LevelSceneController : MonoBehaviour
         SceneManager.LoadScene("Level_3");
     }
 
-    private void SwitchToFoutyhLevel()
+    private void SwitchToFourthLevel()
     {
         SceneManager.LoadScene("Level_4");
     }

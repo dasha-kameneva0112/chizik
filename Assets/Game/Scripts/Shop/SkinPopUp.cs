@@ -44,6 +44,14 @@ public class SkinPopUp : MonoBehaviour
         {
             _button.GetComponentInChildren<TextMeshProUGUI>().text = "BUY";
             _price.text = skin.price + " $";
+            if(skin.price > Bank.Instance.Money)
+            {
+                _button.interactable = false;
+                //var outline = _button.gameObject.GetComponent<Outline>();
+                //outline = _button.gameObject.AddComponent<Outline>();
+                //outline.effectColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+                //outline.effectDistance = new Vector2(4, -4);
+            }
         }
         else if(status == Status.Purchased)
         {
@@ -79,9 +87,11 @@ public class SkinPopUp : MonoBehaviour
         
         if(tmp.text == "BUY")
         {
-            SkinManager.Instance.BuySkin(_skinData);
-            BuyButtonClick?.Invoke();
-            OnUpdateNeeded?.Invoke();
+            if (SkinManager.Instance.TryBuySkin(_skinData))
+            {
+                BuyButtonClick?.Invoke();
+                OnUpdateNeeded?.Invoke();
+            }
         }
         if(tmp.text == "SELECT")
         {

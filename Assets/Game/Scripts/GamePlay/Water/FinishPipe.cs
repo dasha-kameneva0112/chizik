@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FinishPipe : MonoBehaviour
 {
+    public event Action OnLevelFailed;
+    public event Action OnLevelCompleted;
+
     public static FinishPipe Instance;
 
     private int arrived = 0;
@@ -52,11 +56,11 @@ public class FinishPipe : MonoBehaviour
             float result = getFinalPercant();
             if (result >= 91f)
             {
-                PopUpEndOfGame.instance.OnWin();
+                OnLevelCompleted?.Invoke();
             }
             else
             {
-                PopUpEndOfGame.instance.OnLoss();
+                OnLevelFailed?.Invoke();
             }
         }
     }
