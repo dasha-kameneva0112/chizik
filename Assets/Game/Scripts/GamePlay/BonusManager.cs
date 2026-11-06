@@ -1,19 +1,24 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class BonusManager : MonoBehaviour
 {
     public static BonusManager Instance => _instance;
-
     private static BonusManager _instance;
 
     [Header("UI")]
-    public Button brushButton;        // Кнопка щётки
-    public Button hammerButton;       // Кнопка молотка
-    public TMPro.TextMeshProUGUI brushCountText;
-    public TMPro.TextMeshProUGUI hammerCountText;
+    [SerializeField] private Button _brushButton;
+    [SerializeField] private Button _hammerButton;
+    [SerializeField] private TMPro.TextMeshProUGUI _brushCountText;
+    [SerializeField] private TMPro.TextMeshProUGUI _hammerCountText;
+
+    [Header("Чистые префабы")]
+    [SerializeField] private GameObject _cleanStraightPipePrefab;   
+    [SerializeField] private GameObject _cleanCornerPipePrefab;
+
+    [Header("Блокировка инвентаря")]
+    [SerializeField] private GameObject image;
 
     private int brushCount = 5;
     private int hammerCount = 5;
@@ -21,31 +26,24 @@ public class BonusManager : MonoBehaviour
     private bool isBrushActive = false;
     private bool isHammerActive = false;
 
-
     private void Awake()
     {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (_instance == null) _instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
     {
         UpdateUI();
 
-        brushButton.onClick.AddListener(() =>
+        _brushButton.onClick.AddListener(() =>
         {
             isBrushActive = !isBrushActive;
             isHammerActive = false;
             UpdateButtonColor();
         });
 
-        hammerButton.onClick.AddListener(() =>
+        _hammerButton.onClick.AddListener(() =>
         {
             isHammerActive = !isHammerActive;
             isBrushActive = false;
@@ -53,30 +51,57 @@ public class BonusManager : MonoBehaviour
         });
     }
 
-    public bool IsBonusActive()
-    {
-        return isBrushActive || isHammerActive;
-    }
+    public bool IsBonusActive() => isBrushActive || isHammerActive;
 
-    public void OnPipeClicked(PipeSegment pipe)
-    { 
+    public void OnPipeClicked(BonusAppliedPipe pipe)
+    {
         if (!IsBonusActive()) return;
 
         if (isBrushActive && pipe.IsDirty())
         {
-            pipe.ClearDirty();
+            GameObject cleanPrefab = null;
+
+            if (pipe.GetPipeType() == PipeType.DirtyStraightPipe)
+                cleanPrefab = _cleanStraightPipePrefab;
+            else if (pipe.GetPipeType() == PipeType.DirtyCornerPipe)
+                cleanPrefab = _cleanCornerPipePrefab;
+
+            if (cleanPrefab != null)
+            {
+                Instantiate(cleanPrefab, pipe.transform.position, pipe.transform.rotation);
+            }
+
             brushCount--;
             DeactivateAll();
-        }
-        else if (isHammerActive && pipe.isPlayerPlaced)
-        {
-            hammerCount--;
-            //Добавление обратно в инвентарь
-            // InventoryManager.Instance?.ReturnPipe(pipe._pipeType);
+            UpdateUI();
             Destroy(pipe.gameObject);
-            DeactivateAll();
+            return;
         }
-        UpdateUI();
+
+        if (isHammerActive)
+        {
+            if (Keyboard.current.backspaceKey.wasPressedThisFrame)
+            {
+                Vector2 mousePos = Mouse.current.position.ReadValue();
+                Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+                Collider2D[] allColliders = GetComponents<Collider2D>();
+
+                foreach (Collider2D col in allColliders)
+                {
+                    if (col.bounds.Contains(worldPos))
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
+
+            hammerCount--;
+            PipeInInventory.Instance.Delete(pipe.GetPipeType()); 
+            DeactivateAll();
+            UpdateUI();
+            return;
+        }
     }
 
     private void DeactivateAll()
@@ -84,20 +109,24 @@ public class BonusManager : MonoBehaviour
         isBrushActive = false;
         isHammerActive = false;
         UpdateButtonColor();
+
+       image.SetActive(false);
     }
 
     private void UpdateButtonColor()
     {
-        brushButton.image.color = isBrushActive ? Color.yellow : Color.white;
-        hammerButton.image.color = isHammerActive ? Color.yellow : Color.white;
+        _brushButton.image.color = isBrushActive ? Color.yellow : Color.white;
+        _hammerButton.image.color = isHammerActive ? Color.yellow : Color.white;
+
+        bool bonusActive = isBrushActive || isHammerActive;
+        image.SetActive(bonusActive);
     }
 
     private void UpdateUI()
     {
-        brushCountText.text = brushCount.ToString();
-        hammerCountText.text = hammerCount.ToString();
-
-        brushButton.interactable = brushCount > 0;
-        hammerButton.interactable = hammerCount > 0;
+        _brushCountText.text = brushCount.ToString();
+        _hammerCountText.text = hammerCount.ToString();
+        _brushButton.interactable = brushCount > 0;
+        _hammerButton.interactable = hammerCount > 0;
     }
 }

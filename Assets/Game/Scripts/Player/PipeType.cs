@@ -8,7 +8,6 @@ public enum PipeType
     TriangularPipe,
     CruciformPipe,
 
-
     DirtyStraightPipe,
     DirtyCornerPipe
 }
