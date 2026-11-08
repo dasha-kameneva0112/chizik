@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8100b430d8c7ddd4294c3706f2499bef, type: 3}
+  m_Name: Gold
+  m_EditorClassIdentifier: Assembly-CSharp::SkinData
+  id: pipe_gold
+  displayName: Gold
+  icon: {fileID: -9202335561012944314, guid: a07e739e52df8b441a8663f1fdc7d2e9, type: 3}
+  price: 80
+  type: 2
+  levelSprite: {fileID: 0}
+  cornerPipe: {fileID: 3973545818212796256, guid: 7751c784414978f44809a26f5e70c259, type: 3}
+  triangularPipe: {fileID: -716173211955997806, guid: bc07f53abfaf6e847b947e1dc5df8e28, type: 3}
+  cruciformPipe: {fileID: 9093946837164022268, guid: 04a35ec7a11988b4db8ee4a9a6ff6e8b, type: 3}
