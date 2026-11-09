@@ -7,7 +7,7 @@ public class LevelProgress : MonoBehaviour
     public static LevelProgress Instance => _instance;
     public int CurrentLevelNumber => _currentLevelNumber;
 
-    [SerializeField] private int _currentLevelNumber = 3;
+    [SerializeField] private int _currentLevelNumber;
     
     private static LevelProgress _instance;
 

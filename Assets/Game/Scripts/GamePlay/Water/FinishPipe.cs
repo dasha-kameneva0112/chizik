@@ -57,10 +57,12 @@ public class FinishPipe : MonoBehaviour
             if (result >= 91f)
             {
                 OnLevelCompleted?.Invoke();
+                return;
             }
             else
             {
                 OnLevelFailed?.Invoke();
+                return;
             }
         }
     }
