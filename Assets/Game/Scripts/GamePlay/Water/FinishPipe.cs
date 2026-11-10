@@ -15,6 +15,8 @@ public class FinishPipe : MonoBehaviour
     private int totalDrops = 0;
     private int failedDrops = 0;
 
+    private bool resultat_shown = false;
+
     private void Awake()
     {
         Instance = this;
@@ -51,9 +53,10 @@ public class FinishPipe : MonoBehaviour
     private void tryShowResult()
     {
         int proccessed = arrived + failedDrops;
-        if (proccessed >= totalDrops)
+        if (proccessed >= totalDrops && !resultat_shown)
         {
             float result = getFinalPercant();
+            resultat_shown = true;
             if (result >= 91f)
             {
                 OnLevelCompleted?.Invoke();
