@@ -5422,12 +5422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b68b1c9baba1344cb0c99553a410f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopUpEndOfGame
-  _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
-  _popUpLossPrefab: {fileID: 7187870280027729688, guid: a1935d91782fb174085d030381f5fdf9, type: 3}
-  _parentForPopUp: {fileID: 265889374}
-  _blackout: {fileID: 510382893}
-  _reward: {fileID: 311373839}
-  _countOfReward: 10
 --- !u!4 &1690741334
 Transform:
   m_ObjectHideFlags: 0
@@ -5797,6 +5791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7650acd970a02d548822f9bc3ebed1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameField
+  StraightPipe: {fileID: 2046556181}
+  CornerPipe: {fileID: 2133712926}
+  TriangularPipe: {fileID: 2089170227}
+  CruciformPipe: {fileID: 1126734265}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!114 &2011296085
