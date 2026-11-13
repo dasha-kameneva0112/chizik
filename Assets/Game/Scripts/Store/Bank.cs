@@ -22,12 +22,13 @@ public class Bank : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
-        _money = _startMoney;
+        _money = PlayerPrefs.GetInt("coins", _startMoney);
     }
 
     public void DepositingMoney(int money)
     {
         _money += money;
+        SaveMoney();
         CoinsChanged?.Invoke(_money);
     }
 
@@ -43,6 +44,13 @@ public class Bank : MonoBehaviour
     public void DebitingMoney(int money)
     {
         _money -= money;
+        SaveMoney();
         CoinsChanged?.Invoke(_money);
+    }
+
+    private void SaveMoney()
+    {
+        PlayerPrefs.SetInt("coins", _money);
+        PlayerPrefs.Save();
     }
 }

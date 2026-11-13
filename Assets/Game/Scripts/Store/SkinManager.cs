@@ -219,6 +219,8 @@ public class SkinManager : MonoBehaviour
                     SelectionSkin?.Invoke(skin);
             }
         }
+
+        SaveSkinsToPrefs();
     }
 
 #if UNITY_EDITOR
