@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameField : MonoBehaviour
 {
+    [SerializeField] private Button StraightPipe;
+    [SerializeField] private Button CornerPipe;
+    [SerializeField] private Button TriangularPipe;
+    [SerializeField] private Button CruciformPipe;
+
     // Размер игрового поля в клетках (ширина × высота)
     public Vector2Int GridSize = new Vector2Int(10, 10);
 
@@ -37,6 +43,10 @@ public class GameField : MonoBehaviour
 
         // Создаём новую трубу из префаба и делаем её "летающей"
         _flyingPipe = Instantiate(pipePrefab);
+        StraightPipe.interactable = false;
+        CornerPipe.interactable = false;
+        TriangularPipe.interactable = false;
+        CruciformPipe.interactable = false;
     }
 
     // Обновляется каждый кадр
@@ -85,6 +95,10 @@ public class GameField : MonoBehaviour
                 if (available && Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     PlaceFlyingPipe(gridX, gridY); // Фиксируем трубу на поле
+                    StraightPipe.interactable = true;
+                    CornerPipe.interactable = true;
+                    TriangularPipe.interactable = true;
+                    CruciformPipe.interactable = true;
                 }
             }
         }

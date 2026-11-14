@@ -1820,6 +1820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7650acd970a02d548822f9bc3ebed1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameField
+  StraightPipe: {fileID: 626516587}
+  CornerPipe: {fileID: 32835231}
+  TriangularPipe: {fileID: 1670914007}
+  CruciformPipe: {fileID: 338733156}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!114 &397077242
