@@ -10,13 +10,17 @@ public class SkinManager : MonoBehaviour
 {
     public event Action<SkinData> SelectionSkin;
     public static SkinManager Instance => _instance;
-    public Dictionary<string, Status> Skins => _skins;
+    public Dictionary<string, Status> Skins => _skins;    
+    public List<SkinData> _chizikSkins = new();
+    public List<SkinData> _backgroundSkins = new();
+    public List<SkinData> _pipeSkins = new();
 
-    private List<SkinData> _dataBaseOfSkins = new List<SkinData>();
+    
+    [SerializeField] private SkinData[] _allSkins;
+
+    //private List<SkinData> _dataBaseOfSkins = new List<SkinData>();
     private static SkinManager _instance; 
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
-
-    [SerializeField] private SkinData[] allSkins;
 
     private void Awake()
     {
@@ -32,7 +36,7 @@ public class SkinManager : MonoBehaviour
 
     private void Start()
     {
-        RegisterSkins(allSkins);
+        RegisterSkins(_allSkins);
     }
 
     public void RegisterSkins(SkinData[] data)
@@ -43,15 +47,28 @@ public class SkinManager : MonoBehaviour
 
             if (!_skins.ContainsKey(id))
             {
-                _dataBaseOfSkins.Add(skin);
+                //_dataBaseOfSkins.Add(skin);
                 if (skin.displayName == "Basic")
                 {
                     _skins.Add(id, Status.Selected);
-                    //SelectionSkin?.Invoke(skin);
+                    SelectionSkin?.Invoke(skin);
                 }
                 else
                 {
                     _skins.Add(id, Status.NotBought);
+                }
+
+                if(skin.type == SkinType.Chizik)
+                {
+                    _chizikSkins.Add(skin);
+                }
+                else if(skin.type == SkinType.Background)
+                {
+                    _backgroundSkins.Add(skin);
+                } 
+                else
+                {
+                    _pipeSkins.Add(skin);
                 }
             }
         }
@@ -115,7 +132,7 @@ public class SkinManager : MonoBehaviour
     private SkinData FindSkinById(string id)
     {
         //SkinData[] allSkins = Resources.LoadAll<SkinData>("Assets/Game/Configs/SkinSO");
-        foreach (var skin in _dataBaseOfSkins)
+        foreach (var skin in _allSkins)
         {
             if (skin.id == id) return skin;
         }
