@@ -32,6 +32,8 @@ public class PipeInventoryUI : MonoBehaviour
 
         //GameSettings.Instance.SkinChanged += ChangeSkin;
         ChangeSkin();
+
+        FinishPipe.Instance.OnLevelCompleted += (() => gameObject.SetActive(false));
     }
 
     private void ChangeSkin()

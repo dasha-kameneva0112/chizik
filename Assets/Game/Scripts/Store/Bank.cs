@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class Bank : MonoBehaviour
+public class Bank : MonoBehaviour, IBank
 {
     public event Action<int> CoinsChanged;
     public int Money => _money;

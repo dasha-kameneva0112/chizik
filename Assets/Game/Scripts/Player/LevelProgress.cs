@@ -26,13 +26,31 @@ public class LevelProgress : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         _currentLevelNumber = PlayerPrefs.GetInt("currentLevel", _startLevelNumber);
+    }
 
+    public int GetOpenLevel()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        currentScene = currentScene.Replace("Level_", "");
+        if (currentScene == _currentLevelNumber.ToString())
+        {
+            return _currentLevelNumber;
+        }
+        else
+        {
+            return int.Parse(currentScene);
+        }
     }
 
     public void UpdateNumberLevel()
     {
-        _currentLevelNumber++;
-        SaveToPref();
+        string currentScene = SceneManager.GetActiveScene().name;
+        currentScene = currentScene.Replace("Level_", "");
+        if (currentScene == _currentLevelNumber.ToString())
+        {
+            _currentLevelNumber++;
+            SaveToPref();
+        }
     }
 
     private void SaveToPref()

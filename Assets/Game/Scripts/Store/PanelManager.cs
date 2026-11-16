@@ -12,34 +12,22 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private GameObject _parentForPopUp;
     [SerializeField] private GameObject _blackout;
 
-    [Header("Skins")]
-    [SerializeField] private SkinData[] _chizikSkins;
-    [SerializeField] private SkinData[] _backgroundSkins;
-    [SerializeField] private SkinData[] _pipeSkins;
-
     [Header("Prefabs")]
     [SerializeField] private GameObject _skinItemPrefab;
     [SerializeField] private GameObject _skinPopUpPrefab;
 
-    private SkinData[] _lastShownSkins; // запоминаем последнюю вкладку
+    private List<SkinData> _lastShownSkins; // запоминаем последнюю вкладку
 
     private void OnEnable()
     {
         _blackout.SetActive(false);
-        _store.ChizikButtonClick += (() => ShowSkins(_chizikSkins));
-        _store.BackgroundButtonClick += (() => ShowSkins(_backgroundSkins));
-        _store.PipeButtonClick += (() => ShowSkins(_pipeSkins));
+        _store.ChizikButtonClick += (() => ShowSkins(SkinManager.Instance._chizikSkins));
+        _store.BackgroundButtonClick += (() => ShowSkins(SkinManager.Instance._backgroundSkins));
+        _store.PipeButtonClick += (() => ShowSkins(SkinManager.Instance._pipeSkins));
         _store.CloseButtonClick += Clear;
     }
 
-    private void Awake()
-    {
-        SkinManager.Instance.RegisterSkins(_chizikSkins);
-        SkinManager.Instance.RegisterSkins(_backgroundSkins);
-        SkinManager.Instance.RegisterSkins(_pipeSkins);
-    }
-
-    private void ShowSkins(SkinData[] skins)
+    private void ShowSkins(List<SkinData> skins)
     {
         Clear();
         _lastShownSkins = skins;
@@ -85,9 +73,9 @@ public class PanelManager : MonoBehaviour
 
     private void OnDisable()
     {
-        _store.ChizikButtonClick -= (() => ShowSkins(_chizikSkins));
-        _store.BackgroundButtonClick -= (() => ShowSkins(_backgroundSkins));
-        _store.PipeButtonClick -= (() => ShowSkins(_pipeSkins));
+        _store.ChizikButtonClick -= (() => ShowSkins(SkinManager.Instance._chizikSkins));
+        _store.BackgroundButtonClick -= (() => ShowSkins(SkinManager.Instance._backgroundSkins));
+        _store.PipeButtonClick -= (() => ShowSkins(SkinManager.Instance._pipeSkins));
         _store.CloseButtonClick -= Clear;
     }
 }

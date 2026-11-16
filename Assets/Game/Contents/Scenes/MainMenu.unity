@@ -1354,7 +1354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 582814047}
-  - component: {fileID: 582814046}
+  - component: {fileID: 582814048}
   m_Layer: 0
   m_Name: SkinManager
   m_TagString: Untagged
@@ -1362,27 +1362,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &582814046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582814045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2a2adc8a70563c41b75e61dc7a9a0e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkinManager
-  allSkins:
-  - {fileID: 11400000, guid: 92fa038e9b6d58a428f4b3d9642a6bd2, type: 2}
-  - {fileID: 11400000, guid: fb94a5ac02085fe4ba76847a24eef26f, type: 2}
-  - {fileID: 11400000, guid: b49f90d29592c2044b0c892626226090, type: 2}
-  - {fileID: 11400000, guid: 0137c8a3533b32842b73f78f716506f6, type: 2}
-  - {fileID: 11400000, guid: 2b0d8db8d516dcc4d8d4d8c59b3e746b, type: 2}
-  - {fileID: 11400000, guid: 2479e8bd1206dbe468b0941f2e0ba242, type: 2}
-  - {fileID: 11400000, guid: 62f88e4fd451a1841ad76e84f9380246, type: 2}
-  - {fileID: 11400000, guid: 187cc6d39eceee948b2a85dff6f5f990, type: 2}
 --- !u!4 &582814047
 Transform:
   m_ObjectHideFlags: 0
@@ -1398,6 +1377,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582814048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582814045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a2adc8a70563c41b75e61dc7a9a0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkinManager
+  _chizikSkins: []
+  _backgroundSkins: []
+  _pipeSkins: []
+  _allSkins:
+  - {fileID: 11400000, guid: 62f88e4fd451a1841ad76e84f9380246, type: 2}
+  - {fileID: 11400000, guid: 0137c8a3533b32842b73f78f716506f6, type: 2}
+  - {fileID: 11400000, guid: fb94a5ac02085fe4ba76847a24eef26f, type: 2}
+  - {fileID: 11400000, guid: 187cc6d39eceee948b2a85dff6f5f990, type: 2}
+  - {fileID: 11400000, guid: 2b0d8db8d516dcc4d8d4d8c59b3e746b, type: 2}
+  - {fileID: 11400000, guid: 2479e8bd1206dbe468b0941f2e0ba242, type: 2}
+  - {fileID: 11400000, guid: b49f90d29592c2044b0c892626226090, type: 2}
+  - {fileID: 11400000, guid: 92fa038e9b6d58a428f4b3d9642a6bd2, type: 2}
 --- !u!1 &625449838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,17 +4508,6 @@ MonoBehaviour:
   _scrollRect: {fileID: 1619753232}
   _parentForPopUp: {fileID: 1702514255}
   _blackout: {fileID: 689023517}
-  _chizikSkins:
-  - {fileID: 11400000, guid: 0137c8a3533b32842b73f78f716506f6, type: 2}
-  - {fileID: 11400000, guid: 2b0d8db8d516dcc4d8d4d8c59b3e746b, type: 2}
-  - {fileID: 11400000, guid: 2479e8bd1206dbe468b0941f2e0ba242, type: 2}
-  _backgroundSkins:
-  - {fileID: 11400000, guid: fb94a5ac02085fe4ba76847a24eef26f, type: 2}
-  - {fileID: 11400000, guid: b49f90d29592c2044b0c892626226090, type: 2}
-  - {fileID: 11400000, guid: 92fa038e9b6d58a428f4b3d9642a6bd2, type: 2}
-  _pipeSkins:
-  - {fileID: 11400000, guid: 62f88e4fd451a1841ad76e84f9380246, type: 2}
-  - {fileID: 11400000, guid: 187cc6d39eceee948b2a85dff6f5f990, type: 2}
   _skinItemPrefab: {fileID: 4565313830948695916, guid: 1ecca12846e6f204b86c55b372653a14, type: 3}
   _skinPopUpPrefab: {fileID: 1097580592875294732, guid: 529fd6c8b139ca74fa3308a1820ed943, type: 3}
 --- !u!1 &1484737357

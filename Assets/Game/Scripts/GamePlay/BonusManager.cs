@@ -56,6 +56,8 @@ public class BonusManager : MonoBehaviour
         {
             AnyLevel.instance.RemoveCountUpdate += OnRemoveCountUpdate;
         }
+
+        FinishPipe.Instance.OnLevelCompleted += (() => gameObject.SetActive(false));
     }
 
     private void OnRemoveCountUpdate(int newCount)

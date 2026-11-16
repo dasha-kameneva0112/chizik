@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 public class pipeMovement : MonoBehaviour
 {
     private Camera mainCamera;
-    
+    private SpriteRenderer _sr;
+
     void Start()
     {
         mainCamera = Camera.main;
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -19,15 +21,13 @@ public class pipeMovement : MonoBehaviour
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-
-        if (sr.bounds.Contains(worldPos) && Mouse.current.rightButton.wasPressedThisFrame)
+        if (_sr.bounds.Contains(worldPos) && Mouse.current.rightButton.wasPressedThisFrame)
         {
             transform.Rotate(0, 0, 90);
             return;
         }
 
-        if (sr.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
+        if (_sr.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
             if (AnyLevel.instance.removeCount > 0)
             {

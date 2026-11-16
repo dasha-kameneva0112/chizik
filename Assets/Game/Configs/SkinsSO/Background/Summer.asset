@@ -18,6 +18,7 @@ MonoBehaviour:
   price: 0
   type: 1
   levelSprite: {fileID: -8763057385167750279, guid: 15922efc97ecdf742a98e0ae349f199b, type: 3}
+  winBackground: {fileID: 2372998080831318903, guid: f65284f04a11ea44b96d5902aaab6a33, type: 3}
   cornerPipe: {fileID: 0}
   triangularPipe: {fileID: 0}
   cruciformPipe: {fileID: 0}
