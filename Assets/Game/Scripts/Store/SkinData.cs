@@ -11,6 +11,7 @@ public class SkinData : ScriptableObject
 
     [Header("Only background")]
     public Sprite levelSprite;
+    public Sprite winBackground;
 
     [Header("Only pipe")]
     public Sprite cornerPipe;

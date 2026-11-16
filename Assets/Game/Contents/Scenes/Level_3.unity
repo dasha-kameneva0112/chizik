@@ -5718,6 +5718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PopUpWinController
   _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
   _parentForPopUp: {fileID: 1468578455}
+  _background: {fileID: 964657168}
   _blackout: {fileID: 502669332}
   _reward: {fileID: 487536139}
   _countOfReward: 30

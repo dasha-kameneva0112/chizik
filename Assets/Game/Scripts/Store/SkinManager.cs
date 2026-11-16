@@ -15,7 +15,6 @@ public class SkinManager : MonoBehaviour
     public List<SkinData> _backgroundSkins = new();
     public List<SkinData> _pipeSkins = new();
 
-    
     [SerializeField] private SkinData[] _allSkins;
 
     //private List<SkinData> _dataBaseOfSkins = new List<SkinData>();

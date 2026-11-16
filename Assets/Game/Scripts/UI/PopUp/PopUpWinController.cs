@@ -7,6 +7,7 @@ public class PopUpWinController : MonoBehaviour
 {
     [SerializeField] private GameObject _popUpWinPrefab;
     [SerializeField] private GameObject _parentForPopUp;
+    [SerializeField] private GameObject _background;
     [SerializeField] private GameObject _blackout;
     [SerializeField] private Button _reward;
     [SerializeField] private int _countOfReward;
@@ -21,6 +22,7 @@ public class PopUpWinController : MonoBehaviour
     private void OnWin()
     {
         HideAllPipes();
+        _background.GetComponent<Image>().sprite = GameSettings.Instance.CurrentBackgroundSkin.winBackground;
         LevelProgress.Instance.UpdateNumberLevel();
 
         _reward.gameObject.SetActive(true);

@@ -12,11 +12,6 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private GameObject _parentForPopUp;
     [SerializeField] private GameObject _blackout;
 
-    //[Header("Skins")]
-    //[SerializeField] private SkinData[] _chizikSkins;
-    //[SerializeField] private SkinData[] _backgroundSkins;
-    //[SerializeField] private SkinData[] _pipeSkins;
-
     [Header("Prefabs")]
     [SerializeField] private GameObject _skinItemPrefab;
     [SerializeField] private GameObject _skinPopUpPrefab;
@@ -31,13 +26,6 @@ public class PanelManager : MonoBehaviour
         _store.PipeButtonClick += (() => ShowSkins(SkinManager.Instance._pipeSkins));
         _store.CloseButtonClick += Clear;
     }
-
-    //private void Awake()
-    //{
-    //    SkinManager.Instance.RegisterSkins(_chizikSkins);
-    //    SkinManager.Instance.RegisterSkins(_backgroundSkins);
-    //    SkinManager.Instance.RegisterSkins(_pipeSkins);
-    //}
 
     private void ShowSkins(List<SkinData> skins)
     {

@@ -17,7 +17,8 @@ MonoBehaviour:
   icon: {fileID: -2528488927998631363, guid: 785da8765e7d50845a1a763441db50cc, type: 3}
   price: 50
   type: 1
-  levelSprite: {fileID: -4945150112244964232, guid: 1fb6a758533a84147a6f9e05f01cb3b0, type: 3}
+  levelSprite: {fileID: -2583659394237740674, guid: 0c6aa470d014a404b84ee120c10be1da, type: 3}
+  winBackground: {fileID: -4703148306824077206, guid: 19cd9cd4c386b4748913354d99ccfc10, type: 3}
   cornerPipe: {fileID: 0}
   triangularPipe: {fileID: 0}
   cruciformPipe: {fileID: 0}
