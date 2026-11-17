@@ -52,9 +52,9 @@ public class BonusManager : MonoBehaviour
             UpdateButtonColor();
         });
 
-        if (AnyLevel.instance != null)
+        if (AnyLevel.Instance != null)
         {
-            AnyLevel.instance.RemoveCountUpdate += OnRemoveCountUpdate;
+            AnyLevel.Instance.RemoveCountUpdate += OnRemoveCountUpdate;
         }
 
         FinishPipe.Instance.OnLevelCompleted += (() => gameObject.SetActive(false));
@@ -62,8 +62,8 @@ public class BonusManager : MonoBehaviour
 
     private void OnRemoveCountUpdate(int newCount)
     {
-        isHammerLocked = AnyLevel.instance.removeCount == 0;
-        if (AnyLevel.instance.removeCount == 0)
+        isHammerLocked = AnyLevel.Instance.removeCount == 0;
+        if (AnyLevel.Instance.removeCount == 0)
         {
             _hammerButton.interactable = true;
         }

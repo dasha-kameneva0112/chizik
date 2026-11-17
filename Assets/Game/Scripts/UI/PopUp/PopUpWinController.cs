@@ -36,7 +36,7 @@ public class PopUpWinController : MonoBehaviour
 
     void CreatePopUpReward()
     {
-        _bank.DepositingMoney(_countOfReward);
+        _bank.DepositMoney(_countOfReward);
         _reward.gameObject.SetActive(false);
         CreatePopUpWin();
     }

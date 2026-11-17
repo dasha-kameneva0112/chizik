@@ -78,7 +78,7 @@ public class SkinManager : MonoBehaviour
     {
         if (Bank.Instance.IsEnoughMoney(skin.price))
         {
-            Bank.Instance.DebitingMoney(skin.price);
+            Bank.Instance.DebitMoney(skin.price);
 
             string id = skin.id;
             DeselectAllOfType(skin.type);
