@@ -2,42 +2,53 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
-public class pipeMovement : MonoBehaviour
+public class PipeMovement : MonoBehaviour
 {
     private Camera mainCamera;
-    private SpriteRenderer _sr;
+    private SpriteRenderer _spriteRenderer;
 
     void Start()
     {
         mainCamera = Camera.main;
-        _sr = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (Mouse.current == null) return;
+        Vector2 worldPos = GetMouseWorldPosition();
 
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-        Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        Rotate(worldPos);
 
-        if (_sr.bounds.Contains(worldPos) && Mouse.current.rightButton.wasPressedThisFrame)
+        if (_spriteRenderer.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
+        {
+            if (AnyLevel.Instance.removeCount > 0)
+            {
+                BonusAppliedPipe segment = GetComponent<BonusAppliedPipe>();
+
+                Destroy(gameObject);
+                AnyLevel.Instance.UpdateRemoveCount();
+                Inventory.Instance.Delete(segment.GetPipeType());
+            }
+        }        
+    }
+
+    private void Rotate(Vector2 worldPos)
+    {
+        if (_spriteRenderer.bounds.Contains(worldPos) && Mouse.current.rightButton.wasPressedThisFrame)
         {
             transform.Rotate(0, 0, 90);
             return;
         }
+    }
 
-        if (_sr.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
-        {
-            if (AnyLevel.instance.removeCount > 0)
-            {
-                    BonusAppliedPipe segment = GetComponent<BonusAppliedPipe>();
+    private Vector2 GetMouseWorldPosition()
+    {
+        if (Mouse.current == null) return Vector2.zero;
 
-                    Destroy(gameObject);
-                    AnyLevel.instance.UpdateRemoveCount();
-                    Inventory.Instance.Delete(segment.GetPipeType());
-            }
-        }
-                
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Vector2 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
+        return worldPos;
     }
 }

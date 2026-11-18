@@ -25,7 +25,7 @@ public class Bank : MonoBehaviour, IBank
         _money = PlayerPrefs.GetInt("coins", _startMoney);
     }
 
-    public void DepositingMoney(int money)
+    public void DepositMoney(int money)
     {
         _money += money;
         SaveMoney();
@@ -41,7 +41,7 @@ public class Bank : MonoBehaviour, IBank
         return false;
     }
 
-    public void DebitingMoney(int money)
+    public void DebitMoney(int money)
     {
         _money -= money;
         SaveMoney();
