@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FinishPipe : MonoBehaviour
 {
+    public event Action OnLevelFailed;
+    public event Action OnLevelCompleted;
+
     public static FinishPipe Instance;
 
     private int arrived = 0;
@@ -49,7 +53,15 @@ public class FinishPipe : MonoBehaviour
         int proccessed = arrived + failedDrops;
         if (proccessed >= totalDrops)
         {
-            Debug.Log("Result" + getFinalPercant() + "%");
+            float result = getFinalPercant();
+            if (result >= 91f)
+            {
+                OnLevelCompleted?.Invoke();
+            }
+            else
+            {
+                OnLevelFailed?.Invoke();
+            }
         }
     }
 
