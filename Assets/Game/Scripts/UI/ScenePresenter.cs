@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneController : MonoBehaviour
+public class ScenePresenter : MonoBehaviour
 {
     [SerializeField] private MainMenu _menu;
     [SerializeField] private Levels _levels;
@@ -12,8 +12,14 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Image _background;
     [SerializeField] private Image _chizik;
 
+    private IGameSettings _gameSetting;
+    private ILevelProgress _levelProgress;
+
     private void Start()
     {
+        _gameSetting = GameSettings.Instance;
+        _levelProgress = LevelProgress.Instance;
+
         _menu.gameObject.SetActive(true);
         _levels.gameObject.SetActive(false);
         _store.gameObject.SetActive(false);
@@ -24,13 +30,13 @@ public class SceneController : MonoBehaviour
         _levels.BackButtonClicked += SwitchToMenu;
         _store.CloseButtonClick += SwitchToMenu;
 
-        GameSettings.Instance.SkinChanged += ChangeSkin;
+        _gameSetting.SkinChanged += ChangeSkin;
         ChangeSkin();
     }
 
     private void SwitchToGamePlay()
     {
-        int numberOfCurrentLevel = LevelProgress.Instance.CurrentLevelNumber;
+        int numberOfCurrentLevel = _levelProgress.CurrentLevelNumber;
 
         if (numberOfCurrentLevel == 1)
             SceneManager.LoadScene("Level_1");
@@ -64,8 +70,8 @@ public class SceneController : MonoBehaviour
 
     private void ChangeSkin()
     {
-        SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
-        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
+        SkinData chizik = _gameSetting.CurrentChizikSkin;
+        SkinData background = _gameSetting.CurrentBackgroundSkin;
 
         if (chizik != null)
             _chizik.sprite = chizik.icon;
@@ -75,9 +81,9 @@ public class SceneController : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (GameSettings.Instance != null)
+        if (_gameSetting != null)
         {
-            GameSettings.Instance.SkinChanged -= ChangeSkin;
+            _gameSetting.SkinChanged -= ChangeSkin;
         }
     }
 }

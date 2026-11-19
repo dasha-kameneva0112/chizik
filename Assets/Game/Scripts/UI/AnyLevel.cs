@@ -30,6 +30,7 @@ public class AnyLevel : MonoBehaviour
     public int removeCount;
 
     private static AnyLevel _instance;
+    private IGameSettings _gameSettings;
 
     private void Awake()
     {
@@ -39,6 +40,8 @@ public class AnyLevel : MonoBehaviour
 
     private void Start()
     {
+        _gameSettings = GameSettings.Instance;
+
         removeCount = int.Parse(removeCountText.text);
         _backButton.onClick.AddListener(OnBackButtonClicked);
         _restartButton.onClick.AddListener(OnRestartButtonClicked);
@@ -46,8 +49,8 @@ public class AnyLevel : MonoBehaviour
 
         RemoveCountUpdate?.Invoke(removeCount);
 
-        var popUpWinModel = new PopUpWinModel(Bank.Instance, LevelProgress.Instance, FinishPipe.Instance, GameSettings.Instance, 10);
-        new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, GameSettings.Instance);
+        var popUpWinModel = new PopUpWinModel(Bank.Instance, LevelProgress.Instance, FinishPipe.Instance, _gameSettings, 10);
+        new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, _gameSettings);
     }
 
     public void UpdateRemoveCount()
@@ -60,7 +63,7 @@ public class AnyLevel : MonoBehaviour
     private void ChangeSkin()
     {
         //SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
-        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
+        SkinData background = _gameSettings.CurrentBackgroundSkin;
         //SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
 
         _background.sprite = background.levelSprite;

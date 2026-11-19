@@ -21,11 +21,16 @@ public class SkinPopUp : MonoBehaviour
     [SerializeField] private float _enableTabPositionForY;
 
     private SkinData _skinData;
+    private SkinManager _skinManager;
+    private Bank _bank;
 
     void Start()
     {
         _button.onClick.AddListener(OnButtonClick);
         _closeButton.onClick.AddListener(OnCloseClick);
+
+        _skinManager = SkinManager.Instance;
+        _bank = Bank.Instance;
     }
 
     public void Initialize(SkinData skin)
@@ -39,12 +44,12 @@ public class SkinPopUp : MonoBehaviour
 
         _name.text = skin.displayName;
 
-        Status status = SkinManager.Instance.GetStatus(skin);
+        Status status = _skinManager.GetStatus(skin);
         if(status == Status.NotBought)
         {
             _button.GetComponentInChildren<TextMeshProUGUI>().text = "BUY";
             _price.text = skin.price + " $";
-            if(skin.price > Bank.Instance.Money)
+            if(skin.price > _bank.Money)
             {
                 _button.interactable = false;
                 //var outline = _button.gameObject.GetComponent<Outline>();
@@ -87,7 +92,7 @@ public class SkinPopUp : MonoBehaviour
         
         if(tmp.text == "BUY")
         {
-            if (SkinManager.Instance.TryBuySkin(_skinData))
+            if (_skinManager.TryBuySkin(_skinData))
             {
                 BuyButtonClick?.Invoke();
                 OnUpdateNeeded?.Invoke();
@@ -95,7 +100,7 @@ public class SkinPopUp : MonoBehaviour
         }
         if(tmp.text == "SELECT")
         {
-            SkinManager.Instance.SelectSkin(_skinData);
+            _skinManager.SelectSkin(_skinData);
             SelectButtonClick?.Invoke();
         }
 
