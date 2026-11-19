@@ -32,7 +32,7 @@ public class BonusAppliedPipe : MonoBehaviour
         isPlayerPlaced = true;
     }
 
-   
+
     public bool IsDirty()
     {
         return _pipeType == PipeType.DirtyStraightPipe ||

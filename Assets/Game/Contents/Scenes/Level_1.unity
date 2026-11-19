@@ -887,7 +887,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 216760952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fd7a4edfe239044fb1938d1086f39d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 31918dcb39bf4944b84f1d81ec2cda7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopUpLossController
   _popUpLossPrefab: {fileID: 7187870280027729688, guid: a1935d91782fb174085d030381f5fdf9, type: 3}
@@ -5296,7 +5296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1776971921}
-  - component: {fileID: 1776971920}
+  - component: {fileID: 1776971922}
   m_Layer: 0
   m_Name: PopUpWinController
   m_TagString: Untagged
@@ -5304,24 +5304,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1776971920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776971919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6232c4625dc16849a9f736e372d85e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PopUpWinController
-  _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
-  _parentForPopUp: {fileID: 2140481374}
-  _background: {fileID: 964657168}
-  _blackout: {fileID: 689023517}
-  _reward: {fileID: 475948864}
-  _countOfReward: 30
 --- !u!4 &1776971921
 Transform:
   m_ObjectHideFlags: 0
@@ -5337,6 +5319,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1776971922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776971919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854a039939f9e134cb6b6575ece599ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpWinView
+  _popUpWinPrefab: {fileID: 7187870280027729688, guid: a8a26c493e4be9e498de3e133c7a362a, type: 3}
+  _parentForPopUp: {fileID: 2140481374}
+  _background: {fileID: 964657168}
+  _blackout: {fileID: 689023517}
+  _rewardButton: {fileID: 475948864}
 --- !u!1 &1788220767
 GameObject:
   m_ObjectHideFlags: 0
@@ -6538,6 +6537,7 @@ MonoBehaviour:
   _restartButton: {fileID: 1569670174}
   _background: {fileID: 964657170}
   removeCountText: {fileID: 976537001}
+  _popUpWinView: {fileID: 1776971922}
   removeCount: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
