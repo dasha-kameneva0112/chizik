@@ -887,7 +887,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 216760952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fd7a4edfe239044fb1938d1086f39d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 31918dcb39bf4944b84f1d81ec2cda7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopUpLossController
   _popUpLossPrefab: {fileID: 7187870280027729688, guid: a1935d91782fb174085d030381f5fdf9, type: 3}

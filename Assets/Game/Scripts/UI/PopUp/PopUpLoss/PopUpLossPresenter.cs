@@ -2,13 +2,11 @@ using UnityEngine.SceneManagement;
 
 public class PopUpLossPresenter
 {
-    private readonly PopUpLossModel _popUpLossModel;
     private readonly PopUpLossView _popUpLossView;
     private readonly FinishPipe _finishPipe;
 
-    public PopUpLossPresenter(PopUpLossModel popUpWinModel, PopUpLossView popUpWinView, FinishPipe finishPipe)
+    public PopUpLossPresenter(PopUpLossView popUpWinView, FinishPipe finishPipe)
     {
-        _popUpLossModel = popUpWinModel;
         _popUpLossView = popUpWinView;
         _finishPipe = finishPipe;
 

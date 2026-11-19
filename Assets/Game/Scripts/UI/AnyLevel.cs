@@ -26,6 +26,7 @@ public class AnyLevel : MonoBehaviour
     [SerializeField] private Image _background;  
     [SerializeField] private TMP_Text removeCountText;
     [SerializeField] private PopUpWinView _popUpWinView;
+    [SerializeField] private PopUpLossView _popUpLossView;
 
     public int removeCount;
 
@@ -51,6 +52,8 @@ public class AnyLevel : MonoBehaviour
 
         var popUpWinModel = new PopUpWinModel(Bank.Instance, LevelProgress.Instance, FinishPipe.Instance, _gameSettings, 10);
         new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, _gameSettings);
+
+        new PopUpLossPresenter(_popUpLossView, FinishPipe.Instance);
     }
 
     public void UpdateRemoveCount()
