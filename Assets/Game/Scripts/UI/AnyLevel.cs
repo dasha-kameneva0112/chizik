@@ -4,6 +4,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+//public class Level : MonoBehaviour
+//{
+//    [SerializeField] private PopUpWinController PopUpWinView;
+
+//    private void Awake()
+//    {
+//        new PopUpWinPresenter(new PopUpWinModel(), PopUpWinView);
+//    }
+//}
+
 public class AnyLevel : MonoBehaviour
 {
     public event Action BackButtonClicked;
@@ -15,7 +25,10 @@ public class AnyLevel : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Image _background;  
     [SerializeField] private TMP_Text removeCountText;
+    [SerializeField] private PopUpWinView _popUpWinView;
+
     public int removeCount;
+
     private static AnyLevel _instance;
 
     private void Awake()
@@ -32,6 +45,9 @@ public class AnyLevel : MonoBehaviour
         ChangeSkin();
 
         RemoveCountUpdate?.Invoke(removeCount);
+
+        var popUpWinModel = new PopUpWinModel(Bank.Instance, LevelProgress.Instance, FinishPipe.Instance, GameSettings.Instance, 10);
+        new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, GameSettings.Instance);
     }
 
     public void UpdateRemoveCount()

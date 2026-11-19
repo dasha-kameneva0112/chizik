@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelProgress : MonoBehaviour
+public class LevelProgress : MonoBehaviour, ILevelProgress
 {
     public static LevelProgress Instance => _instance;
     public int CurrentLevelNumber => _currentLevelNumber;
@@ -11,7 +11,7 @@ public class LevelProgress : MonoBehaviour
     [SerializeField] private int _startLevelNumber;
     private int _currentLevelNumber;
     private const string PrefKey = "LevelProgress_CurrentLevel";
-    
+
     private static LevelProgress _instance;
 
     private void Awake()
@@ -71,9 +71,9 @@ public class LevelProgress : MonoBehaviour
     [MenuItem("Tools/Levels/Reset Progress", priority = 1)]
     public static void EditorResetLevels()
     {
-    LevelProgress progress = FindAnyObjectByType<LevelProgress>();
+        LevelProgress progress = FindAnyObjectByType<LevelProgress>();
 
-    progress.ResetLevels();
+        progress.ResetLevels();
     }
 #endif
 
