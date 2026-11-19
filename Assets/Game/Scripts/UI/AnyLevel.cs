@@ -1,8 +1,9 @@
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 //public class Level : MonoBehaviour
 //{
@@ -25,8 +26,10 @@ public class AnyLevel : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Image _background;  
     [SerializeField] private TMP_Text removeCountText;
+    [SerializeField] private GameField _gameField;
     [SerializeField] private PopUpWinView _popUpWinView;
     [SerializeField] private PopUpLossView _popUpLossView;
+    [SerializeField] private PipeInventoryView _pipeInventoryView;
 
     public int removeCount;
 
@@ -54,6 +57,17 @@ public class AnyLevel : MonoBehaviour
         new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, _gameSettings);
 
         new PopUpLossPresenter(_popUpLossView, FinishPipe.Instance);
+
+        var startCounts = new Dictionary<PipeType, int>
+        {
+            { PipeType.StraightPipe, 5 },
+            { PipeType.CornerPipe, 3 },
+            { PipeType.TriangularPipe, 2 },
+            { PipeType.CruciformPipe, 1 }
+        };
+
+        new Inventory(startCounts);
+        new PipeInventoryPresenter(Inventory.Instance, _pipeInventoryView, _gameField, FinishPipe.Instance, _gameSettings);
     }
 
     public void UpdateRemoveCount()
