@@ -1,34 +1,22 @@
-﻿using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+﻿using UnityEngine.SceneManagement;
 
-public class ScenePresenter : MonoBehaviour
+public class ScenePresenter
 {
-    [SerializeField] private MainMenu _menu;
-    [SerializeField] private Levels _levels;
-    [SerializeField] private Store _store;
-    [SerializeField] private Image _background;
-    [SerializeField] private Image _chizik;
+    private readonly IGameSettings _gameSetting;
+    private readonly ILevelProgress _levelProgress;
+    private readonly SceneView _sceneView;
 
-    private IGameSettings _gameSetting;
-    private ILevelProgress _levelProgress;
-
-    private void Start()
+    public ScenePresenter(IGameSettings gameSetting, ILevelProgress levelProgress, SceneView sceneView)
     {
-        _gameSetting = GameSettings.Instance;
-        _levelProgress = LevelProgress.Instance;
+        _gameSetting = gameSetting;
+        _levelProgress = levelProgress;
+        _sceneView = sceneView;
 
-        _menu.gameObject.SetActive(true);
-        _levels.gameObject.SetActive(false);
-        _store.gameObject.SetActive(false);
-
-        _menu.PlayButtonClicked += SwitchToGamePlay;
-        _menu.LevelsButtonClicked += SwitchToLevels;
-        _menu.StoreButtonClicked += SwitchToStore;
-        _levels.BackButtonClicked += SwitchToMenu;
-        _store.CloseButtonClick += SwitchToMenu;
+        _sceneView.PlayButtonClicked += SwitchToGamePlay;
+        _sceneView.LevelsButtonClicked += _sceneView.SwitchToLevels;
+        _sceneView.StoreButtonClicked += _sceneView.SwitchToStore;
+        _sceneView.BackButtonClicked += _sceneView.SwitchToMenu;
+        _sceneView.StoreClosedButtonClicked += _sceneView.SwitchToMenu;
 
         _gameSetting.SkinChanged += ChangeSkin;
         ChangeSkin();
@@ -48,38 +36,18 @@ public class ScenePresenter : MonoBehaviour
             SceneManager.LoadScene("Level_4");
     }
 
-    private void SwitchToLevels()
-    {
-        _menu.gameObject.SetActive(false);
-        _levels.gameObject.SetActive(true);
-    }
-
-    private void SwitchToStore()
-    {
-        _menu.gameObject.SetActive(false);
-        _store.gameObject.SetActive(true);
-        _store.OpenShop();
-    }
-
-    private void SwitchToMenu()
-    {
-        _menu.gameObject.SetActive(true);
-        _levels.gameObject.SetActive(false);
-        _store.gameObject.SetActive(false);
-    }
-
     private void ChangeSkin()
     {
         SkinData chizik = _gameSetting.CurrentChizikSkin;
         SkinData background = _gameSetting.CurrentBackgroundSkin;
 
         if (chizik != null)
-            _chizik.sprite = chizik.icon;
+            _sceneView.SetChizhik(chizik.icon);
         if (background != null)
-            _background.sprite = background.icon;
+            _sceneView.SetBackground(background.icon);
     }
 
-    private void OnDestroy()
+    public void Dispose()
     {
         if (_gameSetting != null)
         {

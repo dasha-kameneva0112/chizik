@@ -36,6 +36,11 @@ public class Store : MonoBehaviour
         _closeButton.onClick.AddListener(OnCloseButtonClick);
     }
 
+    public void OnEnable()
+    {
+        OpenShop();
+    }
+
     public void OpenShop()
     {
         Deselect(_chizikButton);

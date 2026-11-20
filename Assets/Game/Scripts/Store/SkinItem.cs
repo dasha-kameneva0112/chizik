@@ -26,7 +26,7 @@ public class SkinItem : MonoBehaviour
     private SkinManager _manager;
     [SerializeField] private float _boughtPositionForY;
 
-    private void Start()
+    private void Awake()
     {
         _button.onClick.AddListener(OnSkinClick);
         _manager = SkinManager.Instance;
