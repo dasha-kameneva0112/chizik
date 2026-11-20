@@ -119,6 +119,10 @@ public class GameField : MonoBehaviour
             }
         }
 
+        BonusAppliedPipe bonus = _flyingPipe.GetComponent<BonusAppliedPipe>();
+        if (bonus != null)
+            bonus.SetAsPlayerPlaced();
+
         // Труба больше не "летает" — игрок может взять новую
         _flyingPipe = null;
     }
