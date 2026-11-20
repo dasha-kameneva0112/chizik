@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 2063237705040631634}
   - component: {fileID: 7616324157676888062}
   - component: {fileID: 6802182195439193649}
-  - component: {fileID: -811268659726604803}
+  - component: {fileID: 442381511937758564}
+  - component: {fileID: 5969406619464347675}
+  - component: {fileID: 3918632204668570184}
   m_Layer: 0
   m_Name: dirty_pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 176041896990589198}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5028874, y: -0.796372, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -106,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pipe
   Size: {x: 1, y: 1}
---- !u!114 &-811268659726604803
+--- !u!114 &442381511937758564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,9 +117,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 176041896990589198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c9545fdef276c742803750c0f196ad9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::pipeMovement
+  m_EditorClassIdentifier: 
+  pipeType: 2
+  baseDirections: []
+--- !u!61 &5969406619464347675
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176041896990589198}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.0036995113}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 0.59304816}
+  m_EdgeRadius: 0
+--- !u!114 &3918632204668570184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176041896990589198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BonusAppliedPipe
+  _pipeType: 4
+  isPlayerPlaced: 0
+  cleanSprite: {fileID: -7347277767829423379, guid: d8d6d145601ea6845b3f87e7b79e9a58, type: 3}
+  dirtySprite: {fileID: 1931577923189646119, guid: 1ff459607802ea04fab1c0fcfb16e31d, type: 3}
 --- !u!1 &3160967414302998007
 GameObject:
   m_ObjectHideFlags: 0

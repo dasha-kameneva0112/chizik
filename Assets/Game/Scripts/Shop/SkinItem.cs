@@ -23,7 +23,7 @@ public class SkinItem : MonoBehaviour
     //private static SkinItem _usedSkin;
 
     private SkinData _usedData;
-    [SerializeField] private float _enableTabPositionForY;
+    [SerializeField] private float _boughtPositionForY;
 
     private void Start()
     {
@@ -53,7 +53,7 @@ public class SkinItem : MonoBehaviour
             _price.gameObject.SetActive(false);
 
             Vector3 pos = _name.rectTransform.anchoredPosition;
-            pos.y = _enableTabPositionForY;
+            pos.y = _boughtPositionForY;
             _name.rectTransform.anchoredPosition = pos;
         }
         if(status == Status.Purchased)
@@ -62,7 +62,7 @@ public class SkinItem : MonoBehaviour
             _price.gameObject.SetActive(false);
 
             Vector3 pos = _name.rectTransform.anchoredPosition;
-            pos.y = _enableTabPositionForY;
+            pos.y = _boughtPositionForY;
             _name.rectTransform.anchoredPosition = pos;
         }
     }
