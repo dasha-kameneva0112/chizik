@@ -2,61 +2,50 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : IInventory
 {
-    public event Action<PipeType, int> CountPipeChange;
-
+    public event Action<PipeType, int> PipeCountChanged;
     public static Inventory Instance => _instance;
-
     public Dictionary<PipeType, int> PipeSegments => _pipeSegments;
-
-    [Header("Number of segment types")]
-    [SerializeField] private int _countStraightPipe;
-    [SerializeField] private int _countCornerPipe;
-    [SerializeField] private int _countTriangularPipe;
-    [SerializeField] private int _countCruciformPipe;
 
     private static Inventory _instance;
     private readonly Dictionary<PipeType, int> _pipeSegments = new Dictionary<PipeType, int>();
 
-    private void Awake()
+    public Inventory(Dictionary<PipeType, int> startCounts)
     {
         _instance = this;
 
-        _pipeSegments[PipeType.StraightPipe] = _countStraightPipe;
-        _pipeSegments[PipeType.CornerPipe] = _countCornerPipe;
-        _pipeSegments[PipeType.TriangularPipe] = _countTriangularPipe;
-        _pipeSegments[PipeType.CruciformPipe] = _countCruciformPipe;
+        _pipeSegments = new Dictionary<PipeType, int>(startCounts);
     }
 
-    public void Use(PipeType pipe)
+    public void Use(PipeType type)
     {
-        if (!_pipeSegments.ContainsKey(pipe))
+        if (!_pipeSegments.ContainsKey(type))
         {
             throw new KeyNotFoundException();
         }
 
-        _pipeSegments[pipe]--;
-        CountPipeChange?.Invoke(pipe, _pipeSegments[pipe]);
+        _pipeSegments[type]--;
+        PipeCountChanged?.Invoke(type, _pipeSegments[type]);
     }
 
-    public bool IsEnough(PipeType pipe)
+    public bool IsEnough(PipeType type)
     {
-        if (!_pipeSegments.ContainsKey(pipe))
+        if (!_pipeSegments.ContainsKey(type))
         {
             throw new KeyNotFoundException();
         }
-        return _pipeSegments[pipe] > 0;
+        return _pipeSegments[type] > 0;
     }
 
-    public void Delete(PipeType pipe) 
+    public void Delete(PipeType type)
     {
-        if (!_pipeSegments.ContainsKey(pipe))
+        if (!_pipeSegments.ContainsKey(type))
         {
             throw new KeyNotFoundException();
         }
-        _pipeSegments[pipe]++;
-        CountPipeChange?.Invoke(pipe, _pipeSegments[pipe]);
+        _pipeSegments[type]++;
+        PipeCountChanged?.Invoke(type, _pipeSegments[type]);
     }
 }
 
