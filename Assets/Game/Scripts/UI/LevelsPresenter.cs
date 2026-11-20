@@ -1,16 +1,17 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelSceneController : MonoBehaviour
+public class LevelsPresenter
 {
-    [SerializeField] private Levels _levels;
+    private readonly LevelsView _levelsView;
 
-    private void Start()
+    public LevelsPresenter(LevelsView levelsView)
     {
-        _levels.FirstLevelButtonClicked += SwitchToFirstLevel;
-        _levels.SecondLevelButtonClicked += SwitchToSecondLevel;
-        _levels.ThirdLevelButtonClicked += SwitchToThirdLevel;
-        _levels.FourthLevelButtonClicked += SwitchToFourthLevel;
+        _levelsView = levelsView;
+
+        _levelsView.FirstLevelButtonClicked += SwitchToFirstLevel;
+        _levelsView.SecondLevelButtonClicked += SwitchToSecondLevel;
+        _levelsView.ThirdLevelButtonClicked += SwitchToThirdLevel;
+        _levelsView.FourthLevelButtonClicked += SwitchToFourthLevel;
     }
 
     private void SwitchToFirstLevel()

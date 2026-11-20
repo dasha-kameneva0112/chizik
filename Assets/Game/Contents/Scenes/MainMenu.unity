@@ -3536,7 +3536,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1118339900}
-  - component: {fileID: 1118339899}
+  - component: {fileID: 1118339902}
+  - component: {fileID: 1118339901}
   m_Layer: 0
   m_Name: LevelSceneController
   m_TagString: Untagged
@@ -3544,19 +3545,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1118339899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118339898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a308a0eb7bdc0d40bba828141b796a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelSceneController
-  _levels: {fileID: 1041805815}
 --- !u!4 &1118339900
 Transform:
   m_ObjectHideFlags: 0
@@ -3572,6 +3560,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1118339901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118339898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c15ae3ea9aa7dc43bc0f50c3946ed4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelsView: {fileID: 1118339902}
+--- !u!114 &1118339902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118339898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61aaa028b3d0b3346b96af6393b82fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firstLevelButton: {fileID: 1836397250}
+  _secondLevelButton: {fileID: 654077133}
+  _thirdLevelButton: {fileID: 1529770007}
+  _fourthLevelButton: {fileID: 321719626}
+  _backButton: {fileID: 1904586488}
+  _completedLevel: {fileID: 1073966217242187568, guid: 2ab9f0b8ff9bdfb479afc3db94fdb1b8, type: 3}
+  _currentLevel: {fileID: -1246946423219253457, guid: 69866f4a0b89b9249a75be1a2ac83fc5, type: 3}
+  _lockedLevel: {fileID: -3846330120125846787, guid: 76eef7fb2a33db248a58b8e7c8f79df3, type: 3}
+  _completedTextColor: {r: 0, g: 0, b: 0, a: 0}
+  _lockedTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1144940842
 GameObject:
   m_ObjectHideFlags: 0

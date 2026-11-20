@@ -1,10 +1,9 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Levels : MonoBehaviour
+public class LevelsView : MonoBehaviour
 {
     public event Action FirstLevelButtonClicked;
     public event Action SecondLevelButtonClicked;

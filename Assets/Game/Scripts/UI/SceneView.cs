@@ -11,7 +11,7 @@ public class SceneView : MonoBehaviour
     public event Action StoreClosedButtonClicked;
 
     [SerializeField] private MainMenu _menu;
-    [SerializeField] private Levels _levels;
+    [SerializeField] private LevelsView _levels;
     [SerializeField] private Store _store;
     [SerializeField] private Image _background;
     [SerializeField] private Image _chizik;
