@@ -49,8 +49,24 @@ public class BonusManager : MonoBehaviour
             isBrushActive = false;
             UpdateButtonColor();
         });
+
+        if (AnyLevel.instance != null)
+        {
+            AnyLevel.instance.RemoveCountUpdate += OnRemoveCountUpdate;
+        }
     }
 
+    private void OnRemoveCountUpdate(int newCount)
+    {
+        if (AnyLevel.instance.removeCount == 0)
+        {
+            _hammerButton.interactable = true;
+        }
+        else
+        {
+            _hammerButton.interactable = false;
+        }
+    }
     public bool IsBonusActive() => isBrushActive || isHammerActive;
 
     public void OnPipeClicked(BonusAppliedPipe pipe)

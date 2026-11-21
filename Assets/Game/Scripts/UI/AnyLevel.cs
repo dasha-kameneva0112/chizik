@@ -8,6 +8,7 @@ public class AnyLevel : MonoBehaviour
 {
     public event Action BackButtonClicked;
     public event Action RestartButtonClicked;
+    public event Action<int> RemoveCountUpdate;
     public static AnyLevel instance;
 
     [SerializeField] private Button _backButton;
@@ -18,12 +19,14 @@ public class AnyLevel : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        removeCount = int.Parse(removeCountText.text);
     }
 
     public void updateRemoveCount()
     {
         removeCount--;
         removeCountText.text = removeCount.ToString();
+        RemoveCountUpdate?.Invoke(removeCount);
     }
 
     private void Start()
@@ -31,6 +34,8 @@ public class AnyLevel : MonoBehaviour
         removeCount = int.Parse(removeCountText.text);
         _backButton.onClick.AddListener(OnBackButtonClicked);
         _restartButton.onClick.AddListener(OnRestartButtonClicked);
+
+        RemoveCountUpdate?.Invoke(removeCount);
     }
 
     private void OnBackButtonClicked()
