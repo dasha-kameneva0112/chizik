@@ -38,9 +38,10 @@ public class pipeMovement : MonoBehaviour
 
             foreach (Collider2D col in allColliders)
             {
-                if (col.bounds.Contains(worldPos))
+                if (col.bounds.Contains(worldPos) && AnyLevel.instance.removeCount > 0)
                 {
-                    Destroy(gameObject);    
+                    Destroy(gameObject);
+                    AnyLevel.instance.updateRemoveCount();
                 }
             }
         }
