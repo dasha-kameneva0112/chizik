@@ -26,6 +26,8 @@ public class BonusManager : MonoBehaviour
     private bool isBrushActive = false;
     private bool isHammerActive = false;
 
+    private bool isHammerLocked;
+
     private void Awake()
     {
         if (_instance == null) _instance = this;
@@ -58,6 +60,7 @@ public class BonusManager : MonoBehaviour
 
     private void OnRemoveCountUpdate(int newCount)
     {
+        isHammerLocked = AnyLevel.instance.removeCount != 0;
         if (AnyLevel.instance.removeCount == 0)
         {
             _hammerButton.interactable = true;
@@ -148,6 +151,6 @@ public class BonusManager : MonoBehaviour
         _brushCountText.text = brushCount.ToString();
         _hammerCountText.text = hammerCount.ToString();
         _brushButton.interactable = brushCount > 0;
-        _hammerButton.interactable = hammerCount > 0;
+        _hammerButton.interactable = hammerCount > 0 && isHammerLocked;
     }
 }
