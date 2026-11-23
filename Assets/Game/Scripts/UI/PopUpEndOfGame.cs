@@ -36,7 +36,12 @@ public class PopUpEndOfGame : MonoBehaviour
 
         if (!sceneName.StartsWith("Level_")) return 1;
 
-        return int.Parse(sceneName.Replace("Level_", ""));
+        string numberPart = sceneName.Replace("Level_", "");
+
+        if (int.TryParse(numberPart, out int level))
+            return level;
+
+        return 1;
     }
 
     public void OnWin()

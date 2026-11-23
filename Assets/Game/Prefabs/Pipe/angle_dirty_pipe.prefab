@@ -53,8 +53,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -76,7 +74,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -105,8 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BonusAppliedPipe
   _pipeType: 1
   isPlayerPlaced: 0
-  cleanSprite: {fileID: 3580289874254184329, guid: 19213624ca2b8b942badbc65fbd45ccd, type: 3}
-  dirtySprite: {fileID: 1931577923189646119, guid: 9706dd06a48f0b04399d87b4dc20b6fc, type: 3}
 --- !u!1 &8715840165578830690
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +115,7 @@ GameObject:
   - component: {fileID: 2240974326565292453}
   - component: {fileID: 7380446955905020375}
   - component: {fileID: 8640224456331035415}
+  - component: {fileID: -8288820548541733949}
   m_Layer: 0
   m_Name: angle_dirty_pipe
   m_TagString: Pipe
@@ -163,8 +159,6 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -186,7 +180,6 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -276,3 +269,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.77802634, y: 0.76322806}
   m_EdgeRadius: 0
+--- !u!114 &-8288820548541733949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715840165578830690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82657697661b1094b84af9bcc6dac5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pipeType: 5
+  isPlayerPlaced: 0
