@@ -8,15 +8,11 @@ public class PipeMovement : MonoBehaviour
 {
     private Camera mainCamera;
     private SpriteRenderer _spriteRenderer;
-    private AnyLevel _anyLevel;
-    private Inventory _inventory;
 
     void Start()
     {
         mainCamera = Camera.main;
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _anyLevel = AnyLevel.Instance;
-        _inventory = Inventory.Instance;
     }
 
     private void Update()
@@ -27,13 +23,13 @@ public class PipeMovement : MonoBehaviour
 
         if (_spriteRenderer.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
-            if (_anyLevel.removeCount > 0)
+            if (AnyLevel.Instance.removeCount > 0)
             {
                 BonusAppliedPipe segment = GetComponent<BonusAppliedPipe>();
 
                 Destroy(gameObject);
-                _anyLevel.UpdateRemoveCount();
-                _inventory.Delete(segment.GetPipeType());
+                AnyLevel.Instance.UpdateRemoveCount();
+                Inventory.Instance.Delete(segment.GetPipeType());
             }
         }        
     }

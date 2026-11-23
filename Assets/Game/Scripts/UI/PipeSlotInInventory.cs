@@ -11,12 +11,9 @@ public class PipeSlotInInventory : MonoBehaviour
     [SerializeField] private PipeType _type;
     [SerializeField] private Image _pipeSkin;
 
-    private Inventory _inventory;
-
     private void Start()
     {
-        _inventory = Inventory.Instance;
-        _inventory.CountPipeChange += UpdateText;
+        Inventory.Instance.CountPipeChange += UpdateText;
     }
 
     void UpdateText(PipeType type, int count)
@@ -39,7 +36,7 @@ public class PipeSlotInInventory : MonoBehaviour
     {
         _button.interactable = true;
 
-        if (_inventory.PipeSegments.TryGetValue(_type, out var count))
+        if (Inventory.Instance.PipeSegments.TryGetValue(_type, out var count))
         {
             _text.text = count.ToString();
             if (count == 0)

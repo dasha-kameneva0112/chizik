@@ -4,16 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-//public class Level : MonoBehaviour
-//{
-//    [SerializeField] private PopUpWinController PopUpWinView;
-
-//    private void Awake()
-//    {
-//        new PopUpWinPresenter(new PopUpWinModel(), PopUpWinView);
-//    }
-//}
-
 public class AnyLevel : MonoBehaviour
 {
     public event Action BackButtonClicked;
@@ -25,13 +15,8 @@ public class AnyLevel : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Image _background;  
     [SerializeField] private TMP_Text removeCountText;
-    [SerializeField] private PopUpWinView _popUpWinView;
-    [SerializeField] private PopUpLossView _popUpLossView;
-
     public int removeCount;
-
     private static AnyLevel _instance;
-    private IGameSettings _gameSettings;
 
     private void Awake()
     {
@@ -41,19 +26,12 @@ public class AnyLevel : MonoBehaviour
 
     private void Start()
     {
-        _gameSettings = GameSettings.Instance;
-
         removeCount = int.Parse(removeCountText.text);
         _backButton.onClick.AddListener(OnBackButtonClicked);
         _restartButton.onClick.AddListener(OnRestartButtonClicked);
         ChangeSkin();
 
         RemoveCountUpdate?.Invoke(removeCount);
-
-        var popUpWinModel = new PopUpWinModel(Bank.Instance, LevelProgress.Instance, FinishPipe.Instance, _gameSettings, 10);
-        new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, _gameSettings);
-
-        new PopUpLossPresenter(_popUpLossView, FinishPipe.Instance);
     }
 
     public void UpdateRemoveCount()
@@ -66,7 +44,7 @@ public class AnyLevel : MonoBehaviour
     private void ChangeSkin()
     {
         //SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
-        SkinData background = _gameSettings.CurrentBackgroundSkin;
+        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
         //SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
 
         _background.sprite = background.levelSprite;

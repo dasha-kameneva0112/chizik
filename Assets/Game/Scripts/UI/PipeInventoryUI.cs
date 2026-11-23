@@ -18,10 +18,6 @@ public class PipeInventoryUI : MonoBehaviour
 
     [SerializeField] private GameField _gameField;
 
-    private Inventory _inventory;
-    private FinishPipe _finishPipe;
-    private GameSettings _gameSettings;
-
     void Start()
     {
         _straightPipe.Button.onClick.AddListener(OnStraightPipeCLicked);
@@ -37,16 +33,12 @@ public class PipeInventoryUI : MonoBehaviour
         //GameSettings.Instance.SkinChanged += ChangeSkin;
         ChangeSkin();
 
-        _inventory = Inventory.Instance;
-        _finishPipe = FinishPipe.Instance;
-        _gameSettings = GameSettings.Instance;
-
-        _finishPipe.OnLevelCompleted += (() => gameObject.SetActive(false));
+        FinishPipe.Instance.OnLevelCompleted += (() => gameObject.SetActive(false));
     }
 
     private void ChangeSkin()
     {
-        SkinData pipe = _gameSettings.CurrentPipeSkin;
+        SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
 
         _straightPipePrefab.SetSkin(pipe.icon);
         _triangularPipePrefab.SetSkin(pipe.triangularPipe);
@@ -68,36 +60,36 @@ public class PipeInventoryUI : MonoBehaviour
 
     public void OnStraightPipeCLicked()
     {
-        if (_inventory.IsEnough(PipeType.StraightPipe))
+        if (Inventory.Instance.IsEnough(PipeType.StraightPipe))
         {
-            _inventory.Use(PipeType.StraightPipe);
+            Inventory.Instance.Use(PipeType.StraightPipe);
             _gameField.StartPlacingPipe(_straightPipePrefab);
         }
     }
 
     public void OnCornerPipeClicked()
     {
-        if (_inventory.IsEnough(PipeType.CornerPipe))
+        if (Inventory.Instance.IsEnough(PipeType.CornerPipe))
         {
-            _inventory.Use(PipeType.CornerPipe);
+            Inventory.Instance.Use(PipeType.CornerPipe);
             _gameField.StartPlacingPipe(_cornerPipePrefab);
         }
     }
 
     public void OnTriangularPipeClicked()
     {
-        if (_inventory.IsEnough(PipeType.TriangularPipe))
+        if (Inventory.Instance.IsEnough(PipeType.TriangularPipe))
         {
-            _inventory.Use(PipeType.TriangularPipe);
+            Inventory.Instance.Use(PipeType.TriangularPipe);
             _gameField.StartPlacingPipe(_triangularPipePrefab);
         }
     }
 
     public void OnCruciformPipeClicked()
     {
-        if (_inventory.IsEnough(PipeType.CruciformPipe))
+        if (Inventory.Instance.IsEnough(PipeType.CruciformPipe))
         {
-            _inventory.Use(PipeType.CruciformPipe);
+            Inventory.Instance.Use(PipeType.CruciformPipe);
             _gameField.StartPlacingPipe(_cruciformPipePrefab);
         }
     }
