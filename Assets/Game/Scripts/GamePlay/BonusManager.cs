@@ -74,7 +74,7 @@ public class BonusManager : MonoBehaviour
     }
     public bool IsBonusActive() => isBrushActive || isHammerActive;
 
-    public void OnPipeClicked(BonusAppliedPipe pipe)
+    public void OnPipeClicked(BonusApplyPipe pipe)
     {
         if (!IsBonusActive()) return;
 

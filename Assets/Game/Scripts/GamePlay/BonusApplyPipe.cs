@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BonusAppliedPipe : MonoBehaviour
+public class BonusApplyPipe : MonoBehaviour
 {
     [Header("Тип трубы")]
     [SerializeField] private PipeType _pipeType;

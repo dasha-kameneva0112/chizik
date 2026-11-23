@@ -29,7 +29,7 @@ public class PipeMovement : MonoBehaviour
         {
             if (_anyLevel.removeCount > 0)
             {
-                BonusAppliedPipe segment = GetComponent<BonusAppliedPipe>();
+                BonusApplyPipe segment = GetComponent<BonusApplyPipe>();
 
                 Destroy(gameObject);
                 _anyLevel.UpdateRemoveCount();

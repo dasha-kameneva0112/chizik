@@ -133,7 +133,7 @@ public class GameField : MonoBehaviour
             }
         }
 
-        BonusAppliedPipe bonus = _flyingPipe.GetComponent<BonusAppliedPipe>();
+        BonusApplyPipe bonus = _flyingPipe.GetComponent<BonusApplyPipe>();
         if (bonus != null)
             bonus.SetAsPlayerPlaced();
 
