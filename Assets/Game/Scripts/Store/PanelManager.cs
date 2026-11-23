@@ -18,16 +18,12 @@ public class PanelManager : MonoBehaviour
 
     private List<SkinData> _lastShownSkins; // запоминаем последнюю вкладку
 
-    private SkinManager _skinManager;
-
     private void OnEnable()
     {
-        _skinManager = SkinManager.Instance;
-
         _blackout.SetActive(false);
-        _store.ChizikButtonClick += (() => ShowSkins(_skinManager._chizikSkins));
-        _store.BackgroundButtonClick += (() => ShowSkins(_skinManager._backgroundSkins));
-        _store.PipeButtonClick += (() => ShowSkins(_skinManager._pipeSkins));
+        _store.ChizikButtonClick += (() => ShowSkins(SkinManager.Instance._chizikSkins));
+        _store.BackgroundButtonClick += (() => ShowSkins(SkinManager.Instance._backgroundSkins));
+        _store.PipeButtonClick += (() => ShowSkins(SkinManager.Instance._pipeSkins));
         _store.CloseButtonClick += Clear;
     }
 
@@ -77,9 +73,9 @@ public class PanelManager : MonoBehaviour
 
     private void OnDisable()
     {
-        _store.ChizikButtonClick -= (() => ShowSkins(_skinManager._chizikSkins));
-        _store.BackgroundButtonClick -= (() => ShowSkins(_skinManager._backgroundSkins));
-        _store.PipeButtonClick -= (() => ShowSkins(_skinManager._pipeSkins));
+        _store.ChizikButtonClick -= (() => ShowSkins(SkinManager.Instance._chizikSkins));
+        _store.BackgroundButtonClick -= (() => ShowSkins(SkinManager.Instance._backgroundSkins));
+        _store.PipeButtonClick -= (() => ShowSkins(SkinManager.Instance._pipeSkins));
         _store.CloseButtonClick -= Clear;
     }
 }

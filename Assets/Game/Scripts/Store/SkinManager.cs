@@ -18,8 +18,7 @@ public class SkinManager : MonoBehaviour
     [SerializeField] private SkinData[] _allSkins;
 
     //private List<SkinData> _dataBaseOfSkins = new List<SkinData>();
-    private static SkinManager _instance;
-    private IBank _bank;
+    private static SkinManager _instance; 
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
 
     private void Awake()
@@ -37,7 +36,6 @@ public class SkinManager : MonoBehaviour
     private void Start()
     {
         RegisterSkins(_allSkins);
-        _bank = Bank.Instance;
     }
 
     public void RegisterSkins(SkinData[] data)
@@ -78,9 +76,9 @@ public class SkinManager : MonoBehaviour
 
     public bool TryBuySkin(SkinData skin)
     {
-        if (_bank.IsEnoughMoney(skin.price))
+        if (Bank.Instance.IsEnoughMoney(skin.price))
         {
-            _bank.DebitMoney(skin.price);
+            Bank.Instance.DebitMoney(skin.price);
 
             string id = skin.id;
             DeselectAllOfType(skin.type);
