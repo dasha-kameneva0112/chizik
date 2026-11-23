@@ -12,6 +12,22 @@ public class Levels : MonoBehaviour
     public event Action FourthLevelButtonClicked;
     public event Action BackButtonClicked;
 
+    public int CurrentLevelNumber => _numberCurrentLevel;
+    public static Levels Instance
+    {
+        get
+        {
+            // Если кто-то обратился, а инстанса ещё нет
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("[Levels]");
+                _instance = go.AddComponent<Levels>();
+                DontDestroyOnLoad(go);
+            }
+            return _instance;
+        }
+    }
+
     [SerializeField] private Button _firstLevelButton;
     [SerializeField] private Button _secondLevelButton;
     [SerializeField] private Button _thirdLevelButton;
@@ -27,11 +43,24 @@ public class Levels : MonoBehaviour
     [SerializeField] private Color _completedTextColor;  
     [SerializeField] private Color _lockedTextColor;       
 
-    private int _numberCurrentLevel; 
+    private int _numberCurrentLevel;
+    private static Levels _instance;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
-        _numberCurrentLevel = getCurrentLevel();
+        _numberCurrentLevel = GetCurrentLevel();
 
         _firstLevelButton.onClick.AddListener(OnFirstLevelButtonClick);
         _secondLevelButton.onClick.AddListener(OnSecondLevelButtonClick);
@@ -42,13 +71,31 @@ public class Levels : MonoBehaviour
         UpdateSpriteOfLevel(_firstLevelButton, 1);
         UpdateSpriteOfLevel(_secondLevelButton, 2);
         UpdateSpriteOfLevel(_thirdLevelButton, 3);
-        UpdateSpriteOfLevel(_fourthLevelButton, 4); 
+        UpdateSpriteOfLevel(_fourthLevelButton, 4);
     }
 
-    private int getCurrentLevel()
+    public int GetCurrentLevel()
     {
         String sceneName = SceneManager.GetActiveScene().name;
-        return int.Parse(sceneName.Replace("Level_", ""));
+
+        if (!sceneName.StartsWith("Level_")) return 1;
+
+        string levelStr = sceneName.Replace("Level_", "");
+        if (int.TryParse(levelStr, out int level))
+        {
+            return level;
+        }
+        return 1;
+    }
+
+
+    public void UpdateNumberLevel()
+    {
+        _numberCurrentLevel++;
+        //UpdateSpriteOfLevel(_firstLevelButton, 1);
+        //UpdateSpriteOfLevel(_secondLevelButton, 2);
+        //UpdateSpriteOfLevel(_thirdLevelButton, 3);
+        //UpdateSpriteOfLevel(_fourthLevelButton, 4);
     }
 
     private void UpdateSpriteOfLevel(Button levelButton, int number)

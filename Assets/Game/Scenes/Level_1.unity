@@ -4204,7 +4204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db88faf64f159a14db8ae4c70cc6c85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PipeInInventory
-  _countStraightPipe: 2
+  _countStraightPipe: 5
   _countCornerPipe: 2
   _countTriangularPipe: 1
   _countCruciformPipe: 2
@@ -6068,6 +6068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnyLevel
   _backButton: {fileID: 2140212361}
   _restartButton: {fileID: 1569670174}
+  _background: {fileID: 964657168}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
