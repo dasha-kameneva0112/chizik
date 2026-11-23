@@ -25,6 +25,8 @@ public class SkinManager : MonoBehaviour
 
     private static SkinManager _instance; 
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
+    public SkinData CurrentSkin => _currentSkin;
+    private SkinData _currentSkin;
 
     private void Awake()
     {
@@ -85,6 +87,7 @@ public class SkinManager : MonoBehaviour
         if (_skins.ContainsKey(id) && _skins[id] != Status.NotBought)
         {
             _skins[id] = Status.Selected;
+            _currentSkin = skin;
             SelectionSkin?.Invoke(skin);
         }
     }

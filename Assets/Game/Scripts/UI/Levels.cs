@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class Levels : MonoBehaviour
 {
     public event Action FirstLevelButtonClicked;
@@ -13,20 +14,7 @@ public class Levels : MonoBehaviour
     public event Action BackButtonClicked;
 
     public int CurrentLevelNumber => _numberCurrentLevel;
-    public static Levels Instance
-    {
-        get
-        {
-            // Если кто-то обратился, а инстанса ещё нет
-            if (_instance == null)
-            {
-                GameObject go = new GameObject("[Levels]");
-                _instance = go.AddComponent<Levels>();
-                DontDestroyOnLoad(go);
-            }
-            return _instance;
-        }
-    }
+    public static Levels Instance => _instance;
 
     [SerializeField] private Button _firstLevelButton;
     [SerializeField] private Button _secondLevelButton;
