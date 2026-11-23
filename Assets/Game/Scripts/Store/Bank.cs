@@ -4,12 +4,13 @@ using UnityEngine;
 public class Bank : MonoBehaviour, IBank
 {
     public event Action<int> CoinsChanged;
-    public int Money => _money;
     public static Bank Instance => _instance;
 
-    private static Bank _instance;
+    public int Money => _bankPresenter.Money;
+
     [SerializeField] private int _startMoney = 1000;
-    private int _money;
+    private static Bank _instance;
+    private BankPresenter _bankPresenter;
 
     private void Awake()
     {
@@ -21,35 +22,28 @@ public class Bank : MonoBehaviour, IBank
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
-        _money = PlayerPrefs.GetInt("coins", _startMoney);
+
+        var model = new BankModel(_startMoney);
+        _bankPresenter = new BankPresenter(model);
+
+        _bankPresenter.CoinsChanged += money =>
+        {
+            CoinsChanged?.Invoke(money);
+        };
     }
 
     public void DepositMoney(int money)
     {
-        _money += money;
-        SaveMoney();
-        CoinsChanged?.Invoke(_money);
+        _bankPresenter.DepositMoney(money);
     }
 
     public bool IsEnoughMoney(int money)
     {
-        if (_money >= money)
-        {
-            return true;
-        }
-        return false;
+        return _bankPresenter.IsEnoughMoney(money);
     }
 
     public void DebitMoney(int money)
     {
-        _money -= money;
-        SaveMoney();
-        CoinsChanged?.Invoke(_money);
-    }
-
-    private void SaveMoney()
-    {
-        PlayerPrefs.SetInt("coins", _money);
-        PlayerPrefs.Save();
+        _bankPresenter.DebitMoney(money);
     }
 }
