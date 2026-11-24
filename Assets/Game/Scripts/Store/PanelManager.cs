@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PanelManager : MonoBehaviour
 {
-    [SerializeField] private Store _store;
+    [SerializeField] private StoreView _store;
     [SerializeField] private GameObject _parent;
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private GameObject _parentForPopUp;
@@ -25,11 +25,37 @@ public class PanelManager : MonoBehaviour
         _skinManager = SkinManager.Instance;
 
         _blackout.SetActive(false);
-        _store.ChizikButtonClick += (() => ShowSkins(_skinManager._chizikSkins));
-        _store.BackgroundButtonClick += (() => ShowSkins(_skinManager._backgroundSkins));
-        _store.PipeButtonClick += (() => ShowSkins(_skinManager._pipeSkins));
+
+        _store.ChizikButtonClick += OnChizik;
+        _store.BackgroundButtonClick += OnBackground;
+        _store.PipeButtonClick += OnPipe;
         _store.CloseButtonClick += Clear;
     }
+
+    private void OnDisable()
+    {
+        _store.ChizikButtonClick -= OnChizik;
+        _store.BackgroundButtonClick -= OnBackground;
+        _store.PipeButtonClick -= OnPipe;
+        _store.CloseButtonClick -= Clear;
+    }
+
+
+    private void OnChizik()
+    {
+        ShowSkins(_skinManager._chizikSkins);
+    }
+
+    private void OnBackground()
+    {
+        ShowSkins(_skinManager._backgroundSkins);
+    }
+
+    private void OnPipe()
+    {
+        ShowSkins(_skinManager._pipeSkins);
+    }
+
 
     private void ShowSkins(List<SkinData> skins)
     {
@@ -73,13 +99,5 @@ public class PanelManager : MonoBehaviour
         });
 
         skinPopUp.CloseButtonClick += () => _blackout.SetActive(false);
-    }
-
-    private void OnDisable()
-    {
-        _store.ChizikButtonClick -= (() => ShowSkins(_skinManager._chizikSkins));
-        _store.BackgroundButtonClick -= (() => ShowSkins(_skinManager._backgroundSkins));
-        _store.PipeButtonClick -= (() => ShowSkins(_skinManager._pipeSkins));
-        _store.CloseButtonClick -= Clear;
     }
 }

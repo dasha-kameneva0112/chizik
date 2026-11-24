@@ -5659,9 +5659,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1702514255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b318751ac6612214badfc0eca54659cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 87ef5aed7d0e18b4c9a2014d35e2f6c7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Store
+  m_EditorClassIdentifier: 
   _chizikButton: {fileID: 994868816}
   _backgroundButton: {fileID: 778024531}
   _pipeButton: {fileID: 1754581588}
