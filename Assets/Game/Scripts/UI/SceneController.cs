@@ -8,8 +8,6 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Levels _levels;
     [SerializeField] private Store _store;
 
-    [SerializeField]  private int _numberCurrentLevel = 1;
-
     private void Start()
     {
         _menu.gameObject.SetActive(true);
@@ -22,18 +20,20 @@ public class SceneController : MonoBehaviour
         _levels.BackButtonClicked += SwitchToMenu;
         _store.CloseButtonClick += SwitchToMenu;
         
-        var l = Levels.Instance;
+        var l = LevelProgress.Instance;
     }
 
     private void SwitchToGamePlay()
     {
-        if(_numberCurrentLevel == 1)
+        int numberOfCurrentLevel = LevelProgress.Instance.CurrentLevelNumber;
+
+        if (numberOfCurrentLevel == 1)
             SceneManager.LoadScene("Level_1");
-        if(_numberCurrentLevel == 2)
+        if(numberOfCurrentLevel == 2)
             SceneManager.LoadScene("Level_2");
-        if(_numberCurrentLevel == 3)
+        if(numberOfCurrentLevel == 3)
             SceneManager.LoadScene("Level_3");
-        if( _numberCurrentLevel == 4)
+        if( numberOfCurrentLevel == 4)
             SceneManager.LoadScene("Level_4");
     }
 
