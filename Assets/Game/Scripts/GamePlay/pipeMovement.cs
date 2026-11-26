@@ -10,6 +10,8 @@ public class PipeMovement : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private AnyLevel _anyLevel;
     private Inventory _inventory;
+    private BonusPipePresenter _pipePresenter;
+    private BonusApplyPipe _pipeView;
 
     void Start()
     {
@@ -17,6 +19,7 @@ public class PipeMovement : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _anyLevel = AnyLevel.Instance;
         _inventory = Inventory.Instance;
+        _pipeView = GetComponent<BonusApplyPipe>();
     }
 
     private void Update()
@@ -29,11 +32,11 @@ public class PipeMovement : MonoBehaviour
         {
             if (_anyLevel.removeCount > 0)
             {
-                BonusApplyPipe segment = GetComponent<BonusApplyPipe>();
+                PipeType pipeType = _pipePresenter.GetPipeType();
 
                 Destroy(gameObject);
                 _anyLevel.UpdateRemoveCount();
-                _inventory.Delete(segment.GetPipeType());
+                _inventory.Delete(pipeType);
             }
         }        
     }

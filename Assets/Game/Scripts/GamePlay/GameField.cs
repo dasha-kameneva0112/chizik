@@ -132,11 +132,11 @@ public class GameField : MonoBehaviour
                 _grid[placeX + x, placeY + y] = _flyingPipe;
             }
         }
-
-        BonusApplyPipe bonus = _flyingPipe.GetComponent<BonusApplyPipe>();
-        if (bonus != null)
-            bonus.SetAsPlayerPlaced();
-
+        var pipeView = _flyingPipe.GetComponent<BonusApplyPipe>();
+        if (pipeView != null && pipeView.Presenter != null)
+        {
+            pipeView.Presenter.SetAsPlayerPlaced();
+        }
         // Труба больше не "летает" — игрок может взять новую
         _flyingPipe = null;
     }

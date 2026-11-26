@@ -1086,7 +1086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30.000061, y: -50.00003}
+  m_AnchoredPosition: {x: 30, y: -50}
   m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &238310701
@@ -3123,10 +3123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  _countStraightPipe: 5
-  _countCornerPipe: 3
-  _countTriangularPipe: 0
-  _countCruciformPipe: 1
 --- !u!114 &770458858
 MonoBehaviour:
   m_ObjectHideFlags: 0

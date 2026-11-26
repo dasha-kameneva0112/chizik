@@ -1,14 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BonusApplyPipe : MonoBehaviour
+public class BonusApplyPipe : MonoBehaviour, IBonusPipeView
 {
     [Header("Тип трубы")]
     [SerializeField] private PipeType _pipeType;
 
-    [HideInInspector] public bool isPlayerPlaced = false;
+    private BonusPipePresenter _presenter;
 
-    public PipeType GetPipeType() => _pipeType;
+    public event Action OnClicked;
+
+    public BonusPipePresenter Presenter => _presenter;
+
+    public void Awake()
+    {
+        _presenter = new BonusPipePresenter(_pipeType, this);
+    }
 
     private void Update()
     {
@@ -20,23 +28,14 @@ public class BonusApplyPipe : MonoBehaviour
 
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            if (BonusManager.Instance != null && BonusManager.Instance.IsBonusActive())
-            {
-                BonusManager.Instance.OnPipeClicked(this);
-            }
+            OnClicked?.Invoke();
         }
     }
 
-    public void SetAsPlayerPlaced()
-    {
-        isPlayerPlaced = true;
-    }
 
+    public Vector3  Position => transform.position;
+    public Quaternion Rotation => transform.rotation;
 
-    public bool IsDirty()
-    {
-        return _pipeType == PipeType.DirtyStraightPipe ||
-               _pipeType == PipeType.DirtyCornerPipe;
-    }
-
+    public void DestroyPipe () => Destroy(gameObject);
+  
 }

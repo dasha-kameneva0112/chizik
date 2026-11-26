@@ -74,7 +74,7 @@ public class BonusManager : MonoBehaviour
     }
     public bool IsBonusActive() => isBrushActive || isHammerActive;
 
-    public void OnPipeClicked(BonusApplyPipe pipe)
+    public void OnPipeClicked(BonusPipePresenter pipe)
     {
         if (!IsBonusActive()) return;
 
@@ -89,13 +89,13 @@ public class BonusManager : MonoBehaviour
 
             if (cleanPrefab != null)
             {
-                Instantiate(cleanPrefab, pipe.transform.position, pipe.transform.rotation);
+                Instantiate(cleanPrefab, pipe.GetPosition(), pipe.GetRotation());
             }
 
             brushCount--;
             DeactivateAll();
             UpdateUI();
-            Destroy(pipe.gameObject);
+            pipe.DestroyPipe();
             return;
         }
 
@@ -124,7 +124,7 @@ public class BonusManager : MonoBehaviour
             hammerCount--;
             Inventory.Instance.Delete(pipe.GetPipeType()); 
             DeactivateAll();
-            Destroy(pipe.gameObject);
+            pipe.DestroyPipe();
             UpdateUI();
             return;
         }
