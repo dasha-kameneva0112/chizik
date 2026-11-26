@@ -13,7 +13,7 @@ public class AnyLevel : MonoBehaviour
 
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _restartButton;
-    [SerializeField] private GameObject _background;  
+    [SerializeField] private Image _background;  
     [SerializeField] private TMP_Text removeCountText;
     public int removeCount;
 
@@ -23,6 +23,16 @@ public class AnyLevel : MonoBehaviour
         removeCount = int.Parse(removeCountText.text);
     }
 
+    private void Start()
+    {
+        removeCount = int.Parse(removeCountText.text);
+        _backButton.onClick.AddListener(OnBackButtonClicked);
+        _restartButton.onClick.AddListener(OnRestartButtonClicked);
+        ChangeSkin();
+
+        RemoveCountUpdate?.Invoke(removeCount);
+    }
+
     public void UpdateRemoveCount()
     {
         removeCount--;
@@ -30,26 +40,13 @@ public class AnyLevel : MonoBehaviour
         RemoveCountUpdate?.Invoke(removeCount);
     }
 
-    private void Start()
+    private void ChangeSkin()
     {
-        removeCount = int.Parse(removeCountText.text);
-        _backButton.onClick.AddListener(OnBackButtonClicked);
-        _restartButton.onClick.AddListener(OnRestartButtonClicked);
-        //ChangeSkin(SkinManager.Instance.CurrentSkin);
+        //SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
+        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
+        //SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
 
-        RemoveCountUpdate?.Invoke(removeCount);
-    }
-
-    private void ChangeSkin(SkinData skin)
-    {
-        if (skin.type == SkinType.Background)
-        {
-            _background.GetComponent<Image>().sprite = skin.icon;
-        }
-        //if( skin.type == SkinType.Pipe)
-        //{
-        //    _pipePrefab.GetComponentInChildren<Image>().sprite = skin.icon; 
-        //}
+        _background.sprite = background.levelSprite;
     }
 
     private void OnBackButtonClicked()

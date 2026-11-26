@@ -7,26 +7,11 @@ using UnityEngine;
 public class SkinManager : MonoBehaviour
 {
     public event Action<SkinData> SelectionSkin;
-    public static SkinManager Instance
-    {
-        get
-        {
-            // Если кто-то обратился, а инстанса ещё нет
-            if (_instance == null)
-            {
-                GameObject go = new GameObject("[SkinManager]");
-                _instance = go.AddComponent<SkinManager>();
-                DontDestroyOnLoad(go);
-            }
-            return _instance;
-        }
-    }
+    public static SkinManager Instance => _instance;
     public Dictionary<string, Status> Skins => _skins;
 
     private static SkinManager _instance; 
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
-    public SkinData CurrentSkin => _currentSkin;
-    private SkinData _currentSkin;
 
     private void Awake()
     {
@@ -51,6 +36,7 @@ public class SkinManager : MonoBehaviour
                 if (skin.displayName == "Basic")
                 {
                     _skins.Add(id, Status.Selected);
+                    SelectionSkin?.Invoke(skin);
                 }
                 else
                 {
@@ -87,7 +73,6 @@ public class SkinManager : MonoBehaviour
         if (_skins.ContainsKey(id) && _skins[id] != Status.NotBought)
         {
             _skins[id] = Status.Selected;
-            _currentSkin = skin;
             SelectionSkin?.Invoke(skin);
         }
     }

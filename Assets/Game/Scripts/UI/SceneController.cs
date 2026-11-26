@@ -1,12 +1,15 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private MainMenu _menu;
     [SerializeField] private Levels _levels;
     [SerializeField] private Store _store;
+    [SerializeField] private Image _background;
+    [SerializeField] private Image _chizik;
 
     private void Start()
     {
@@ -19,8 +22,9 @@ public class SceneController : MonoBehaviour
         _menu.StoreButtonClicked += SwitchToStore;
         _levels.BackButtonClicked += SwitchToMenu;
         _store.CloseButtonClick += SwitchToMenu;
-        
-        var l = LevelProgress.Instance;
+
+        GameSettings.Instance.SkinChanged += ChangeSkin;
+        ChangeSkin();
     }
 
     private void SwitchToGamePlay()
@@ -55,5 +59,22 @@ public class SceneController : MonoBehaviour
         _menu.gameObject.SetActive(true);
         _levels.gameObject.SetActive(false);
         _store.gameObject.SetActive(false);
+    }
+
+    private void ChangeSkin()
+    {
+        SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
+        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
+
+        _chizik.sprite = chizik.icon;
+        _background.sprite = background.icon;
+    }
+
+    private void OnDestroy()
+    {
+        if (GameSettings.Instance != null)
+        {
+            GameSettings.Instance.SkinChanged -= ChangeSkin;
+        }
     }
 }
