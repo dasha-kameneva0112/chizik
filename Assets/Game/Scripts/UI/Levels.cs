@@ -25,13 +25,13 @@ public class Levels : MonoBehaviour
 
     [Header("Text Colors")]
     [SerializeField] private Color _completedTextColor;  
-    [SerializeField] private Color _lockedTextColor;       
+    [SerializeField] private Color _lockedTextColor;
 
-    private int _numberCurrentLevel; 
+    private int _numberOfCurrentLevel;
 
     private void Start()
     {
-        _numberCurrentLevel = getCurrentLevel();
+        _numberOfCurrentLevel = LevelProgress.Instance.CurrentLevelNumber;
 
         _firstLevelButton.onClick.AddListener(OnFirstLevelButtonClick);
         _secondLevelButton.onClick.AddListener(OnSecondLevelButtonClick);
@@ -42,33 +42,24 @@ public class Levels : MonoBehaviour
         UpdateSpriteOfLevel(_firstLevelButton, 1);
         UpdateSpriteOfLevel(_secondLevelButton, 2);
         UpdateSpriteOfLevel(_thirdLevelButton, 3);
-        UpdateSpriteOfLevel(_fourthLevelButton, 4); 
-    }
-
-    private int getCurrentLevel()
-    {
-        String sceneName = SceneManager.GetActiveScene().name;
-
-        if (!sceneName.StartsWith("Level_")) return 1;
-
-        return int.Parse(sceneName.Replace("Level_", ""));
+        UpdateSpriteOfLevel(_fourthLevelButton, 4);
     }
 
     private void UpdateSpriteOfLevel(Button levelButton, int number)
     {
-        if(number < _numberCurrentLevel)
+        if(number < _numberOfCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _completedLevel;
             levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _completedTextColor;
             levelButton.interactable = true;
         }
-        if(number > _numberCurrentLevel)
+        if(number > _numberOfCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _lockedLevel;
             levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _lockedTextColor;
             levelButton.interactable = false;
         }
-        if(number == _numberCurrentLevel)
+        if(number == _numberOfCurrentLevel)
         {
             levelButton.GetComponent<Image>().sprite = _currentLevel;
             levelButton.GetComponentInChildren<TextMeshProUGUI>().color = _completedTextColor;

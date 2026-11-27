@@ -43,10 +43,6 @@ public class PipeInInventory : MonoBehaviour
         {
             throw new KeyNotFoundException();
         }
-        if (_pipeSegments[pipe] == 0)
-        {
-            throw new ArgumentOutOfRangeException();
-        }
 
         _pipeSegments[pipe]--;
         CountPipeChange?.Invoke(pipe, _pipeSegments[pipe]);

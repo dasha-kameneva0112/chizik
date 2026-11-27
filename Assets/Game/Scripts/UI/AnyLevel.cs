@@ -13,6 +13,7 @@ public class AnyLevel : MonoBehaviour
 
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _restartButton;
+    [SerializeField] private Image _background;  
     [SerializeField] private TMP_Text removeCountText;
     public int removeCount;
 
@@ -22,20 +23,30 @@ public class AnyLevel : MonoBehaviour
         removeCount = int.Parse(removeCountText.text);
     }
 
-    public void updateRemoveCount()
+    private void Start()
+    {
+        removeCount = int.Parse(removeCountText.text);
+        _backButton.onClick.AddListener(OnBackButtonClicked);
+        _restartButton.onClick.AddListener(OnRestartButtonClicked);
+        ChangeSkin();
+
+        RemoveCountUpdate?.Invoke(removeCount);
+    }
+
+    public void UpdateRemoveCount()
     {
         removeCount--;
         removeCountText.text = removeCount.ToString();
         RemoveCountUpdate?.Invoke(removeCount);
     }
 
-    private void Start()
+    private void ChangeSkin()
     {
-        removeCount = int.Parse(removeCountText.text);
-        _backButton.onClick.AddListener(OnBackButtonClicked);
-        _restartButton.onClick.AddListener(OnRestartButtonClicked);
+        //SkinData chizik = GameSettings.Instance.CurrentChizikSkin;
+        SkinData background = GameSettings.Instance.CurrentBackgroundSkin;
+        //SkinData pipe = GameSettings.Instance.CurrentPipeSkin;
 
-        RemoveCountUpdate?.Invoke(removeCount);
+        _background.sprite = background.levelSprite;
     }
 
     private void OnBackButtonClicked()

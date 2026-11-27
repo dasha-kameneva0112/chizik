@@ -41,7 +41,7 @@ public class pipeMovement : MonoBehaviour
                 if (col.bounds.Contains(worldPos) && AnyLevel.instance.removeCount > 0)
                 {
                     Destroy(gameObject);
-                    AnyLevel.instance.updateRemoveCount();
+                    AnyLevel.instance.UpdateRemoveCount();
                 }
             }
         }
