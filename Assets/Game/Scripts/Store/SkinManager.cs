@@ -6,43 +6,38 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class SkinManager : MonoBehaviour
+public class SkinManager : ISkinManager
 {
     public event Action<SkinData> SelectionSkin;
     public static SkinManager Instance => _instance;
-    public Dictionary<string, Status> Skins => _skins;    
-    public List<SkinData> _chizikSkins = new();
-    public List<SkinData> _backgroundSkins = new();
-    public List<SkinData> _pipeSkins = new();
+    public Dictionary<string, Status> Skins => _skins;
 
-    [SerializeField] private SkinData[] _allSkins;
+    public List<SkinData> Chiziks => _chizikSkins;
+    public List<SkinData> BackGrounds => _backgroundSkins;
+    public List<SkinData> Pipes => _pipeSkins;
+
+    private List<SkinData> _chizikSkins = new();
+    private List<SkinData> _backgroundSkins = new();
+    private List<SkinData> _pipeSkins = new();
 
     //private List<SkinData> _dataBaseOfSkins = new List<SkinData>();
     private static SkinManager _instance;
     private IBank _bank;
+    private SkinData[] _allSkins;
     private Dictionary<string, Status> _skins = new Dictionary<string, Status>();
 
-    private void Awake()
+    public SkinManager(IBank bank, SkinData[] allSkins)
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        _bank = bank;
+        _allSkins = allSkins;
+        RegisterSkins(_allSkins);
 
         _instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
-        RegisterSkins(_allSkins);
-        _bank = Bank.Instance;
     }
 
     public void RegisterSkins(SkinData[] data)
     {
-        foreach(var skin in data)
+        foreach (var skin in data)
         {
             string id = skin.id;
 
@@ -59,14 +54,14 @@ public class SkinManager : MonoBehaviour
                     _skins.Add(id, Status.NotBought);
                 }
 
-                if(skin.type == SkinType.Chizik)
+                if (skin.type == SkinType.Chizik)
                 {
                     _chizikSkins.Add(skin);
                 }
-                else if(skin.type == SkinType.Background)
+                else if (skin.type == SkinType.Background)
                 {
                     _backgroundSkins.Add(skin);
-                } 
+                }
                 else
                 {
                     _pipeSkins.Add(skin);
@@ -205,7 +200,7 @@ public class SkinManager : MonoBehaviour
                 if (s != null)
                 {
                     SelectionSkin?.Invoke(s);
-                }    
+                }
             }
         }
     }
@@ -241,14 +236,14 @@ public class SkinManager : MonoBehaviour
         SaveSkinsToPrefs();
     }
 
-#if UNITY_EDITOR
-    [MenuItem("Tools/Skins/Reset All Skins")]
-    public static void EditorResetAllSkins()
-    {
-        SkinManager manager = FindAnyObjectByType<SkinManager>();
-        manager.DeleteAllSkinsFromPrefs();
-    }
-#endif
+//#if UNITY_EDITOR
+//    [MenuItem("Tools/Skins/Reset All Skins")]
+//    public static void EditorResetAllSkins()
+//    {
+//        SkinManager manager = FindAnyObjectByType<SkinManager>();
+//        manager.DeleteAllSkinsFromPrefs();
+//    }
+//#endif
 
 }
 

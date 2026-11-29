@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BankModel
 {
-    [SerializeField] private readonly int _startMoney = 1000;
+    private readonly int _startMoney;
     private int _money;
 
     public int Money => _money;
@@ -13,10 +13,11 @@ public class BankModel
         _money = PlayerPrefs.GetInt("coins", _startMoney);
     }
 
-    public void DepositMoney(int money)
+    public int DepositMoney(int money)
     {
         _money += money;
         SaveMoney();
+        return _money;
     }
 
     public bool IsEnoughMoney(int money)
@@ -28,10 +29,11 @@ public class BankModel
         return false;
     }
 
-    public void DebitMoney(int money)
+    public int DebitMoney(int money)
     {
         _money -= money;
         SaveMoney();
+        return _money;
     }
 
     private void SaveMoney()

@@ -3,25 +3,25 @@ using UnityEngine.UI;
 
 public class ExitButton : MonoBehaviour
 {
-    [SerializeField] private GameObject confirmPanel;
+    [SerializeField] private GameObject _confirmPanel;
 
     private void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnClick); 
        
-        if (confirmPanel != null)
-            confirmPanel.SetActive(false);
+        if (_confirmPanel != null)
+            _confirmPanel.SetActive(false);
     }
 
     private void OnClick()
     {
-        if (confirmPanel == null)
+        if (_confirmPanel == null)
         {
             QuitGame();
         }
         else
         { 
-            confirmPanel.SetActive(true);
+            _confirmPanel.SetActive(true);
         }
     }
 
@@ -32,7 +32,7 @@ public class ExitButton : MonoBehaviour
 
     public void CancelQuit()
     { 
-        confirmPanel.SetActive(false);
+        _confirmPanel.SetActive(false);
     }
 
     private void QuitGame()

@@ -29,12 +29,11 @@ public class GameSettings : MonoBehaviour, IGameSettings
         }
         _instance = this;
         DontDestroyOnLoad(gameObject);
-
-        SkinManager.Instance.SelectionSkin += ChangeCurrentSkin;
     }
 
     private void Start()
     {
+        SkinManager.Instance.SelectionSkin += ChangeCurrentSkin;
         _currentChizikSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Chizik);
         _currentBackgroundSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Background);
         _currentPipeSkin = SkinManager.Instance.GetSelectedSkin(SkinType.Pipe);

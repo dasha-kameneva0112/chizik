@@ -52,22 +52,6 @@ public class AnyLevel : MonoBehaviour
         ChangeSkin();
 
         RemoveCountUpdate?.Invoke(removeCount);
-
-        var popUpWinModel = new PopUpWinModel(Bank.Instance, LevelProgress.Instance, FinishPipe.Instance, _gameSettings, 10);
-        new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, _gameSettings);
-
-        new PopUpLossPresenter(_popUpLossView, FinishPipe.Instance);
-
-        var startCounts = new Dictionary<PipeType, int>
-        {
-            { PipeType.StraightPipe, 5 },
-            { PipeType.CornerPipe, 3 },
-            { PipeType.TriangularPipe, 2 },
-            { PipeType.CruciformPipe, 1 }
-        };
-
-        new Inventory(startCounts);
-        new PipeInventoryPresenter(Inventory.Instance, _pipeInventoryView, _gameField, FinishPipe.Instance, _gameSettings);
     }
 
     public void UpdateRemoveCount()

@@ -21,8 +21,8 @@ public class SkinPopUp : MonoBehaviour
     [SerializeField] private float _enableTabPositionForY;
 
     private SkinData _skinData;
-    private SkinManager _skinManager;
-    private Bank _bank;
+    private ISkinManager _skinManager;
+    private IBank _bank;
 
     void Start()
     {
@@ -30,11 +30,14 @@ public class SkinPopUp : MonoBehaviour
         _closeButton.onClick.AddListener(OnCloseClick);
 
         _skinManager = SkinManager.Instance;
-        _bank = Bank.Instance;
+        _bank = BankPresenter.Instance;
     }
 
-    public void Initialize(SkinData skin)
+    public void Initialize(SkinData skin, ISkinManager skinManager, IBank bank)
     {
+        _skinManager = skinManager;
+        _bank = bank;
+
         _skinData = skin;
         _icon.sprite = skin.icon;
 
@@ -104,7 +107,7 @@ public class SkinPopUp : MonoBehaviour
             SelectButtonClick?.Invoke();
         }
 
-        Initialize(_skinData);
+        Initialize(_skinData, _skinManager, _bank);
         OnUpdateNeeded?.Invoke();
     }
 
