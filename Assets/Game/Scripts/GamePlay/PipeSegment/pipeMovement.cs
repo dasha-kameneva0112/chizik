@@ -36,12 +36,17 @@ public class pipeMovement : MonoBehaviour
 
             Collider2D[] allColliders = GetComponents<Collider2D>();
 
+            Collider2D hit = Physics2D.OverlapPoint(worldPos);
+
             foreach (Collider2D col in allColliders)
             {
+                BonusAppliedPipe segment = hit.GetComponent<BonusAppliedPipe>();
+
                 if (col.bounds.Contains(worldPos) && AnyLevel.instance.removeCount > 0)
                 {
                     Destroy(gameObject);
                     AnyLevel.instance.UpdateRemoveCount();
+                    PipeInInventory.Instance.Delete(segment.GetPipeType());
                 }
             }
         }
