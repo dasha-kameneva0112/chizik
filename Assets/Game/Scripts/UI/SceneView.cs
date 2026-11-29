@@ -12,7 +12,7 @@ public class SceneView : MonoBehaviour
 
     [SerializeField] private MainMenu _menu;
     [SerializeField] private LevelsView _levels;
-    [SerializeField] private Store _store;
+    [SerializeField] private StoreView _store;
     [SerializeField] private Image _background;
     [SerializeField] private Image _chizik;
 

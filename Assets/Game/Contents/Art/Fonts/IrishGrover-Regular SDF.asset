@@ -11,7 +11,11 @@ Texture2D:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_IsAlphaChannelOptional: 0
+<<<<<<< HEAD
   serializedVersion: 4
+=======
+  serializedVersion: 3
+>>>>>>> eee20564c418043860b2134aa07d31d2d73d44e4
   m_Width: 1
   m_Height: 1
   m_CompleteImageSize: 1
