@@ -6,20 +6,18 @@ using UnityEngine.UIElements;
 
 public class PipeMovement : MonoBehaviour
 {
-<<<<<<< HEAD
+
     private Camera mainCamera;
     private SpriteRenderer _spriteRenderer;
     private AnyLevel _anyLevel;
     private Inventory _inventory;
     private BonusPipePresenter _pipePresenter;
     private BonusApplyPipe _pipeView;
-=======
     private PipeMovementPresenter _presenter;
->>>>>>> eee20564c418043860b2134aa07d31d2d73d44e4
+
 
     private void Awake()
     {
-<<<<<<< HEAD
         mainCamera = Camera.main;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _anyLevel = AnyLevel.Instance;
@@ -62,9 +60,7 @@ public class PipeMovement : MonoBehaviour
         Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
         return worldPos;
-=======
         var view = GetComponent<PipeMovementView>();
         _presenter = new PipeMovementPresenter(view);
->>>>>>> eee20564c418043860b2134aa07d31d2d73d44e4
     }
 }

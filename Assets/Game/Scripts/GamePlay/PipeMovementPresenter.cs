@@ -5,14 +5,14 @@ public class PipeMovementPresenter
     private readonly PipeMovementView _view;
     private readonly AnyLevel _anyLevel;
     private readonly Inventory _inventory;
-    private readonly BonusAppliedPipe _appliedPipe;
+    private readonly BonusApplyPipe _appliedPipe;
 
     public PipeMovementPresenter (PipeMovementView view)
     {
         _view = view;
         _anyLevel = AnyLevel.Instance;
         _inventory = Inventory.Instance;
-        _appliedPipe = view.GetComponent<BonusAppliedPipe>();
+        _appliedPipe = view.GetComponent<BonusApplyPipe>();
 
         _view.RightClick += OnRightClick;
         _view.RemovePressed += OnRemovePressed;
@@ -35,7 +35,7 @@ public class PipeMovementPresenter
             return;
 
         _anyLevel.UpdateRemoveCount();
-        _inventory.Delete(_appliedPipe.GetPipeType());
+        _inventory.Delete(_appliedPipe.Presenter.GetPipeType());
         _view.DestroyPipe();
     }
 }
