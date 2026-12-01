@@ -37,5 +37,4 @@ public class BonusApplyPipe : MonoBehaviour, IBonusPipeView
     public Quaternion Rotation => transform.rotation;
 
     public void DestroyPipe () => Destroy(gameObject);
-  
 }

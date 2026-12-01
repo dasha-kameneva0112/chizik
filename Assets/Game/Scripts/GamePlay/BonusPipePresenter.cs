@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 
 public class BonusPipePresenter
+{
+    private BonusPipeModel _model;
+    private IBonusPipeView _view;
+    private BonusManager _manager;
+
+    public BonusPipePresenter(PipeType type, IBonusPipeView pipe)
     {
-        private BonusPipeModel _model;
-        private IBonusPipeView _view;
-        private BonusManager _manager;
-            
+        _model = new BonusPipeModel(type);
+        _view = pipe;
+        _manager = BonusManager.Instance;
 
-        public BonusPipePresenter(PipeType type, IBonusPipeView pipe)
-        {
-            _model = new BonusPipeModel(type);
-            _view = pipe;
-            _manager = BonusManager.Instance;
-
-            _view.OnClicked += HandleViewClicked;
+        _view.OnClicked += HandleViewClicked;
     }
 
     public void HandleViewClicked()
@@ -33,5 +32,5 @@ public class BonusPipePresenter
 
     public Vector3 GetPosition() => _view.Position;
     public Quaternion GetRotation() => _view.Rotation;
-    public void DestroyPipe () => _view.DestroyPipe();
+    public void DestroyPipe() => _view.DestroyPipe();
 }

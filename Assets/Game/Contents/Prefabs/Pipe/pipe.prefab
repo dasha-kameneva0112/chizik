@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 6802182195439193649}
   - component: {fileID: -6564413831507282569}
   - component: {fileID: -5360619163059410087}
-  - component: {fileID: 8791694943611875223}
   - component: {fileID: 6611657328562190578}
-  - component: {fileID: -5401159842120328883}
+  - component: {fileID: 7622256697953977565}
   m_Layer: 0
   m_Name: pipe
   m_TagString: Pipe
@@ -205,18 +204,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.1903601}
   m_EdgeRadius: 0
---- !u!114 &8791694943611875223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176041896990589198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6611657328562190578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BonusAppliedPipe
   _pipeType: 0
---- !u!114 &-5401159842120328883
+--- !u!114 &7622256697953977565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,9 +226,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 176041896990589198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fc2173fab747c4ca12dc8fb0566033, type: 3}
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeMovement
 --- !u!1 &7214372061319990268
 GameObject:
   m_ObjectHideFlags: 0

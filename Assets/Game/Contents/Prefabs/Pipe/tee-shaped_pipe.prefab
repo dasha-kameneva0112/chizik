@@ -105,9 +105,8 @@ GameObject:
   - component: {fileID: 3957399715287344759}
   - component: {fileID: 6771025859432148148}
   - component: {fileID: 7421373882985892367}
-  - component: {fileID: -312750485404199339}
   - component: {fileID: -1727477586957339900}
-  - component: {fileID: 7969746261812206233}
+  - component: {fileID: -1203009899576653640}
   m_Layer: 0
   m_Name: tee-shaped_pipe
   m_TagString: Pipe
@@ -418,18 +417,6 @@ PolygonCollider2D:
       - {x: 0.28272992, y: 0.27041996}
       - {x: 0.2825245, y: 0.4923693}
   m_UseDelaunayMesh: 0
---- !u!114 &-312750485404199339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6885039772152292513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1727477586957339900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pipeType: 3
---- !u!114 &7969746261812206233
+--- !u!114 &-1203009899576653640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,6 +439,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6885039772152292513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fc2173fab747c4ca12dc8fb0566033, type: 3}
+  m_Script: {fileID: 11500000, guid: 09873e5cef118d54bbbba24d7f7810dc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::PipeMovement

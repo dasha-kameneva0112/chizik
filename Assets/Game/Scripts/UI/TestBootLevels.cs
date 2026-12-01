@@ -11,6 +11,7 @@ public class TestBootLevels : MonoBehaviour
     [SerializeField] private PopUpWinView _popUpWinView;
     [SerializeField] private PopUpLossView _popUpLossView;
     [SerializeField] private PipeInventoryView _pipeInventoryView;
+    [SerializeField] private FinishPipe _finishPipe;
 
     private void Start()
     {
@@ -18,8 +19,8 @@ public class TestBootLevels : MonoBehaviour
         _levelProgress = LevelProgress.Instance;
         _bank = BankPresenter.Instance;
 
-        var popUpWinModel = new PopUpWinModel(_bank, LevelProgress.Instance, FinishPipe.Instance, _gameSettings, 10);
-        new PopUpWinPresenter(popUpWinModel, _popUpWinView, FinishPipe.Instance, _gameSettings);
+        var popUpWinModel = new PopUpWinModel(_bank, _levelProgress, _finishPipe, _gameSettings, 10);
+        new PopUpWinPresenter(popUpWinModel, _popUpWinView, _finishPipe, _gameSettings);
         
         new PopUpLossPresenter(_popUpLossView, FinishPipe.Instance);
         var startCounts = new Dictionary<PipeType, int>
@@ -31,6 +32,9 @@ public class TestBootLevels : MonoBehaviour
         };
 
         new Inventory(startCounts);
-        new PipeInventoryPresenter(Inventory.Instance, _pipeInventoryView, _gameField, FinishPipe.Instance, _gameSettings);
+        new PipeInventoryPresenter(Inventory.Instance, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
+
+        //var view = GetComponent<PipeMovementView>();
+        //new PipeMovementPresenter(view);
     }
 }
