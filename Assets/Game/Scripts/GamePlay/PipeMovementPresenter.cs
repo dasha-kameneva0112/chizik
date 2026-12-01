@@ -31,7 +31,7 @@ public class PipeMovementPresenter
         if (!_view.Contains(worldPos))
             return;
 
-        if (_anyLevel.removeCount <= 0)
+        if (_anyLevel.RemoveCount <= 0)
             return;
 
         _anyLevel.UpdateRemoveCount();

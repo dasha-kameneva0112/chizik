@@ -20,7 +20,7 @@ public class PipeMovement : MonoBehaviour
 
         if (_spriteRenderer.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
-            if (AnyLevel.Instance.removeCount > 0)
+            if (AnyLevel.Instance.RemoveCount > 0)
             {
                 BonusApplyPipe segment = GetComponent<BonusApplyPipe>();
 

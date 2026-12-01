@@ -12,6 +12,7 @@ public class TestBootLevels : MonoBehaviour
     [SerializeField] private PopUpLossView _popUpLossView;
     [SerializeField] private PipeInventoryView _pipeInventoryView;
     [SerializeField] private FinishPipe _finishPipe;
+    [SerializeField] private AnyLevelView _anyLevelView;
 
     private void Start()
     {
@@ -36,5 +37,7 @@ public class TestBootLevels : MonoBehaviour
 
         //var view = GetComponent<PipeMovementView>();
         //new PipeMovementPresenter(view);
+
+        new AnyLevel(_anyLevelView, 2, _gameSettings);
     }
 }
