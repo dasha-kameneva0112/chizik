@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class SkinManager : ISkinManager
+public class SkinManager : MonoBehaviour, ISkinManager
 {
     public event Action<SkinData> SelectionSkin;
     public static SkinManager Instance => _instance;
@@ -236,14 +236,14 @@ public class SkinManager : ISkinManager
         SaveSkinsToPrefs();
     }
 
-//#if UNITY_EDITOR
-//    [MenuItem("Tools/Skins/Reset All Skins")]
-//    public static void EditorResetAllSkins()
-//    {
-//        SkinManager manager = FindAnyObjectByType<SkinManager>();
-//        manager.DeleteAllSkinsFromPrefs();
-//    }
-//#endif
+#if UNITY_EDITOR
+    [MenuItem("Tools/Skins/Reset All Skins")]
+    public static void EditorResetAllSkins()
+    {
+        SkinManager manager = FindAnyObjectByType<SkinManager>();
+        manager.DeleteAllSkinsFromPrefs();
+    }
+#endif
 
 }
 
