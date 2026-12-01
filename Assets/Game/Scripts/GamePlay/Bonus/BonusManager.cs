@@ -122,7 +122,7 @@ public class BonusManager : MonoBehaviour
             }
 
             hammerCount--;
-            Inventory.Instance.Delete(pipe.GetPipeType()); 
+            InventoryModel.Instance.Delete(pipe.GetPipeType()); 
             DeactivateAll();
             pipe.DestroyPipe();
             UpdateUI();

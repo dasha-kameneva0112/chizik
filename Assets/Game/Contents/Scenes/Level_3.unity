@@ -5787,50 +5787,6 @@ MonoBehaviour:
   _background: {fileID: 964657168}
   _blackout: {fileID: 502669332}
   _rewardButton: {fileID: 487536139}
---- !u!1 &1725907865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1725907867}
-  - component: {fileID: 1725907866}
-  m_Layer: 0
-  m_Name: PopUpEndOfGameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1725907866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725907865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b68b1c9baba1344cb0c99553a410f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PopUpEndOfGame
---- !u!4 &1725907867
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725907865}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1100.1027, y: 527.4571, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735333335
 GameObject:
   m_ObjectHideFlags: 0
@@ -6510,7 +6466,6 @@ GameObject:
   - component: {fileID: 1994441545}
   - component: {fileID: 1994441544}
   - component: {fileID: 1994441543}
-  - component: {fileID: 1994441542}
   - component: {fileID: 1994441541}
   - component: {fileID: 1994441540}
   - component: {fileID: 1994441539}
@@ -6603,22 +6558,6 @@ MonoBehaviour:
   _cornerPipePrefab: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
   _triangularPipePrefab: {fileID: 2240974326565292453, guid: 95334217387143f448a539ebfeb55f80, type: 3}
   _cruciformPipePrefab: {fileID: 8444333611509689097, guid: 7f9576fff1b9eb54f9073d0338a82d3b, type: 3}
---- !u!114 &1994441542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994441537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  _countStraightPipe: 4
-  _countCornerPipe: 5
-  _countTriangularPipe: 3
-  _countCruciformPipe: 4
 --- !u!114 &1994441543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6902,7 +6841,6 @@ SceneRoots:
   - {fileID: 960502911}
   - {fileID: 1468578456}
   - {fileID: 971431948}
-  - {fileID: 1725907867}
   - {fileID: 1415044715}
   - {fileID: 374640070}
   - {fileID: 1364373788}

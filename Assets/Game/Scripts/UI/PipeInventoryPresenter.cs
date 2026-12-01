@@ -6,7 +6,7 @@ public class PipeInventoryPresenter
     private FinishPipe _finishPipe;
     private IGameSettings _gameSettings;
 
-    public PipeInventoryPresenter(Inventory inventory, PipeInventoryView pipeInventoryView, GameField gameField, FinishPipe finishPipe, IGameSettings gameSettings)
+    public PipeInventoryPresenter(InventoryModel inventory, PipeInventoryView pipeInventoryView, GameField gameField, FinishPipe finishPipe, IGameSettings gameSettings)
     {
         _inventory = inventory;
         _pipeInventoryView = pipeInventoryView;

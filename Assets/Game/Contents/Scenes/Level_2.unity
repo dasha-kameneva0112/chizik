@@ -6108,7 +6108,6 @@ GameObject:
   - component: {fileID: 2082542699}
   - component: {fileID: 2082542698}
   - component: {fileID: 2082542706}
-  - component: {fileID: 2082542705}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -6241,22 +6240,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2082542705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082542696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a117d49d9a0664b9ab09944fb85ad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  _countStraightPipe: 3
-  _countCornerPipe: 4
-  _countTriangularPipe: 2
-  _countCruciformPipe: 4
 --- !u!114 &2082542706
 MonoBehaviour:
   m_ObjectHideFlags: 0

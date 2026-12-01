@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : IInventory
+public class InventoryModel : IInventory
 {
     public event Action<PipeType, int> PipeCountChanged;
-    public static Inventory Instance => _instance;
+    public static InventoryModel Instance => _instance;
     public Dictionary<PipeType, int> PipeSegments => _pipeSegments;
 
-    private static Inventory _instance;
+    private static InventoryModel _instance;
     private readonly Dictionary<PipeType, int> _pipeSegments = new Dictionary<PipeType, int>();
 
-    public Inventory(Dictionary<PipeType, int> startCounts)
+    public InventoryModel(Dictionary<PipeType, int> startCounts)
     {
         _instance = this;
 
@@ -47,15 +47,4 @@ public class Inventory : IInventory
         _pipeSegments[type]++;
         PipeCountChanged?.Invoke(type, _pipeSegments[type]);
     }
-}
-
-public enum PipeType
-{
-    StraightPipe,
-    CornerPipe,
-    TriangularPipe,
-    CruciformPipe,
-
-    DirtyStraightPipe,
-    DirtyCornerPipe
 }

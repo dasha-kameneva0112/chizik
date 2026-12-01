@@ -6,9 +6,9 @@ public class BonusPipePresenter
     private IBonusPipeView _view;
     private BonusManager _manager;
 
-    public BonusPipePresenter(PipeType type, IBonusPipeView pipe)
+    public BonusPipePresenter(BonusPipeModel model, IBonusPipeView pipe)
     {
-        _model = new BonusPipeModel(type);
+        _model = model;
         _view = pipe;
         _manager = BonusManager.Instance;
 

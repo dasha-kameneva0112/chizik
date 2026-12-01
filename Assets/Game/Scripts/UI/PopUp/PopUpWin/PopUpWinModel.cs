@@ -1,16 +1,18 @@
 public class PopUpWinModel
 {
     public int CountOfReward => _countOfReward;
-    public int NumberCurrentLevel;
+    public int NumberCurrentLevel => _numberCurrentLevel;
+
     private readonly IBank _bank;
     private readonly ILevelProgress _levelProgress;
     private int _countOfReward;
+    private int _numberCurrentLevel;
 
-    public PopUpWinModel(IBank bank, ILevelProgress levelProgress, FinishPipe finishPipe, IGameSettings gameSettings, int countOfReward)
+    public PopUpWinModel(IBank bank, ILevelProgress levelProgress, int countOfReward)
     {
         _bank = bank;
         _levelProgress = levelProgress;
-        NumberCurrentLevel = _levelProgress.GetOpenLevel();
+        _numberCurrentLevel = _levelProgress.GetOpenLevel();
         _countOfReward = countOfReward;
     }
 

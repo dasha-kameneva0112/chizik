@@ -15,12 +15,13 @@ public class BonusApplyPipe : MonoBehaviour, IBonusPipeView
 
     public void Awake()
     {
-        _presenter = new BonusPipePresenter(_pipeType, this);
+        _presenter = new BonusPipePresenter(new BonusPipeModel(_pipeType), this);
     }
 
     private void Update()
     {
         if (Mouse.current == null) return;
+
         if (!Mouse.current.leftButton.wasPressedThisFrame) return;
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());

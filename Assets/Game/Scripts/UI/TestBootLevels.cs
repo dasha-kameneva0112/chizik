@@ -20,24 +20,62 @@ public class TestBootLevels : MonoBehaviour
         _levelProgress = LevelProgress.Instance;
         _bank = BankPresenter.Instance;
 
-        var popUpWinModel = new PopUpWinModel(_bank, _levelProgress, _finishPipe, _gameSettings, 10);
+        var popUpWinModel = new PopUpWinModel(_bank, _levelProgress, 10);
         new PopUpWinPresenter(popUpWinModel, _popUpWinView, _finishPipe, _gameSettings);
-        
-        new PopUpLossPresenter(_popUpLossView, FinishPipe.Instance);
-        var startCounts = new Dictionary<PipeType, int>
-        {
-            { PipeType.StraightPipe, 5 },
-            { PipeType.CornerPipe, 3 },
-            { PipeType.TriangularPipe, 2 },
-            { PipeType.CruciformPipe, 1 }
-        };
 
-        new Inventory(startCounts);
-        new PipeInventoryPresenter(Inventory.Instance, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
+        new PopUpLossPresenter(_popUpLossView, _finishPipe);
+        var startCounts = GetStartCountOfPipeInInventory();
 
-        //var view = GetComponent<PipeMovementView>();
-        //new PipeMovementPresenter(view);
+        var inventory = new InventoryModel(startCounts);
+        new PipeInventoryPresenter(inventory, _pipeInventoryView, _gameField, _finishPipe, _gameSettings);
 
         new AnyLevel(_anyLevelView, 2, _gameSettings);
+    }
+
+    private Dictionary<PipeType, int> GetStartCountOfPipeInInventory()
+    {
+        Dictionary<PipeType, int> startCounts = new();
+        int currentLevel = _levelProgress.GetOpenLevel();
+
+        switch(currentLevel)
+        {
+            case 1:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 3 },
+                    { PipeType.CornerPipe, 2 },
+                    { PipeType.TriangularPipe, 2 },
+                    { PipeType.CruciformPipe, 5 }
+                };
+                break;
+            case 2:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 3 },
+                    { PipeType.CornerPipe, 4 },
+                    { PipeType.TriangularPipe, 3 },
+                    { PipeType.CruciformPipe, 3 }
+                };
+                break;
+            case 3:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 3 },
+                    { PipeType.CornerPipe, 5 },
+                    { PipeType.TriangularPipe, 3 },
+                    { PipeType.CruciformPipe, 2 }
+                };
+                break;
+            case 4:
+                startCounts = new Dictionary<PipeType, int>
+                {
+                    { PipeType.StraightPipe, 3 },
+                    { PipeType.CornerPipe, 4 },
+                    { PipeType.TriangularPipe, 3 },
+                    { PipeType.CruciformPipe, 3 }
+                };
+                break;
+        }
+        return startCounts;
     }
 }
