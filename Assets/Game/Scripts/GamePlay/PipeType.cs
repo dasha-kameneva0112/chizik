@@ -6,5 +6,6 @@ public enum PipeType
     CruciformPipe,
 
     DirtyStraightPipe,
-    DirtyCornerPipe
+    DirtyCornerPipe,
+    FinishPipe
 }

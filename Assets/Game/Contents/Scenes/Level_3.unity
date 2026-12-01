@@ -962,6 +962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishPipe
       objectReference: {fileID: 0}
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: _pipeType
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7676137658951393487, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
     - {fileID: -8812639299230404571, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
@@ -1038,6 +1042,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76996e620886a1540acb44573bb89628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &374640074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  m_PrefabInstance: {fileID: 374640070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374640071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &394370029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1840,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
+--- !u!114 &581722500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2240974326565292453, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
+  m_PrefabInstance: {fileID: 581722499}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &605130036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2891,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
+--- !u!114 &824193783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2240974326565292453, guid: 23d4b214c2fb5434c98375b8e20860d3, type: 3}
+  m_PrefabInstance: {fileID: 824193782}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &827436618
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,6 +5099,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
+--- !u!114 &1364373789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: e399408ad5d70654ba93f6310f61b338, type: 3}
+  m_PrefabInstance: {fileID: 1364373788}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1375999382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,6 +5455,11 @@ MonoBehaviour:
   CornerPipe: {fileID: 649161282}
   TriangularPipe: {fileID: 1070350538}
   CruciformPipe: {fileID: 1837379060}
+  _startPipesOnFiels:
+  - {fileID: 374640074}
+  - {fileID: 1364373789}
+  - {fileID: 824193783}
+  - {fileID: 581722500}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!114 &1496319215

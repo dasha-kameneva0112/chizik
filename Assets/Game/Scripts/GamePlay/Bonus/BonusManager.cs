@@ -101,8 +101,9 @@ public class BonusManager : MonoBehaviour
 
         if (isHammerActive)
         {
-
             if (pipe.GetPipeType() == PipeType.DirtyStraightPipe || pipe.GetPipeType() == PipeType.DirtyCornerPipe)
+                return;
+            if (pipe.GetPipeType() == PipeType.FinishPipe)
                 return;
 
             if (Keyboard.current.backspaceKey.wasPressedThisFrame)

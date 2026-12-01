@@ -770,6 +770,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
+--- !u!114 &82568138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6802182195439193649, guid: 6d0f9f48aefa1294d9ee8bd1c1324447, type: 3}
+  m_PrefabInstance: {fileID: 82568137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &172230288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,6 +3222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishPipe
       objectReference: {fileID: 0}
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: _pipeType
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8812639299230404571, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
     - {fileID: -7676137658951393487, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
@@ -3287,6 +3302,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76996e620886a1540acb44573bb89628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &986171128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  m_PrefabInstance: {fileID: 986171124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986171125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &991939907
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,6 +5908,9 @@ MonoBehaviour:
   CornerPipe: {fileID: 2133712926}
   TriangularPipe: {fileID: 2089170227}
   CruciformPipe: {fileID: 1126734265}
+  _startPipesOnFiels:
+  - {fileID: 82568138}
+  - {fileID: 986171128}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!114 &2011296085

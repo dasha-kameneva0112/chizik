@@ -23,11 +23,17 @@ public class BonusPipePresenter
         }
     }
 
+    public PipeType GetPipeType()
+    {
+        if (_model.IsFinishPipe == true)
+            return PipeType.FinishPipe;
+        return _model.Type;
+    }
 
-    public PipeType GetPipeType() => _model.Type;
     public bool IsPlayerPlaced() => _model.IsPlayerPlaced;
     public bool IsDirty() => _model.IsDirty();
     public void SetAsPlayerPlaced() => _model.SetAsPlayerPlaced();
+    public void SetFinishPipe() => _model.SetFinishPipe();
 
 
     public Vector3 GetPosition() => _view.Position;

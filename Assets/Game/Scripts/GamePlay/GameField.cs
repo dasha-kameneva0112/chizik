@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class GameField : MonoBehaviour
     [SerializeField] private Button CornerPipe;
     [SerializeField] private Button TriangularPipe;
     [SerializeField] private Button CruciformPipe;
+
+    [SerializeField] private List<Pipe> _startPipesOnFiels;
 
     // Размер игрового поля в клетках (ширина × высота)
     public Vector2Int GridSize = new Vector2Int(10, 10);
@@ -30,6 +33,41 @@ public class GameField : MonoBehaviour
         // Создаём пустую сетку заданного размера
         _grid = new Pipe[GridSize.x, GridSize.y];
         _camera = Camera.main; // Находим главную камеру на сцене
+    }
+
+    private void Start()
+    {
+        foreach (Pipe pipe in _startPipesOnFiels)
+        {
+            Vector3 worldPosition = pipe.transform.position;
+
+            // Преобразуем мировые координаты в координаты клетки на сетке
+            int gridX = Mathf.FloorToInt(worldPosition.x - GridOrigin.x);
+            int gridY = Mathf.FloorToInt(worldPosition.y - GridOrigin.y);
+
+            // Заполняем все клетки, которые занимает труба, ссылкой на неё
+            // Это нужно, чтобы потом можно было проверить пересечения
+            for (int x = 0; x < pipe.Size.x; x++)
+            {
+                for (int y = 0; y < pipe.Size.y; y++)
+                {
+                    _grid[gridX + x, gridY + y] = pipe;
+                }
+            }
+
+            var finishPipe = pipe.GetComponent<FinishPipe>();
+            if(finishPipe != null)
+            {
+                var view = pipe.GetComponent<BonusApplyPipe>();
+                view.Presenter.SetFinishPipe();
+            }
+
+            var pipeView = pipe.GetComponent<BonusApplyPipe>();
+            if (pipeView != null && pipeView.Presenter != null)
+            {
+                pipeView.Presenter.SetAsPlayerPlaced();
+            }
+        }
     }
 
     // начать размещение новой трубы

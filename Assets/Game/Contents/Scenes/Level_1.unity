@@ -4278,6 +4278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishPipe
       objectReference: {fileID: 0}
+    - target: {fileID: 9044604941700482083, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+      propertyPath: _pipeType
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7676137658951393487, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
     - {fileID: -8812639299230404571, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
@@ -4291,6 +4295,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 300433064}
   m_SourcePrefab: {fileID: 100100000, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+--- !u!114 &1473566769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8346448366835997762, guid: f162c8601947fee43b42966d2ec4607c, type: 3}
+  m_PrefabInstance: {fileID: 1473566768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300433055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4afdf3f56d8f34da0611377561ec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pipe
 --- !u!1 &1475309507
 GameObject:
   m_ObjectHideFlags: 0
@@ -4485,6 +4500,8 @@ MonoBehaviour:
   CornerPipe: {fileID: 162715059}
   TriangularPipe: {fileID: 280555131}
   CruciformPipe: {fileID: 1463294427}
+  _startPipesOnFiels:
+  - {fileID: 1473566769}
   GridSize: {x: 8, y: 5}
   GridOrigin: {x: -3.5, y: -2}
 --- !u!1 &1515171797

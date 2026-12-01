@@ -24,9 +24,12 @@ public class PipeMovement : MonoBehaviour
             {
                 BonusApplyPipe segment = GetComponent<BonusApplyPipe>();
 
-                Destroy(gameObject);
-                AnyLevel.Instance.UpdateRemoveCount();
-                InventoryModel.Instance.Delete(segment.Presenter.GetPipeType());
+                if (segment.PipeType != PipeType.FinishPipe)
+                {
+                    Destroy(gameObject);
+                    AnyLevel.Instance.UpdateRemoveCount();
+                    InventoryModel.Instance.Delete(segment.Presenter.GetPipeType());
+                }
             }
         }
     }
