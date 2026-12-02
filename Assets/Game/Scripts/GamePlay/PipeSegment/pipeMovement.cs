@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class pipeMovement : MonoBehaviour
 {
     private Camera mainCamera;
+    
     void Start()
     {
         mainCamera = Camera.main;
@@ -13,36 +14,28 @@ public class pipeMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Mouse.current.rightButton.wasPressedThisFrame)
+        if (Mouse.current == null) return;
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        if (sr.bounds.Contains(worldPos) && Mouse.current.rightButton.wasPressedThisFrame)
         {
-            Vector2 mousePos = Mouse.current.position.ReadValue();
-            Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            Collider2D[] allColliders = GetComponents<Collider2D>();
-
-            foreach (Collider2D col in allColliders)
-            {
-                if (col.bounds.Contains(worldPos))
-                {
-                    transform.Rotate(0, 0, 90);
-                }
-            }
+            transform.Rotate(0, 0, 90);
+            return;
         }
 
-        if (Keyboard.current.backspaceKey.wasPressedThisFrame)
+        if (sr.bounds.Contains(worldPos) && Keyboard.current.backspaceKey.wasPressedThisFrame)
         {
-            Vector2 mousePos = Mouse.current.position.ReadValue();
-            Vector2 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            Collider2D[] allColliders = GetComponents<Collider2D>();
-
-            foreach (Collider2D col in allColliders)
+            if (AnyLevel.instance.removeCount > 0)
             {
-                if (col.bounds.Contains(worldPos) && AnyLevel.instance.removeCount > 0)
-                {
+                    BonusAppliedPipe segment = GetComponent<BonusAppliedPipe>();
+
                     Destroy(gameObject);
                     AnyLevel.instance.UpdateRemoveCount();
-                }
+                    PipeInInventory.Instance.Delete(segment.GetPipeType());
             }
         }
                 
